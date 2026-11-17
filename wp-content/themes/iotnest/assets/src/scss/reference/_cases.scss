@@ -147,3 +147,21 @@
   background: var(--slate);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .cases {
+    grid-auto-columns: calc((100% - var(--space-5)) / 2);
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .cases-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cases {
+    grid-auto-columns: 86%;
+  }
+}

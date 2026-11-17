@@ -40,3 +40,20 @@
   border-radius: var(--radius-sm);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .signals {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .signal, .signal:first-child {
+    padding: 0;
+  }
+
+  .signal + .signal {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-5);
+  }
+}

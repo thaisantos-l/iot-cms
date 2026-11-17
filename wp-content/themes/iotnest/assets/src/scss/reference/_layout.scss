@@ -82,3 +82,13 @@
   margin-top: var(--space-1);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .split, .split--media-first, .split--telemetry, .split--energy, .split--about {
+    grid-template-columns: 1fr;
+  }
+
+  .split--media-first > .media {
+    order: -1;
+  }
+}

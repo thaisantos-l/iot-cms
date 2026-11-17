@@ -59,3 +59,9 @@
   object-position: left top;
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .energy-visual {
+    order: -1;
+  }
+}

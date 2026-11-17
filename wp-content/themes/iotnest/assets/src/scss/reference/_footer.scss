@@ -82,3 +82,21 @@
   text-decoration: none;
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-6);
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+  }
+}

@@ -180,3 +180,16 @@
   }
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .videos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .videos {
+    grid-template-columns: 1fr;
+  }
+}

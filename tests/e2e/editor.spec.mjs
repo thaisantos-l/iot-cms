@@ -10,7 +10,7 @@ async function login(page) {
   await page.goto('/wp-login.php');
   await page.locator('#user_login').fill('iotnest-qa');
   await page.locator('#user_pass').fill(process.env.IOTNEST_TEST_ADMIN_PASSWORD);
-  await page.locator('#wp-submit').click();
+  await Promise.all([page.waitForURL(/\/wp-admin\/$/), page.locator('#wp-submit').click()]);
 }
 async function save(page) {
   await Promise.all([page.waitForURL(/message=1/), page.locator('#publish').click()]);

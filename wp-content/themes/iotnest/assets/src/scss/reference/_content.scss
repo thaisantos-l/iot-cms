@@ -193,3 +193,28 @@
   color: rgb(var(--contrast-rgb) / 82%);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .article__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article__aside {
+    position: static;
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .listing--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .article__cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  .cta-band {
+    padding: var(--space-5);
+  }
+}

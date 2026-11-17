@@ -19,3 +19,9 @@
   line-height: 22px;
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .report-lists {
+    grid-template-columns: 1fr;
+  }
+}

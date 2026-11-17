@@ -44,3 +44,9 @@
   top: 8px;
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .bullets--2col {
+    grid-template-columns: 1fr;
+  }
+}

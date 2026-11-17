@@ -186,9 +186,6 @@
   background: var(--surface);
 }
 
-
-
-
 /* calculator form + output */
 .calc__group {
   margin: 0;
@@ -239,10 +236,6 @@
   font-size: 14px;
   line-height: 20px;
 }
-
-
-
-
 
 .calc__cta {
   max-width: 880px;
@@ -407,3 +400,31 @@
   filter: brightness(0);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .calc__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc__intro {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .panel--glass {
+    max-width: 560px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .field-row, .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: var(--space-5);
+  }
+}

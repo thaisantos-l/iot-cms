@@ -203,3 +203,41 @@
   color: rgb(var(--ink-rgb) / 60%);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .compare th, .compare td {
+    padding: var(--space-3);
+  }
+
+  .compare tr > :nth-child(n+2) {
+    width: 68px;
+    text-align: center;
+  }
+
+  .compare tbody th {
+    font-size: 13px;
+    line-height: 19px;
+    text-wrap: pretty;
+  }
+
+  .compare thead th {
+    font-size: 10px;
+    line-height: 14px;
+    padding-inline: 2px;
+  }
+
+  .mark b {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .legend .mark b {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+  }
+}

@@ -62,3 +62,34 @@
   margin-top: var(--space-4);
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .hero {
+    min-height: clamp(560px, calc(100svh - var(--header-h) - var(--space-3) - var(--space-5)), 758px);
+    padding-block: var(--space-8);
+  }
+
+  /* texto ancorado embaixo: a metade de cima do box fica livre para mostrar o vídeo */
+  /* stylelint-disable-next-line no-duplicate-selectors -- Preserva a cascata original para comparação T24. */
+  .hero {
+    align-items: flex-end;
+    min-height: clamp(600px, calc(100svh - var(--header-h) - var(--space-3) - var(--space-5)), 758px);
+  }
+
+  .hero::after {
+    background: linear-gradient(0deg, rgb(var(--ink-rgb) / 88%) 0%, rgb(var(--ink-rgb) / 60%) 42%, rgb(var(--ink-rgb) / 8%) 72%, rgb(var(--ink-rgb) / 0%) 100%);
+  }
+
+  .hero__title, .hero__text {
+    text-shadow: 0 1px 14px rgb(0 0 0 / 55%), 0 0 2px rgb(0 0 0 / 35%);
+  }
+
+  .hero__text br {
+    display: none;
+  }
+
+  /* no celular o box é estreito: ancora o vídeo à direita, onde está o assunto principal */
+  .hero__bg {
+    object-position: 66% center;
+  }
+}

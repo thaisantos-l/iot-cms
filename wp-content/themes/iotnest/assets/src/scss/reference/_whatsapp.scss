@@ -43,3 +43,12 @@
   }
 }
 
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .wa-fab {
+    width: 56px;
+    height: 56px;
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+}

@@ -44,7 +44,7 @@
   --shadow-media: 0 4px 44px rgb(0 0 0 / 5%);
 
   /* Type */
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --h2: clamp(1.75rem, 1.35rem + 1.3vw, 2.125rem);
 }
 
