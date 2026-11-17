@@ -2,7 +2,7 @@
 
 O CMS contém o tema PHP `wp-content/themes/iotnest` e o plugin próprio `wp-content/plugins/iotnest-core`. `../iotnest-site` é referência somente de leitura. Não há front separado para publicar.
 
-Contrato confirmado em 17/11/2026: PHP **8.2** e WordPress **7.1** em homologação/produção. A validação local usa PHP XAMPP 8.2.4 e core 7.1.4. Headers exigem PHP ≥ 8.2 e WordPress ≥ 7.1; outras séries não estão homologadas. Node 22.17.0, npm 10.9.2 e Composer 2.8.9 são ferramentas de desenvolvimento, sem necessidade de Node/Composer no destino.
+Contrato confirmado em 17/11/2026: PHP **8.2** e WordPress **7.1** em produção. Haverá somente PRD; QA usa uma instalação local descartável, sem autorização de deploy nesta execução. A validação local usa PHP XAMPP 8.2.4 e core 7.1.4. Headers exigem PHP ≥ 8.2 e WordPress ≥ 7.1; outras séries não estão homologadas. Node 22.17.0, npm 10.9.2 e Composer 2.8.9 são ferramentas de desenvolvimento, sem necessidade de Node/Composer no destino.
 
 ## Instalar e compilar
 
@@ -44,7 +44,7 @@ Os testes verificam ativação, preservação de rascunho/metadados existentes, 
 
 ## Instalação manual e retorno
 
-Em WordPress 7.1/PHP 8.2 de homologação, conferir o checksum, extrair em diretório de release e copiar **somente** `wp-content/themes/iotnest` e `wp-content/plugins/iotnest-core`. Ativar iotnest Core em Plugins e iotnest em Aparência. Não copiar `release.json` para core nem sincronizar toda a raiz/`wp-content` com exclusão. A ativação não define home, não cria posts/cases, não importa conteúdo e não faz flush global de rewrite.
+Em uma cópia descartável WordPress 7.1/PHP 8.2, conferir o checksum, extrair em diretório de release e copiar **somente** `wp-content/themes/iotnest` e `wp-content/plugins/iotnest-core`. Ativar iotnest Core em Plugins e iotnest em Aparência. Não copiar `release.json` para core nem sincronizar toda a raiz/`wp-content` com exclusão. A ativação não define home, não cria posts/cases, não importa conteúdo e não faz flush global de rewrite.
 
 Sem o plugin, o tema mantém o fallback mínimo e informa a dependência ao administrador. Para retornar, desativar o plugin e restaurar somente o código anterior ou selecionar o tema anterior. Não restaurar banco nem apagar metadados. O fluxo coordenado de deploy/rollback será finalizado na etapa 08.
 
