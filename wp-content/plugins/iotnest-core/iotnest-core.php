@@ -19,5 +19,9 @@ define( 'IOTNEST_CORE_VERSION', '0.1.0' );
 define( 'IOTNEST_CORE_FILE', __FILE__ );
 
 require_once __DIR__ . '/includes/bootstrap.php';
+foreach ( array( 'schema', 'validation', 'post-types' ) as $module ) {
+	require_once __DIR__ . '/includes/' . $module . '.php';
+}
 
 add_action( 'init', __NAMESPACE__ . '\\bootstrap' );
+add_action( 'init', __NAMESPACE__ . '\\register_content', 5 );
