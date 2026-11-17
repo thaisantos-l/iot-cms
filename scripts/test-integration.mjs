@@ -108,7 +108,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
     } catch { await wait(500); }
   }
   if (!ready) throw new Error('MySQL de QA não ficou disponível.');
-  for (const script of ['install', 'foundation', 'content', 'navigation']) {
+  for (const script of ['install', 'foundation', 'content', 'navigation', 'import']) {
     console.log(execute(php, [`tests/php/${script}.php`], { env, encoding: 'utf8' }).trim());
   }
   server = spawn(php, ['-S', `127.0.0.1:${port}`, '-t', wp], { env, stdio: ['ignore', 'pipe', 'pipe'] });
