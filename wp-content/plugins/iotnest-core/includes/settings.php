@@ -16,15 +16,20 @@ defined( 'ABSPATH' ) || exit;
  */
 function settings_schema() {
 	$fields = array(
-		'email'             => field( 'email', 'E-mail público' ),
-		'phone'             => field( 'text', 'Telefone' ),
-		'address'           => field( 'text', 'Endereço' ),
-		'whatsapp'          => field( 'url', 'Link do WhatsApp' ),
-		'platform'          => field( 'url', 'URL da plataforma' ),
-		'platform_label'    => field( 'text', 'Texto de acesso à plataforma' ),
-		'commercial_cta'    => cta_schema(),
-		'copyright'         => field( 'text', 'Copyright (incluindo o ano editorial)' ),
-		'socials'           => repeat(
+		'email'              => field( 'email', 'E-mail público' ),
+		'phone'              => field( 'text', 'Telefone' ),
+		'address'            => field( 'text', 'Endereço' ),
+		'whatsapp'           => field( 'url', 'Link do WhatsApp' ),
+		'whatsapp_message'   => field( 'text', 'Mensagem inicial do WhatsApp flutuante' ),
+		'platform'           => field( 'url', 'URL da plataforma' ),
+		'platform_label'     => field( 'text', 'Texto de acesso à plataforma' ),
+		'commercial_cta'     => cta_schema(),
+		'footer_description' => field( 'text', 'Descrição do rodapé' ),
+		'credit_label'       => field( 'text', 'Crédito de desenvolvimento' ),
+		'credit_name'        => field( 'text', 'Nome no crédito' ),
+		'credit_url'         => field( 'url', 'URL do crédito (opcional)' ),
+		'copyright'          => field( 'text', 'Copyright (incluindo o ano editorial)' ),
+		'socials'            => repeat(
 			'Redes sociais',
 			array(
 				'label' => field( 'text', 'Nome' ),
@@ -33,11 +38,11 @@ function settings_schema() {
 			),
 			10
 		),
-		'contact_enabled'   => field( 'boolean', 'Habilitar formulário (requer serviço de envio validado)' ),
-		'contact_recipient' => field( 'email', 'Destinatário autorizado do formulário' ),
-		'contact_subject'   => field( 'text', 'Assunto do e-mail de contato' ),
-		'ga4_id'            => field( 'text', 'ID GA4' ),
-		'gtm_id'            => field( 'text', 'ID GTM' ),
+		'contact_enabled'    => field( 'boolean', 'Habilitar formulário (requer serviço de envio validado)' ),
+		'contact_recipient'  => field( 'email', 'Destinatário autorizado do formulário' ),
+		'contact_subject'    => field( 'text', 'Assunto do e-mail de contato' ),
+		'ga4_id'             => field( 'text', 'ID GA4' ),
+		'gtm_id'             => field( 'text', 'ID GTM' ),
 	);
 	foreach ( array(
 		'motion'      => 'Animações',

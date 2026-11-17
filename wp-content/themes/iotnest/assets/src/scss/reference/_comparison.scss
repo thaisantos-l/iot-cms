@@ -1,0 +1,243 @@
+/* ---------- Compare table ---------- */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.mark i {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.mark[data-s="full"] i {
+  background: var(--green);
+}
+
+.mark[data-s="full"] i::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--contrast);
+  border-width: 0 2.5px 2.5px 0;
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+/* Parcial: círculo laranja com traço horizontal */
+.mark[data-s="partial"] i {
+  background: #f59e0b;
+}
+
+.mark[data-s="partial"] i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2.5px;
+  margin: -1.25px 0 0 -5px;
+  border-radius: 2px;
+  background: var(--surface);
+}
+
+/* Não tem: círculo vermelho com X branco */
+.mark[data-s="none"] {
+  color: rgb(var(--ink-rgb) / 60%);
+  font-weight: 500;
+}
+
+.mark[data-s="none"] i {
+  background: var(--danger);
+}
+
+.mark[data-s="none"] i::before, .mark[data-s="none"] i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  margin: -1px 0 0 -5px;
+  border-radius: 2px;
+  background: var(--surface);
+}
+
+.mark[data-s="none"] i::before {
+  transform: rotate(45deg);
+}
+
+.mark[data-s="none"] i::after {
+  transform: rotate(-45deg);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-60);
+}
+
+.legend .mark {
+  font-size: 13px;
+}
+
+.compare {
+  overflow-x: auto;
+  border: 1px solid rgb(var(--ink-rgb) / 10%);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.compare table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.compare th, .compare td {
+  padding: var(--space-4) var(--space-5);
+  font-size: 14px;
+  line-height: 21px;
+  border-bottom: 1px solid rgb(var(--ink-rgb) / 6%);
+}
+
+.compare tr > :nth-child(n+2) {
+  width: 176px;
+  text-align: left;
+}
+
+.compare thead th {
+  padding-block: var(--space-5);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  vertical-align: bottom;
+  border-bottom-color: var(--line);
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors -- Preserva a cascata original para comparação T24. */
+.compare thead th {
+  text-wrap: balance;
+}
+
+.compare thead sup {
+  font-weight: 600;
+  color: var(--ink-60);
+}
+
+.compare tbody th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--ink-75);
+}
+
+.compare .compare__brand {
+  background: rgb(var(--brand-rgb) / 6%);
+}
+
+.compare thead .compare__brand {
+  background: var(--brand);
+  color: var(--contrast);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Preserva a cascata original para comparação T24. */
+.compare__group th {
+  padding-block: var(--space-3);
+  background: var(--surface-soft);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--ink);
+  text-align: left;
+}
+
+.compare tbody tr:not(.compare__group):hover > * {
+  background-color: rgb(var(--ink-rgb) / 2.5%);
+}
+
+.compare tbody tr:not(.compare__group):hover > .compare__brand {
+  background-color: rgb(var(--brand-rgb) / 10%);
+}
+
+.compare tbody:last-of-type tr:last-child > * {
+  border-bottom: 0;
+}
+
+.compare__foot {
+  margin-top: var(--space-4);
+  font-size: 12px;
+  font-style: italic;
+  color: rgb(var(--ink-rgb) / 60%);
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .compare th, .compare td {
+    padding: var(--space-3);
+  }
+
+  .compare tr > :nth-child(n+2) {
+    width: 68px;
+    text-align: center;
+  }
+
+  .compare tbody th {
+    font-size: 13px;
+    line-height: 19px;
+    text-wrap: pretty;
+  }
+
+  .compare thead th {
+    font-size: 10px;
+    line-height: 14px;
+    padding-inline: 2px;
+  }
+
+  .mark b {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .legend .mark b {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+  }
+}

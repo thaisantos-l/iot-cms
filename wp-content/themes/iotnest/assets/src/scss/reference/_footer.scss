@@ -1,0 +1,102 @@
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--ink);
+  color: var(--contrast);
+  padding-block: var(--space-9) var(--space-6);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 0.8fr 1.3fr;
+  gap: var(--space-6);
+  width: min(100% - 2 * var(--gutter), 800px);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.footer__brand p {
+  max-width: 230px;
+  margin-bottom: var(--space-2);
+  font-size: 14px;
+  line-height: 22.75px;
+  color: rgb(var(--contrast-rgb) / 62%);
+}
+
+.footer h4 {
+  margin-bottom: var(--space-4);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.025em;
+}
+
+.footer__col ul {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.footer__col a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(var(--contrast-rgb) / 62%);
+  text-decoration: none;
+  transition: color 160ms ease-out;
+}
+
+.footer__col a:hover {
+  color: var(--contrast);
+}
+
+.footer .ico {
+  width: 32px;
+  height: 32px;
+  background: rgb(var(--surface-rgb) / 6%);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgb(var(--contrast-rgb) / 8%);
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(var(--contrast-rgb) / 55%);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Preserva a cascata original para comparação T24. */
+.footer__bottom a {
+  font-weight: 500;
+  color: #ef6902;
+  text-decoration: none;
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-6);
+  }
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-640 {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,69 @@
+/* Integração e alternativas funcionais; a geometria padrão vem da referência. */
+.logo img.custom-logo {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (width <= 782px) {
+  .admin-bar .site-header {
+    top: 46px;
+  }
+}
+
+@media (width <= 600px) {
+  .admin-bar .site-header {
+    top: 0;
+  }
+}
+
+html:not(.js-nav) .nav-toggle {
+  display: none;
+}
+
+@media (width <= 1200px) {
+  html:not(.js-nav) .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  html:not(.js-nav) .site-header__menu {
+    position: static;
+    flex-basis: 100%;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  html:not(.js-nav) .nav__panel {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header *, .wa-fab {
+    animation: none;
+    transition: none;
+  }
+}
+
+.footer__credit {
+  font-weight: 500;
+  color: #ef6902;
+}
+
+/* Com JS, aria-expanded governa a visibilidade e Escape fecha mesmo com foco. */
+.js-nav .nav__dropdown-btn[aria-expanded='false'] + .nav__panel {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.js-nav .nav__dropdown-btn[aria-expanded='true'] + .nav__panel {
+  visibility: visible;
+  opacity: 1;
+}

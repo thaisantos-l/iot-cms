@@ -19,19 +19,10 @@ function customize_register( $manager ) {
 		'iotnest_identity',
 		array(
 			'title'       => 'Identidade iotnest',
-			'description' => 'Os valores iniciais preservam a referência. Ao mudar cores, confira contraste e legibilidade. A aplicação completa da identidade faz parte da etapa 03.',
+			'description' => 'Os valores iniciais preservam a referência. Ao mudar cores, confira contraste e legibilidade.',
 		)
 	);
-	foreach ( array(
-		'brand'        => '#02afef',
-		'green'        => '#06a26c',
-		'ink'          => '#151e26',
-		'surface'      => '#ffffff',
-		'surface_soft' => '#f6f6f6',
-		'surface_gray' => '#f2f2f2',
-		'slate'        => '#606062',
-		'danger'       => '#ef4444',
-	) as $key => $color ) {
+	foreach ( palette() as $key => $color ) {
 		$id = 'iotnest_color_' . $key;
 		$manager->add_setting(
 			$id,

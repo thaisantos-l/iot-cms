@@ -1,0 +1,59 @@
+@use 'header';
+@use 'mes';
+@use 'layout';
+@use 'energy';
+@use 'calculator';
+@use 'how';
+@use 'testimonials';
+@use 'contact';
+@use 'legal';
+@use 'content';
+@use 'footer';
+@use 'cases';
+@use 'videos';
+@use 'hero';
+@use 'whatsapp';
+@use 'bullets';
+@use 'telemetry';
+@use 'reports';
+@use 'comparison';
+
+/* Ordem de emissão idêntica ao CSS original; regras junto de cada componente. */
+
+@media (width <= 1200px) {
+  @include header.at-1200;
+}
+
+@media (width <= 1100px) {
+  @include header.at-1100;
+  @include mes.at-1100;
+}
+
+@media (width <= 960px) {
+  @include layout.at-960;
+  @include energy.at-960;
+  @include calculator.at-960;
+  @include how.at-960;
+  @include testimonials.at-960;
+  @include contact.at-960;
+  @include legal.at-960;
+  @include content.at-960;
+  @include footer.at-960;
+  @include cases.at-960;
+  @include videos.at-960;
+}
+
+@media (width <= 640px) {
+  @include hero.at-640;
+  @include whatsapp.at-640;
+  @include bullets.at-640;
+  @include telemetry.at-640;
+  @include reports.at-640;
+  @include mes.at-640;
+  @include calculator.at-640;
+  @include cases.at-640;
+  @include videos.at-640;
+  @include footer.at-640;
+  @include content.at-640;
+  @include comparison.at-640;
+}

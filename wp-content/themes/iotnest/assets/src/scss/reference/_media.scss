@@ -1,0 +1,30 @@
+/* ---------- Media ---------- */
+
+.media {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-media);
+  background: var(--surface-soft);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media--solution {
+  aspect-ratio: 722 / 451;
+}
+
+.media--solution img {
+  object-position: center bottom;
+} /* ancora a foto na base: os monitores ficam inteiros e o corte vai para o teto */
+.media--telemetry {
+  aspect-ratio: 663 / 478;
+}
+
+.media--soft {
+  aspect-ratio: 652 / 461;
+}
+

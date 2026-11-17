@@ -2,6 +2,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { mkdtemp, mkdir, cp, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { createServer } from 'node:net';
+import { createServer as createHttpServer } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { unzipSync } from 'fflate';
@@ -18,6 +19,7 @@ const phpString = value => `'${value.replaceAll('\\', '\\\\').replaceAll("'", "\
 const execute = (command, args, options = {}) => execFileSync(command, args, { cwd: root, stdio: 'pipe', ...options });
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 let server;
+let referenceServer;
 let serverLog = '';
 let started = false;
 
@@ -75,8 +77,28 @@ $table_prefix = 'iotnest_qa_';
 if (!defined('ABSPATH')) { define('ABSPATH', __DIR__ . '/'); }
 require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
   await writeFile(path.join(wp, '.iotnest-test'), 'Disposable integration environment.\n');
+  await mkdir(path.join(wp, 'wp-content/mu-plugins'), { recursive: true });
+  await cp(resolveRoot('tests/php/offline-updates.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-updates.php'));
   const env = { ...process.env, PHP_BIN: php, IOTNEST_TEST_WP_ROOT: wp, IOTNEST_TEST_URL: url,
     IOTNEST_TEST_ADMIN_PASSWORD: randomBytes(24).toString('hex'), IOTNEST_TEST_DB_PASSWORD: password, IOTNEST_TEST_DB_PORT: dbPort };
+  // A referência é servida diretamente em modo somente leitura; nunca copiada para o release.
+  const referenceRoot = path.resolve(root, '../iotnest-site');
+  try {
+    await readFile(path.join(referenceRoot, 'index.html'));
+    referenceServer = createHttpServer(async (request, response) => {
+      try {
+        const requested = decodeURIComponent(new URL(request.url, 'http://reference.local').pathname);
+        const file = path.resolve(referenceRoot, `.${requested === '/' ? '/index.html' : requested}`);
+        if (!file.startsWith(`${referenceRoot}${path.sep}`)) throw new Error('Path inválido');
+        const content = await readFile(file);
+        const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.webm': 'video/webm', '.mp4': 'video/mp4' };
+        response.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
+        response.end(content);
+      } catch { response.writeHead(404); response.end(); }
+    });
+    await new Promise(resolve => referenceServer.listen(0, '127.0.0.1', resolve));
+    env.IOTNEST_REFERENCE_URL = `http://127.0.0.1:${referenceServer.address().port}`;
+  } catch (error) { if (error.code !== 'ENOENT') throw error; }
   let ready = false;
   for (let attempt = 0; attempt < 120; attempt++) {
     try {
@@ -86,7 +108,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
     } catch { await wait(500); }
   }
   if (!ready) throw new Error('MySQL de QA não ficou disponível.');
-  for (const script of ['install', 'foundation', 'content']) {
+  for (const script of ['install', 'foundation', 'content', 'navigation']) {
     console.log(execute(php, [`tests/php/${script}.php`], { env, encoding: 'utf8' }).trim());
   }
   server = spawn(php, ['-S', `127.0.0.1:${port}`, '-t', wp], { env, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -112,6 +134,10 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
   if (server) {
     server.kill('SIGTERM');
     await new Promise(resolve => server.once('exit', resolve));
+  }
+  if (referenceServer) {
+    referenceServer.closeAllConnections();
+    await new Promise(resolve => referenceServer.close(resolve));
   }
   if (started) execute('docker', ['stop', container]);
   await rm(temporary, { recursive: true, force: true });

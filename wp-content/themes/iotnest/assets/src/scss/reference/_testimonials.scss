@@ -1,0 +1,71 @@
+/* ---------- Testimonial ---------- */
+
+.quote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.quote__author {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--slate);
+  color: var(--contrast);
+  font-weight: 900;
+}
+
+.quote__author strong {
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.quote__author span > span {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(var(--ink-rgb) / 60%);
+}
+
+.quote__author em {
+  display: block;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--slate);
+}
+
+blockquote {
+  margin: 0;
+  max-width: 782px;
+  font-size: 17.6px;
+  line-height: 31.68px;
+  color: var(--ink-75);
+}
+
+/* Emitido na posição original da cascata por responsive.scss. */
+@mixin at-960 {
+  .quote {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .quote__author {
+    padding-top: 0;
+  }
+}

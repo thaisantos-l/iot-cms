@@ -1,0 +1,54 @@
+/* ---------- Motion ---------- */
+
+/* Entrada: sobe e aparece. Só ativa quando o JS marca <html class="js-motion">. */
+.js-motion .reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0ms);
+}
+
+.js-motion .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Parallax: --p vai de -1 (elemento abaixo da tela) a 1 (acima), definido pelo JS */
+.js-motion .energy-visual__blob {
+  transform: translate3d(0, calc(var(--p, 0) * 56px), 0);
+  will-change: transform;
+}
+
+.js-motion .energy-visual__shot {
+  transform: translate3d(0, calc(var(--p, 0) * -36px), 0);
+  will-change: transform;
+}
+
+/* só sobe ao rolar: parte da posição base (0) e nunca desce abaixo dela, para não cobrir o texto da seção seguinte */
+.js-motion .energy-visual__glass {
+  transform: translate3d(0, calc((var(--p, 0) - 1) * 46px), 0);
+  will-change: transform;
+}
+
+/* Como funciona: o fundo anda do verde ao azul da marca a cada etapa */
+.how {
+  background-color: var(--how-bg, var(--green));
+  transition: background-color 900ms ease;
+}
+
+.how[data-step="1"] {
+  --how-bg: var(--green);
+}
+
+.how[data-step="2"] {
+  --how-bg: color-mix(in srgb, var(--green) 67%, var(--brand));
+}
+
+.how[data-step="3"] {
+  --how-bg: color-mix(in srgb, var(--green) 33%, var(--brand));
+}
+
+.how[data-step="4"] {
+  --how-bg: var(--brand);
+}
+

@@ -1,6 +1,6 @@
 # Etapa 03 — Identidade, header, footer e navegação
 
-Situação: planejada. Depende da etapa 02. Requisitos: R03, R04, R05, R06, R08, R10. Branch sugerida: `feat/03-identidade-navegacao`.
+Situação: implementada e validada localmente em 17/11/2026, no recorte de navegação desta etapa. Depende da etapa 02. Requisitos: R03, R04, R05, R06, R08, R10. Branch sugerida: `feat/03-identidade-navegacao`.
 
 ## Entregáveis
 
@@ -24,3 +24,11 @@ Não renderizar duas cópias divergentes do header ou footer. Registrar compara�
 3. `refactor: modularizar navegacao e estilos compartilhados`
 
 Merge com componentes navegáveis e configurações funcionando. Rollback usa o artefato anterior e preserva menus/opções; chaves não reconhecidas pela versão anterior não devem produzir fatal.
+
+## Execução e evidências
+
+Branch criada a partir da `main` integrada da etapa 02 (`5f819e6`). Implementados header/footer, logos originais, Inter local, paleta no HTML inicial, navegação nativa condicional e teclado. Sass por componente preserva a cascata; Lenis conserva versão e parâmetros originais.
+
+Lint/build, testes PHP, cinco testes Node e 15 testes de navegador aprovados. T24 de navegação: quinze comparações nas cinco larguras sem pixels divergentes. CLS da composição header/footer: zero nas doze amostras, sem extrapolar para a home. O teste de layout equivalente a zoom 200% usa viewport CSS/DPR; zoom pela interface e outros navegadores permanecem no aceite integrado. Detalhes, commits, capturas, perfil e limitações em [evidências da etapa 03](../../../evidencias/etapa-03.md).
+
+Artefato local validado: `iotnest-dc2be362ce56bf2daae2331c09ae098590af9166.zip`. Nenhum deploy ou push. SMTP/cache real seguem pendentes para PRD autorizado.
