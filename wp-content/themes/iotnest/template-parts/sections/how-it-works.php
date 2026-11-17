@@ -25,22 +25,36 @@ if ( count( $args['items'] ) > 1 ) :
 		?>
 	<button class="pill" role="tab" type="button" aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>" disabled><b><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></b><?php echo esc_html( $item['label'] ?? '' ); ?></button><?php endforeach; ?></div><?php endif; ?>
 <?php
-foreach ( $args['items'] as $index => $item ) :
-	?>
-	<div class="how__panel" data-step-item="<?php echo esc_attr( $item['id'] ); ?>"<?php echo $index ? ' hidden' : ''; ?>>
-<div class="how__copy"><div class="how__head">
-	<?php
-	if ( ! empty( $item['icon'] ) ) :
-		?>
-	<span class="how__icon"><?php icon( $item['icon'], 32 ); ?></span><?php endif; ?><div>
-<p class="how__step" data-how-step><?php echo esc_html( step_label( $index + 1 ) ); ?></p><h3 data-how-title><?php echo esc_html( $item['title'] ); ?></h3></div></div>
-<div class="how__text" data-how-text><?php echo wp_kses_post( $item['text'] ); ?></div>
-	<?php
-	if ( count( $args['items'] ) > 1 ) :
-		?>
-		<div class="how__controls"><button class="icon-btn icon-btn--light" type="button" data-how-prev aria-label="<?php esc_attr_e( 'Etapa anterior', 'iotnest' ); ?>" disabled><?php icon( 'chev-left-w' ); ?></button><button class="icon-btn icon-btn--light" type="button" data-how-next aria-label="<?php esc_attr_e( 'Próxima etapa', 'iotnest' ); ?>" disabled><?php icon( 'chev-right-w' ); ?></button><span class="how__count" data-how-count><?php echo esc_html( position_label( $index + 1, count( $args['items'] ) ) ); ?></span></div><?php endif; ?></div>
-	<?php
-	if ( media_url( $item['image'] ?? 0 ) ) :
-		?>
-	<figure class="how__media"<?php echo 'contain' === ( $item['fit'] ?? '' ) ? ' data-contain' : ''; ?>><?php media_image( $item['image'], '', 'full', false, array( 'data-how-img' => '' ) ); ?><figcaption class="how__tag" data-how-tag><?php echo esc_html( step_label( $index + 1 ) ); ?></figcaption></figure><?php endif; ?></div><?php endforeach; ?>
-<noscript><style>.how__panel[hidden]{display:grid;margin-top:32px}</style></noscript></div></section>
+foreach ( $args['items'] as $index => $item ) {
+	get_template_part(
+		'template-parts/components/how-panel',
+		null,
+		array(
+			'item'     => $item,
+			'index'    => $index,
+			'total'    => count( $args['items'] ),
+			'inactive' => 0 !== $index,
+		)
+	);
+}
+?>
+<noscript>
+<style>[data-how] .how__tabs,[data-how] .how__controls{display:none}</style>
+<?php
+foreach ( $args['items'] as $index => $item ) {
+	if ( $index ) {
+		get_template_part(
+			'template-parts/components/how-panel',
+			null,
+			array(
+				'item'     => $item,
+				'index'    => $index,
+				'total'    => 0,
+				'inactive' => false,
+				'fallback' => true,
+			)
+		);
+	}
+}
+?>
+</noscript></div></section>

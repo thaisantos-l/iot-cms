@@ -8,6 +8,8 @@ const fixture = (action, id = '') => {
 const field = (root, key) => root.locator(`[data-key="${key}"] > [data-input]`);
 async function login(page) {
   await page.goto('/wp-login.php');
+  // Aguardar o autofocus nativo (timer do core), antes de disputar foco ao preencher.
+  await expect(page.locator('#user_login')).toBeFocused();
   await page.locator('#user_login').fill('iotnest-qa');
   await page.locator('#user_pass').fill(process.env.IOTNEST_TEST_ADMIN_PASSWORD);
   await Promise.all([page.waitForURL(/\/wp-admin\/$/), page.locator('#wp-submit').click()]);

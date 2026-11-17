@@ -7,6 +7,10 @@
   display: none;
 }
 
-.video__thumb {
-  display: block;
+.how__text {
+  text-wrap: pretty;
+}
+
+.how__panel--fallback {
+  margin-top: 32px;
 }

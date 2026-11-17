@@ -44,6 +44,25 @@ try {
         }
         update_post_meta( $home, $meta, $original[$meta] );
     }
+    $comparison = $original['_iotnest_home_comparison'];
+    $comparison['columns'] = array_reverse( $comparison['columns'] );
+    update_post_meta( $home, '_iotnest_home_comparison', $comparison );
+    $prepared = Iotnest\Theme\home_sections( $home )['comparison'];
+    ob_start(); get_template_part( 'template-parts/sections/comparison', null, $prepared ); $table = ob_get_clean();
+    $expected_labels = array_column( $comparison['columns'], 'label' );
+    iotnest_check( strpos( $table, $expected_labels[0] ) < strpos( $table, $expected_labels[2] ), 'comparison follows editorial column order while cells retain column IDs' );
+    update_post_meta( $home, '_iotnest_home_comparison', $original['_iotnest_home_comparison'] );
+    $about = $original['_iotnest_home_about']; $about['number'] = 0;
+    update_post_meta( $home, '_iotnest_home_about', $about );
+    ob_start(); get_template_part( 'template-parts/sections/about', null, Iotnest\Theme\home_sections( $home )['about'] ); $html = ob_get_clean();
+    iotnest_check( str_contains( $html, 'data-count="0">0</span>' ), 'zero remains a valid visible numeric indicator' );
+    update_post_meta( $home, '_iotnest_home_about', $original['_iotnest_home_about'] );
+    $solution = $original['_iotnest_home_solution'];
+    $solution['image'] = 999999; $solution['description'] = ''; $solution['bullets'] = array(); $solution['cta'] = array( 'label' => 'Incomplete', 'kind' => 'url', 'url' => '' );
+    update_post_meta( $home, '_iotnest_home_solution', $solution );
+    ob_start(); get_template_part( 'template-parts/sections/solution', null, Iotnest\Theme\home_sections( $home )['solution'] ); $html = ob_get_clean();
+    iotnest_check( str_contains( $html, 'split--text-only' ) && ! str_contains( $html, '<figure' ) && ! str_contains( $html, '<ul' ) && ! str_contains( $html, '<a' ), 'missing optional media, list and CTA omit their wrappers' );
+    update_post_meta( $home, '_iotnest_home_solution', $original['_iotnest_home_solution'] );
     update_post_meta( $home, '_iotnest_home_order', array_reverse( Iotnest\Core\section_keys() ) );
     iotnest_check( array_key_first( Iotnest\Theme\home_sections( $home ) ) === 'contact', 'editorial reordering changes HTML order with stable anchors' );
     update_post_meta( $home, '_iotnest_home_hero', array( 'enabled' => true, 'title' => '' ) );
@@ -65,7 +84,13 @@ try {
     update_option( 'page_on_front', $existing );
     iotnest_check( is_wp_error( Iotnest\Core\setup_institutional() ) && (int) get_option( 'page_on_front' ) === $existing, 'setup refuses to replace an existing home' );
     update_option( 'page_on_front', 0 );
+    $sample = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => __( 'Hello world!' ), 'post_content' => '<p>' . __( 'Welcome to WordPress. This is your first post. Edit or delete it, then start writing!' ) . '</p>' ) );
+    $extra[] = $sample;
+    $article = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => __( 'Hello world!' ), 'post_content' => 'Legitimate editorial content.' ) );
+    $extra[] = $article;
+    iotnest_check( Iotnest\Core\native_example_post() === $sample, 'native example detection checks exact title/body and unchanged timestamps' );
     iotnest_check( true === Iotnest\Core\setup_institutional() && 'publish' === get_post_status( $home ), 'separate explicit setup publishes reviewed home' );
+    iotnest_check( 'draft' === get_post_status( $sample ) && 'publish' === get_post_status( $article ), 'explicit setup drafts the intact example and preserves legitimate article' );
     iotnest_check( 'draft' === get_post_status( $report['pages']['privacidade'] ), 'setup keeps legal documents as drafts' );
     wp_set_current_user( 0 );
     iotnest_check( is_wp_error( Iotnest\Core\import_institutional() ) && is_wp_error( Iotnest\Core\setup_institutional() ), 'import and setup enforce capabilities independently of nonce' );

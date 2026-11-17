@@ -31,11 +31,14 @@ foreach ( array(
 <?php
 foreach ( $args['columns'] as $column ) :
 	?>
-	<th scope="col"<?php echo ! empty( $column['highlight'] ) ? ' class="compare__brand"' : ''; ?>><?php echo esc_html( $column['label'] ); ?>
+	<th scope="col"<?php echo ! empty( $column['highlight'] ) ? ' class="compare__brand"' : ''; ?>>
 	<?php
-	if ( has_text( $column['marker'] ?? '' ) ) :
-		?>
-	<sup><?php echo esc_html( $column['marker'] ); ?></sup><?php endif; ?></th><?php endforeach; ?>
+	echo esc_html( $column['label'] );
+	if ( has_text( $column['marker'] ?? '' ) ) {
+		echo '<sup>' . esc_html( $column['marker'] ) . '</sup>';
+	}
+	?>
+	</th><?php endforeach; ?>
 </tr></thead><tbody>
 <?php
 foreach ( $args['items'] as $row ) :

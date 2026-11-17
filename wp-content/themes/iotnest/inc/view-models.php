@@ -62,6 +62,15 @@ function home_sections( $id ) {
 		}
 		$data['columns']  = text_items( $data['columns'] ?? array(), 'label' );
 		$data['channels'] = text_items( $data['channels'] ?? array(), 'value' );
+		if ( 'calculator' === $key ) {
+			$labels             = array_column( $data['labels'], 'text', 'key' );
+			$data['form_ready'] = true;
+			foreach ( array( 'rate', 'hours', 'days', 'atual', 'iot', 'submit', 'result', 'current', 'loss', 'target', 'loss_target' ) as $required_label ) {
+				if ( ! has_text( $labels[ $required_label ] ?? '' ) ) {
+					$data['form_ready'] = false;
+				}
+			}
+		}
 		if ( in_array( $key, array( 'cases', 'blog' ), true ) ) {
 			$query = array(
 				'post_type'           => 'cases' === $key ? 'iot_case' : 'post',

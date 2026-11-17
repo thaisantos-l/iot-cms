@@ -20,6 +20,10 @@ text_element( 'h2', $args['title'] );
 text_element( 'p', $args['description'] ?? '' );
 ?>
 </div></div>
+<?php if ( empty( $args['form_ready'] ) ) : ?>
+</section>
+	<?php return; ?>
+<?php endif; ?>
 <div class="container calc__grid"><form class="panel panel--glass" data-calc-form novalidate><fieldset class="calc__group" disabled>
 <?php
 if ( has_text( $labels['group'] ?? '' ) ) :
