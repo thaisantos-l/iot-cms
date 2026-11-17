@@ -174,6 +174,8 @@ async function pixels(page, first, second) {
 for (const width of [360, 390, 768, 1024, 1440]) {
   test(`T24 identidade: referência versus WordPress em ${width}px`, async ({ page, context }, testInfo) => {
     test.skip(!process.env.IOTNEST_REFERENCE_URL, 'Referência local ausente neste checkout; comparação exige iotnest-site original.');
+    // Referência atual omite Cases; usar o mesmo estado editorial, pela regra pública real.
+    fixture('mutate', { case_status: 'draft' });
     await page.setViewportSize({ width, height: 1000 });
     const reference = await context.newPage();
     await reference.setViewportSize({ width, height: 1000 });
