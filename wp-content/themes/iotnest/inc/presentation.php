@@ -125,7 +125,7 @@ function cta( $cta, $classes = 'btn', $icon = '' ) {
 	}
 	echo '<a class="' . esc_attr( $classes ) . '" href="' . esc_url( $url ) . '"' . ( ! empty( $cta['new_window'] ) ? ' target="_blank" rel="noopener noreferrer"' : '' ) . '>' . esc_html( $cta['label'] );
 	if ( $icon ) {
-		icon( $icon );
+		icon( $icon, 'arrow-sm' === $icon ? 16 : ( 'arrow-case' === $icon ? 14 : 18 ) );
 	}
 	echo '</a>';
 }
@@ -137,8 +137,9 @@ function cta( $cta, $classes = 'btn', $icon = '' ) {
  * @param string $classes Classes.
  * @param string $size Tamanho registrado.
  * @param bool   $eager Carregamento prioritário.
+ * @param array  $attributes Atributos adicionais definidos pelo componente.
  */
-function media_image( $id, $classes = '', $size = 'large', $eager = false ) {
+function media_image( $id, $classes = '', $size = 'large', $eager = false, $attributes = array() ) {
 	if ( ! $id || ! wp_attachment_is_image( $id ) || ! is_readable( (string) get_attached_file( $id ) ) ) {
 		return;
 	}
@@ -146,10 +147,13 @@ function media_image( $id, $classes = '', $size = 'large', $eager = false ) {
 		$id,
 		$size,
 		false,
-		array(
-			'class'    => $classes,
-			'loading'  => $eager ? 'eager' : 'lazy',
-			'decoding' => 'async',
+		array_merge(
+			array(
+				'class'    => $classes,
+				'loading'  => $eager ? 'eager' : 'lazy',
+				'decoding' => 'async',
+			),
+			$attributes
 		)
 	);
 }
