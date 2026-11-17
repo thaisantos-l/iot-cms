@@ -1,12 +1,12 @@
 # Etapas, commits e merges
 
-Todas as etapas abaixo estão **planejadas**. Esta entrega contém a especificação; ainda não executa implementação, commits ou merges.
+A etapa **01 está implementada e validada localmente** em 17/11/2026; as etapas 02–08 permanecem planejadas. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra os próprios commits e evidências; nenhuma publicação remota foi feita.
 
 ## Sequência de PRs
 
 | Etapa | Documento | Depende de | Resultado revisável |
 | --- | --- | --- | --- |
-| 01 | [Fundação](01-fundacao.md) | Spec | Tema/plugin instaláveis e build reproduzível. |
+| 01 | [Fundação](01-fundacao.md) | Spec | Validada: tema/plugin instaláveis, T01/T22 e build reproduzível. |
 | 02 | [Campos e painel](02-campos-e-painel.md) | 01 | Dados editáveis, seguros e versionados por revisões. |
 | 03 | [Identidade e navegação](03-identidade-e-navegacao.md) | 02 | Header/footer, menus e identidade configuráveis. |
 | 04 | [Home e importação](04-home-e-importacao.md) | 03 | Conteúdo institucional em PHP, com importação repetível. |
