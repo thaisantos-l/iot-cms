@@ -1,0 +1,58 @@
+name: iotnest CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
+        with:
+          php-version: '8.2'
+          extensions: mysqli, dom, mbstring, xml, zip
+          tools: composer:2.8.9
+          coverage: none
+      - run: npm ci --ignore-scripts
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer validate --strict
+      - run: composer lint
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run test:js
+      - run: npm run package
+      - run: npx playwright install --with-deps chromium
+      - name: Instalar o artefato e testar WordPress isolado
+        run: npm run test:integration -- "artifacts/iotnest-${GITHUB_SHA}.zip"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: iotnest-${{ github.sha }}
+          path: artifacts/iotnest-${{ github.sha }}.zip*
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: failure()
+        with:
+          name: qa-${{ github.sha }}
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+# CI só constrói e testa. A publicação depende dos workflows e do aceite da etapa 08.
