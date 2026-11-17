@@ -1,6 +1,6 @@
 # Etapa 04 — Home institucional e importação
 
-Situação: planejada. Depende da etapa 03. Requisitos: R03, R05, R06, R08, R13. Branch sugerida: `feat/04-home-institucional`.
+Situação: em implementação em 17/11/2026; ainda sem aceite ou merge. Depende da etapa 03. Requisitos: R03, R05, R06, R08, R13. Branch sugerida: `feat/04-home-institucional`.
 
 ## Entregáveis
 

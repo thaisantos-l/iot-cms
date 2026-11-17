@@ -1,6 +1,6 @@
 # Etapas, commits e merges
 
-As etapas **01, 02 e 03 estão implementadas e validadas localmente** em 17/11/2026, nos respectivos recortes; 04–08 permanecem planejadas. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
+As etapas **01, 02 e 03 estão implementadas e validadas localmente** em 17/11/2026, nos respectivos recortes; 04 está em implementação e 05–08 permanecem planejadas. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
 
 ## Sequência de PRs
 

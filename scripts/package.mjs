@@ -24,10 +24,10 @@ async function runtimeFiles(directory, relative = '') {
     if (file.isSymbolicLink()) throw new Error(`Symlink não permitido: ${directory}/${relative}/${file.name}`);
     const child = relative ? `${relative}/${file.name}` : file.name;
     if (file.isDirectory()) {
-      if (child === 'assets' || /^(inc|includes|template-parts|page-templates|languages|assets\/(?:logo|icons|fonts))(\/|$)/.test(child)) {
+      if (child === 'assets' || child === 'resources' || /^(inc|includes|template-parts|page-templates|languages|resources\/seed|assets\/(?:logo|icons|fonts))(\/|$)/.test(child)) {
         await runtimeFiles(directory, child);
       }
-    } else if (/\.php$/.test(child) || child === 'style.css' || /^languages\/[^/]+\.(mo|json)$/.test(child) || /^assets\/(logo|icons)\/[a-z0-9-]+\.svg$/.test(child) || /^assets\/fonts\/(inter-[a-z-]+\.woff2|OFL\.txt|sources\.json)$/.test(child)) {
+    } else if (/\.php$/.test(child) || child === 'style.css' || child === 'resources/seed/institutional.json' || /^resources\/seed\/media\/[a-z0-9-]+\.(webp|webm|mp4)$/.test(child) || /^languages\/[^/]+\.(mo|json)$/.test(child) || /^assets\/(logo|icons)\/[a-z0-9-]+\.svg$/.test(child) || /^assets\/fonts\/(inter-[a-z-]+\.woff2|OFL\.txt|sources\.json)$/.test(child)) {
       await include(`${directory}/${child}`);
     }
   }

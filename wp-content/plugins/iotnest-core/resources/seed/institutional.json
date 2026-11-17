@@ -1,0 +1,1523 @@
+{
+  "version": 1,
+  "sections": {
+    "hero": {
+      "enabled": true,
+      "eyebrow": "Indústria 4.0 para Injetoras Plásticas",
+      "title": "Use a ciência para transformar dados em produtividade",
+      "description": "Instale nossa Inteligência Artificial na sua<br> injetora plástica e aumente os ganhos na sua produção.",
+      "poster": {
+        "media": "assets/img/hero-poster.webp"
+      },
+      "video": {
+        "provider": "local",
+        "file": {
+          "media": "assets/video/bg-hero.webm"
+        }
+      },
+      "ctas": [
+        {
+          "id": "item-1",
+          "label": "Entenda como funciona",
+          "kind": "section",
+          "section": "how_it_works",
+          "new_window": false
+        }
+      ]
+    },
+    "features": {
+      "enabled": true,
+      "eyebrow": "",
+      "title": "",
+      "description": "",
+      "label": "Recursos da plataforma iotnest.ai",
+      "animate": true,
+      "items": [
+        {
+          "id": "item-1",
+          "text": "Viscosidade da Matéria-prima"
+        },
+        {
+          "id": "item-2",
+          "text": "Pesagem 100% sem balança"
+        },
+        {
+          "id": "item-3",
+          "text": "Alertas"
+        },
+        {
+          "id": "item-4",
+          "text": "Inteligência Artificial"
+        },
+        {
+          "id": "item-5",
+          "text": "Sugestões de Ajustes de Processo"
+        },
+        {
+          "id": "item-6",
+          "text": "Consumo de Energia"
+        },
+        {
+          "id": "item-7",
+          "text": "Histórico de Dados do Ciclo"
+        },
+        {
+          "id": "item-8",
+          "text": "Assistente Virtual"
+        }
+      ]
+    },
+    "solution": {
+      "enabled": true,
+      "eyebrow": "Otimização",
+      "title": "Processo de injeção plástica baseado em dados, não em intuição",
+      "description": "A tecnologia da iotnest.ai proporciona a otimização de regulagem de máquinas e permite o gerenciamento completo do processo produtivo.",
+      "image": {
+        "media": "assets/img/otimizacao.webp"
+      },
+      "bullets": [
+        {
+          "id": "item-1",
+          "text": "Dados em tempo real"
+        },
+        {
+          "id": "item-2",
+          "text": "IA aplicada à injeção plástica"
+        },
+        {
+          "id": "item-3",
+          "text": "Alertas para variação de parâmetros"
+        },
+        {
+          "id": "item-4",
+          "text": "Comportamento da viscosidade do material"
+        },
+        {
+          "id": "item-5",
+          "text": "Peso de peça sem uso de balança"
+        },
+        {
+          "id": "item-6",
+          "text": "Sugestões de ajuste de máquina durante a produção"
+        },
+        {
+          "id": "item-7",
+          "text": "Integração com ERP e Sistemas de Produção"
+        }
+      ],
+      "cta": {
+        "label": "Conheça Nossa História",
+        "kind": "section",
+        "section": "about",
+        "new_window": false
+      }
+    },
+    "hardware": {
+      "enabled": true,
+      "eyebrow": "Captura inovadora de dados",
+      "title": "Hardware com Telemetria de Alta Precisão",
+      "description": "Sensores capturam sinais em paralelo ao CLP e sem interferir no funcionamento da máquina, além disso, estamos preparados para receber diversos sensores (Protocolo Modbus).",
+      "bullets": [
+        {
+          "id": "item-1",
+          "text": "20 coletas por segundo"
+        },
+        {
+          "id": "item-2",
+          "text": "Temperatura, Pressão, Posição, Energia, Vazão, entre outras grandezas"
+        }
+      ],
+      "images": [
+        {
+          "id": "item-1",
+          "image": {
+            "media": "assets/img/hardware-1.webp"
+          }
+        },
+        {
+          "id": "item-2",
+          "image": {
+            "media": "assets/img/hardware-2.webp"
+          }
+        },
+        {
+          "id": "item-3",
+          "image": {
+            "media": "assets/img/hardware-3.webp"
+          }
+        }
+      ],
+      "subtitle": "Nosso hardware captura tudo o que a sua injetora plástica tem a dizer",
+      "image": {
+        "media": "assets/img/telemetria.webp"
+      },
+      "groups": [
+        {
+          "id": "item-1",
+          "title": "Processo",
+          "icon": "temperature",
+          "items": [
+            {
+              "id": "item-1",
+              "text": "Temperatura"
+            },
+            {
+              "id": "item-2",
+              "text": "Pressão"
+            },
+            {
+              "id": "item-3",
+              "text": "Deslocamento de Régua"
+            },
+            {
+              "id": "item-4",
+              "text": "Deslocamento de Molde"
+            }
+          ]
+        },
+        {
+          "id": "item-2",
+          "title": "Energia",
+          "icon": "energy",
+          "items": [
+            {
+              "id": "item-1",
+              "text": "Consumo por peça"
+            },
+            {
+              "id": "item-2",
+              "text": "Tensão"
+            },
+            {
+              "id": "item-3",
+              "text": "Corrente"
+            },
+            {
+              "id": "item-4",
+              "text": "Eficiência Energética"
+            }
+          ]
+        },
+        {
+          "id": "item-3",
+          "title": "Qualidade e material",
+          "icon": "chart",
+          "items": [
+            {
+              "id": "item-1",
+              "text": "Viscosidade do Material"
+            },
+            {
+              "id": "item-2",
+              "text": "Peso da Peça (sem balança)"
+            }
+          ]
+        }
+      ]
+    },
+    "ai": {
+      "enabled": true,
+      "eyebrow": "Inteligência artificial",
+      "title": "Nossa IA sugere o ajuste no pé da máquina. Você decide e fatura",
+      "description": "",
+      "items": [
+        {
+          "id": "item-1",
+          "text": "Análise ininterrupta da tendência de estabilidade do processo.",
+          "image": {
+            "media": "assets/img/ia-1.webp"
+          },
+          "icon": "chart-black",
+          "tone": "orange"
+        },
+        {
+          "id": "item-2",
+          "text": "Análise do comportamento da matéria-prima em tempo real.",
+          "image": {
+            "media": "assets/img/ia-2.webp"
+          },
+          "icon": "bell-black",
+          "tone": "blue"
+        },
+        {
+          "id": "item-3",
+          "text": "Sugestões de intervenções: Colchão, Velocidades, Pressões, Tempos, Recalque e Temperaturas.",
+          "image": {
+            "media": "assets/img/ia-4.webp"
+          },
+          "icon": "sliders-black",
+          "tone": "green"
+        }
+      ]
+    },
+    "assistant": {
+      "enabled": true,
+      "eyebrow": "",
+      "title": "Pergunte para o Dadá IA, o assistente virtual do iotnest.ai",
+      "description": "",
+      "poster": {
+        "media": "assets/img/dada-poster.webp"
+      },
+      "video": {
+        "provider": "local",
+        "file": {
+          "media": "assets/video/dada-ia.webm"
+        },
+        "alternate": {
+          "media": "assets/video/dada-ia.mp4"
+        }
+      },
+      "muted": true,
+      "loop": true,
+      "autoplay": true
+    },
+    "defects": {
+      "enabled": true,
+      "eyebrow": "Controle de qualidade",
+      "title": "Apontamento imediato de falhas/defeitos",
+      "description": "",
+      "image": {
+        "media": "assets/img/apontamento.webp"
+      },
+      "bullets": [
+        {
+          "id": "item-1",
+          "text": "Registro direto no chão de fábrica através da leitura de QRCode."
+        },
+        {
+          "id": "item-2",
+          "text": "Rastreabilidade total da produção."
+        },
+        {
+          "id": "item-3",
+          "text": "IA utiliza aprendizado de máquina para relacionar defeitos a parâmetros de ciclo."
+        }
+      ]
+    },
+    "energy": {
+      "enabled": true,
+      "eyebrow": "Consumo de energia",
+      "title": "Você sabe qual é o custo de energia por peça?",
+      "description": "Descubra exatamente onde sua fábrica desperdiça energia e proteja seu fluxo de caixa.",
+      "image": {
+        "media": "assets/img/energia.webp"
+      },
+      "bullets": [
+        {
+          "id": "item-1",
+          "text": "Variações de tensão"
+        },
+        {
+          "id": "item-2",
+          "text": "Balanceamento de fases"
+        },
+        {
+          "id": "item-3",
+          "text": "Fator de potência"
+        },
+        {
+          "id": "item-4",
+          "text": "Frequência da rede"
+        },
+        {
+          "id": "item-5",
+          "text": "Relatórios customizados"
+        },
+        {
+          "id": "item-6",
+          "text": "Nossa IA compara. Você lucra."
+        }
+      ]
+    },
+    "reports": {
+      "enabled": true,
+      "eyebrow": "Relatórios e dados históricos",
+      "title": "Relatórios customizados em poucos cliques",
+      "description": "Filtre por período, turno, máquina, ordem de produção ou produto e tenha os dados necessários para auditorias e tomada de decisão.",
+      "image": {
+        "media": "assets/img/relatorios.webp"
+      },
+      "groups": [
+        {
+          "id": "item-1",
+          "items": [
+            {
+              "id": "item-1",
+              "text": "Carta CEP"
+            },
+            {
+              "id": "item-2",
+              "text": "Ciclos"
+            },
+            {
+              "id": "item-3",
+              "text": "Estatístico de Anomalias de Telemetria"
+            },
+            {
+              "id": "item-4",
+              "text": "Viscosidade do material"
+            }
+          ]
+        },
+        {
+          "id": "item-2",
+          "items": [
+            {
+              "id": "item-1",
+              "text": "Produção Hora a Hora"
+            },
+            {
+              "id": "item-2",
+              "text": "Eventos"
+            },
+            {
+              "id": "item-3",
+              "text": "Energia"
+            },
+            {
+              "id": "item-4",
+              "text": "MES"
+            }
+          ]
+        }
+      ]
+    },
+    "mes": {
+      "enabled": true,
+      "eyebrow": "",
+      "title": "MES",
+      "description": "Customize seu OEE configurando quais tipos de defeitos e paradas devem ser contabilizados.",
+      "items": [
+        {
+          "id": "item-1",
+          "label": "Mes",
+          "caption": "Controle e contagem da produção",
+          "title": "MES",
+          "description": "Customize seu OEE configurando quais tipos de defeitos e paradas devem ser contabilizados.",
+          "image": {
+            "media": "assets/img/mess-mes.webp"
+          }
+        },
+        {
+          "id": "item-2",
+          "label": "OEE",
+          "caption": "Eficiência produtiva medida continuamente.",
+          "title": "OEE",
+          "description": "Eficiência produtiva medida continuamente.",
+          "image": {
+            "media": "assets/img/mess-oee.webp"
+          }
+        },
+        {
+          "id": "item-3",
+          "label": "Produção",
+          "caption": "Hora a hora",
+          "title": "Produção",
+          "description": "Acompanhamento da produção hora a hora.",
+          "image": {
+            "media": "assets/img/mess-producao.webp"
+          }
+        },
+        {
+          "id": "item-4",
+          "label": "Defeitos",
+          "caption": "Por tipo, quantidade e OP.",
+          "title": "Defeitos",
+          "description": "Defeitos por tipo, quantidade e OP.",
+          "image": {
+            "media": "assets/img/mess-defeitos.webp"
+          }
+        },
+        {
+          "id": "item-5",
+          "label": "Paradas",
+          "caption": "Detecção de paradas não notificadas.",
+          "title": "Paradas",
+          "description": "Paradas por motivo, tempo e máquina.",
+          "image": {
+            "media": "assets/img/mess-paradas.webp"
+          }
+        }
+      ]
+    },
+    "calculator": {
+      "enabled": true,
+      "eyebrow": "Calculadora de potencial",
+      "title": "Calcule o valor do seu desperdício com base no resultado do seu OEE atual (R$)",
+      "description": "A calculadora simula resultados com base nos dados fornecidos pelo usuário. Cálculos de OEE podem variar de acordo com regras diferentes entre empresas.",
+      "labels": [
+        {
+          "id": "item-1",
+          "key": "rate",
+          "text": "Hora máquina (R$)"
+        },
+        {
+          "id": "item-2",
+          "key": "hours",
+          "text": "Horas trabalhadas/dia"
+        },
+        {
+          "id": "item-3",
+          "key": "days",
+          "text": "Dias trabalhados/mês"
+        },
+        {
+          "id": "item-4",
+          "key": "atual",
+          "text": "OEE atual (%)"
+        },
+        {
+          "id": "item-5",
+          "key": "iot",
+          "text": "OEE Meta (%)"
+        },
+        {
+          "id": "label-group",
+          "key": "group",
+          "text": "Dados da sua operação"
+        },
+        {
+          "id": "label-submit",
+          "key": "submit",
+          "text": "Calcular"
+        },
+        {
+          "id": "label-result",
+          "key": "result",
+          "text": "Resultado da simulação"
+        },
+        {
+          "id": "label-current",
+          "key": "current",
+          "text": "OEE Atual"
+        },
+        {
+          "id": "label-loss",
+          "key": "loss",
+          "text": "Perda"
+        },
+        {
+          "id": "label-target",
+          "key": "target",
+          "text": "OEE Meta"
+        },
+        {
+          "id": "label-loss_target",
+          "key": "loss_target",
+          "text": "Perda"
+        }
+      ],
+      "messages": [
+        {
+          "id": "item-1",
+          "key": "note",
+          "text": "Todos os campos são obrigatórios. Nenhum dado é enviado ou armazenado."
+        },
+        {
+          "id": "item-2",
+          "key": "hint",
+          "text": "Preencha os dados e clique em Calcular para ver a perda mensal."
+        },
+        {
+          "id": "item-3",
+          "key": "cta",
+          "text": "Utilize as ferramentas iotnest.ai para atingir as suas metas e melhorar seus resultados"
+        }
+      ],
+      "cta": {
+        "label": "Falar com um especialista",
+        "kind": "section",
+        "section": "contact",
+        "new_window": false
+      }
+    },
+    "comparison": {
+      "enabled": true,
+      "eyebrow": "Comparativo de soluções",
+      "title": "Onde os sistemas tradicionais param, nossa inteligência começa",
+      "description": "Compare os recursos",
+      "columns": [
+        {
+          "id": "item-1",
+          "label": "iotnest.ai",
+          "marker": "",
+          "highlight": true
+        },
+        {
+          "id": "item-2",
+          "label": "MES",
+          "marker": "",
+          "highlight": false
+        },
+        {
+          "id": "item-3",
+          "label": "Injetoras de última geração",
+          "marker": "*",
+          "highlight": false
+        }
+      ],
+      "rows": [
+        {
+          "id": "item-1",
+          "label": "Controle e contagem da produção",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "full"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "full"
+            }
+          ]
+        },
+        {
+          "id": "item-2",
+          "label": "Monitoramento de pressão, temperatura e deslocamento",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "partial"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "full"
+            }
+          ]
+        },
+        {
+          "id": "item-3",
+          "label": "Alertas para desvios de parâmetros",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "full"
+            }
+          ]
+        },
+        {
+          "id": "item-4",
+          "label": "Relatório com histórico de dados dos ciclos, Carta CEP e Análise Gráfica de Ciclos",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "partial"
+            }
+          ]
+        },
+        {
+          "id": "item-5",
+          "label": "Comportamento da viscosidade do material",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "partial"
+            }
+          ]
+        },
+        {
+          "id": "item-6",
+          "label": "ChatbotIA - Dados da produção e informações do processo",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-7",
+          "label": "Consumo de energia por máquina, peça e ciclo",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "full"
+            }
+          ]
+        },
+        {
+          "id": "item-8",
+          "label": "Lançamento imediato de peças defeituosas por QR Code ou código de barras",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "partial"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "partial"
+            }
+          ]
+        },
+        {
+          "id": "item-9",
+          "label": "Peso teórico das peças - Sem Balança",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-10",
+          "label": "Relatório de detecção de ciclo defeituoso e anomalias por IA",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "partial"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-11",
+          "label": "Implementação de Protocolo Modbus",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-12",
+          "label": "Sugestão de alteração de parâmetros na máquina e análise de tendências por IA",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "partial"
+            }
+          ]
+        },
+        {
+          "id": "item-13",
+          "label": "Uso universal - sem limite de usuários",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "partial"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-14",
+          "label": "App para Consulta",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        },
+        {
+          "id": "item-15",
+          "label": "Chatbot para celular",
+          "cells": [
+            {
+              "id": "item-1",
+              "column_id": "item-1",
+              "state": "full"
+            },
+            {
+              "id": "item-2",
+              "column_id": "item-2",
+              "state": "none"
+            },
+            {
+              "id": "item-3",
+              "column_id": "item-3",
+              "state": "none"
+            }
+          ]
+        }
+      ],
+      "note": "*Injetoras de última geração representam 3-5% do mercado"
+    },
+    "cases": {
+      "enabled": true,
+      "title": "Resultados reais em indústrias reais",
+      "eyebrow": "Cases de sucesso",
+      "limit": 4
+    },
+    "how_it_works": {
+      "enabled": true,
+      "eyebrow": "Como funciona",
+      "title": "Da instalação aos resultados em 4 etapas simples",
+      "description": "",
+      "items": [
+        {
+          "id": "step-1",
+          "label": "Instalação",
+          "title": "Instalação dos Hardwares",
+          "text": "Instalamos hardware proprietário e sensores auxiliares.<br>A instalação pode ser feita pela iotnest.ai ou pela equipe do cliente.",
+          "image": {
+            "media": "assets/img/como-1.webp"
+          },
+          "icon": "hw",
+          "fit": "cover"
+        },
+        {
+          "id": "step-2",
+          "label": "Processamento de dados",
+          "title": "Captura e processamento de dados",
+          "text": "Nossos sensores capturam sinais em paralelo ao CLP e sem interferir no funcionamento da máquina.",
+          "image": {
+            "media": "assets/img/como-2.webp"
+          },
+          "icon": "hw",
+          "fit": "cover"
+        },
+        {
+          "id": "step-3",
+          "label": "Inteligência Artificial",
+          "title": "IA aplicada à injeção plástica",
+          "text": "Nossa IA analisa o processo e o comportamento da matéria-prima em tempo real e sugere alterações em parâmetros das máquinas.",
+          "image": {
+            "media": "assets/img/como-3-dada-3.webp"
+          },
+          "icon": "hw",
+          "fit": "contain"
+        },
+        {
+          "id": "step-4",
+          "label": "Plataforma/App",
+          "title": "Plataforma e aplicativo",
+          "text": "Filtre ou pergunte por período, turno, máquina, ordem de produção ou produto e tenha os dados necessários para auditorias e tomada de decisão.",
+          "image": {
+            "media": "assets/img/como-4.webp"
+          },
+          "icon": "hw",
+          "fit": "cover"
+        }
+      ]
+    },
+    "testimonials": {
+      "enabled": true,
+      "eyebrow": "Depoimentos",
+      "title": "O que nossos clientes dizem",
+      "description": "",
+      "items": [
+        {
+          "id": "item-1",
+          "quote": "<p>\"A iotnest.ai transformou completamente a forma como gerenciamos nossa produção. Em 3 meses, nosso OEE saltou de 62% para 94% e praticamente eliminamos as paradas não planejadas. O retorno sobre o investimento superou todas as expectativas — foi um dos melhores investimentos que já fizemos.\"</p>",
+          "name": "Ricardo Mendes",
+          "role": "Diretor Industrial",
+          "company": "Plásticos Nordeste S.A.",
+          "initials": "RM"
+        }
+      ]
+    },
+    "blog": {
+      "enabled": true,
+      "title": "Conteúdo para quem decide no chão de fábrica",
+      "eyebrow": "Blog",
+      "limit": 4
+    },
+    "videos": {
+      "enabled": true,
+      "eyebrow": "Vídeos",
+      "title": "O sistema iotnest.ai nas redes sociais",
+      "description": "Informações, dados e demonstrações do que nosso sistema pode fazer por você e pela sua empresa.",
+      "items": [
+        {
+          "id": "item-1",
+          "title": "#373 - Inteligência artificial no controle de processo",
+          "description": "Ricardo Cuzziol discute como a inteligência artificial pode apoiar o controle do processo de injeção.",
+          "video": {
+            "provider": "youtube",
+            "youtube": "SbTbCvR1ZeI",
+            "start": 608
+          },
+          "thumbnail": {
+            "media": "assets/img/video-1.webp"
+          }
+        },
+        {
+          "id": "item-2",
+          "title": "#374 - Velocidade de injeção - Muito rápido ou muito devagar?",
+          "description": "Ricardo Cuzziol explica como a velocidade de injeção influencia o processo e a qualidade da peça.",
+          "video": {
+            "provider": "youtube",
+            "youtube": "sbqB70cA9YE",
+            "start": 43
+          },
+          "thumbnail": {
+            "media": "assets/img/video-2.webp"
+          }
+        },
+        {
+          "id": "item-3",
+          "title": "Monitoramento Inteligente de Matéria-Prima com o iotnest.ai",
+          "description": "Veja em um vídeo curto como o iotnest.ai apoia o monitoramento da matéria-prima direto no painel da injetora.",
+          "video": {
+            "provider": "youtube",
+            "youtube": "0-urn83hpew",
+            "start": 0
+          },
+          "thumbnail": {
+            "media": "assets/img/video-3.webp"
+          }
+        }
+      ],
+      "cta": {
+        "label": "Ver mais",
+        "kind": "url",
+        "url": "https://www.youtube.com/@iotnest_ai",
+        "new_window": true
+      }
+    },
+    "about": {
+      "enabled": true,
+      "eyebrow": "Sobre Nós",
+      "title": "Inteligência forjada no chão de fábrica <span class=\"accent\">da Indústria Plástica</span>",
+      "description": "",
+      "image": {
+        "media": "assets/img/sobre-fabrica.webp"
+      },
+      "paragraphs": [
+        {
+          "id": "item-1",
+          "text": "A iotnest.ai nasceu da vivência real no chão de fábrica. Idealizada por um empresário da indústria plástica obcecado por tecnologia, a ideia era resolver a maior dor do setor: a falta de conhecimento dos dados operacionais em um mercado com margens de lucro cada vez mais estreitas."
+        },
+        {
+          "id": "item-2",
+          "text": "Democratizamos a Indústria 4.0 combinando hardware e software proprietários:"
+        }
+      ],
+      "bullets": [
+        {
+          "id": "item-1",
+          "text": "<strong>Modernização:</strong> Elevamos máquinas antigas a um novo patamar de conectividade."
+        },
+        {
+          "id": "item-2",
+          "text": "<strong>Conectividade:</strong> Dados de todo o seu parque entregues em um só painel."
+        },
+        {
+          "id": "item-3",
+          "text": "<strong>Resultado:</strong> Entrega de inteligência e ganhos financeiros."
+        }
+      ],
+      "number": 3,
+      "unit": "+",
+      "label": "anos transformando a indústria plástica brasileira"
+    },
+    "faq": {
+      "enabled": true,
+      "eyebrow": "FAQ",
+      "title": "Perguntas frequentes",
+      "description": "",
+      "items": [
+        {
+          "id": "item-1",
+          "question": "O que é o iotnest.ai?",
+          "answer": "<p>É um sistema que faz leituras dos sensores já existentes em injetoras plásticas e faz o tratamento e o registro histórico desses dados. Com a ferramenta de inteligência artificial do iotnest.ai e os inputs gerados pelo seu processo, é possível a emissão de alertas para prevenção de falhas e a otimização do processo de produção, minimizando perdas de produto e otimizando o consumo de energia.</p>"
+        },
+        {
+          "id": "item-2",
+          "question": "Como eu contrato o iotnest.ai?",
+          "answer": "<p>Entre em contato conosco via WhatsApp, e-mail ou formulário do site e retornaremos em até 1 dia útil.</p>"
+        },
+        {
+          "id": "item-3",
+          "question": "Como é feito o investimento no iotnest.ai?",
+          "answer": "<p>É feito através da contratação da instalação dos equipamentos e de um contrato de assinatura por injetora, com permanência mínima de 6 meses.</p>"
+        },
+        {
+          "id": "item-4",
+          "question": "O equipamento é compatível com qualquer tipo de injetora?",
+          "answer": "<p>Sim, nosso equipamento é totalmente compatível com qualquer tipo de injetora hidráulica. Ele foi desenvolvido para atender a diferentes modelos e fabricantes. No caso de injetoras de acionamento elétrico ainda estamos em fase de desenvolvimento.</p>"
+        },
+        {
+          "id": "item-5",
+          "question": "O equipamento funciona com qualquer tipo de molde?",
+          "answer": "<p>Sim, o sistema não depende do molde, pois está vinculado à injetora. No entanto, é possível cadastrar os moldes no sistema de gestão para monitorar e registrar o desempenho de cada um.</p>"
+        },
+        {
+          "id": "item-6",
+          "question": "Preciso de conexão com a internet na minha produção?",
+          "answer": "<p>Sim, a conexão com a internet é necessária para sincronizar os dados com a plataforma e permitir o acesso remoto às informações em tempo real.</p>"
+        },
+        {
+          "id": "item-7",
+          "question": "Qual é a fonte de alimentação do equipamento?",
+          "answer": "<p>O equipamento é alimentado por energia elétrica padrão industrial, compatível com redes de 110V, 220V e sistemas trifásicos. Nossa solução é projetada para se adaptar a diferentes tipos de infraestrutura elétrica. Os nossos equipamentos atendem à norma NBR 5410.</p>"
+        },
+        {
+          "id": "item-8",
+          "question": "O que compõe a solução?",
+          "answer": "<p>Nosso sistema é composto por plataforma web para gestão, inteligência artificial proprietária iotnest.ai e três equipamentos compactos: IHM para interface do operador, Placa Lógica de Telemetria e Termopar.</p>"
+        },
+        {
+          "id": "item-9",
+          "question": "Como o equipamento é instalado?",
+          "answer": "<p>A instalação do equipamento é realizada por nossa equipe técnica especializada. Todo o processo é planejado para minimizar impactos, sem a necessidade de interromper a produção por longos períodos. Não é necessário modificar os sistemas originais da máquina.</p>"
+        },
+        {
+          "id": "item-10",
+          "question": "O sistema oferece uma plataforma na web?",
+          "answer": "<p>Sim, nosso sistema conta com uma plataforma web moderna, intuitiva e de fácil acesso. Com ela, você pode monitorar em tempo real os dados de produção, o desempenho das máquinas, além de acessar relatórios com dados históricos e receber alertas de desvios nos parâmetros do processo de produção.</p>"
+        },
+        {
+          "id": "item-11",
+          "question": "Pago licença por usuário da plataforma?",
+          "answer": "<p>Não cobramos por usuário. A assinatura é pelo número de injetoras monitoradas.</p>"
+        },
+        {
+          "id": "item-12",
+          "question": "Quanto tempo leva para a instalação do sistema?",
+          "answer": "<p>A instalação em geral leva de 3 a 5 horas.</p>"
+        },
+        {
+          "id": "item-13",
+          "question": "O sistema integra com meu ERP?",
+          "answer": "<p>Em breve teremos soluções para integração com os principais ERPs do mercado.</p>"
+        },
+        {
+          "id": "item-14",
+          "question": "O sistema fornece OEE?",
+          "answer": "<p>Sim, o sistema calcula automaticamente o OEE (Eficiência Geral do Equipamento), facilitando o acompanhamento da produtividade.</p>"
+        },
+        {
+          "id": "item-15",
+          "question": "O que mais o sistema oferece além do OEE?",
+          "answer": "<p>Além do cálculo do OEE, nossa solução disponibiliza uma ampla gama de funcionalidades, como:</p> <ul> <li>Monitoramento de tempos de ciclo para otimizar processos.</li> <li>Monitoramento de deslocamento de rosca e de molde, pressão e temperaturas de máquina, molde e periféricos.</li> <li>Análise de consumo de energia para identificar oportunidades de redução de custos.</li> <li>Alertas de falhas em tempo real para minimizar paradas inesperadas e peças defeituosas.</li> <li>Relatórios personalizados que auxiliam na tomada de decisões estratégicas e no acompanhamento de metas de produção.</li> </ul>"
+        },
+        {
+          "id": "item-16",
+          "question": "O sistema emite alertas de falhas?",
+          "answer": "<p>Sim, o sistema emite alertas automáticos para situações críticas, como paradas não planejadas e desvios de parâmetros.</p>"
+        },
+        {
+          "id": "item-17",
+          "question": "O sistema pode ser acessado remotamente?",
+          "answer": "<p>Sim, os dados podem ser acessados remotamente pela plataforma web, garantindo maior flexibilidade de gestão.</p>"
+        },
+        {
+          "id": "item-18",
+          "question": "O sistema atende normas de segurança de dados?",
+          "answer": "<p>Sim, seguimos rigorosamente as melhores práticas de segurança da informação e LGPD.</p>"
+        },
+        {
+          "id": "item-19",
+          "question": "O sistema permite relatórios personalizados?",
+          "answer": "<p>Sim, a plataforma oferece relatórios configuráveis de acordo com as necessidades específicas da sua operação.</p>"
+        },
+        {
+          "id": "item-20",
+          "question": "Há suporte técnico após a instalação?",
+          "answer": "<p>Sim, fornecemos suporte técnico contínuo e treinamento para os usuários da solução.</p>"
+        },
+        {
+          "id": "item-21",
+          "question": "Quais informações sobre consumo de energia o iotnest.ai pode gerar?",
+          "answer": "<p>Análise de consumo de energia por ciclo, por máquina parada com alarme, por máquina em setup e por peças perdidas.</p>"
+        }
+      ],
+      "cta_intro": "Não encontrou o que procurava?",
+      "cta": {
+        "label": "Fale com a nossa equipe",
+        "kind": "section",
+        "section": "contact"
+      }
+    },
+    "contact": {
+      "enabled": true,
+      "eyebrow": "Contato",
+      "title": "Vamos transformar sua <span class=\"accent\">produção juntos</span>",
+      "description": "Fale com nosso time de especialistas. Em até 24h úteis retornaremos com uma análise personalizada para a sua operação.",
+      "image": {
+        "media": "assets/img/contato-equipe.webp"
+      },
+      "caption_title": "Pronto para começar?",
+      "caption_text": "Nossa equipe está esperando por você",
+      "form_title": "Solicitar Contato",
+      "channels": [
+        {
+          "id": "item-1",
+          "label": "Endereço",
+          "value": "Rua Mario Borin, 500 - Sala 74 Vila Virginia - Jundiaí, SP<br>CEP 13209-030",
+          "url": "",
+          "icon": "pin"
+        },
+        {
+          "id": "item-2",
+          "label": "Telefone",
+          "value": "55 (11) 95032-3958",
+          "url": "tel:+5511950323958",
+          "icon": "phone"
+        },
+        {
+          "id": "item-3",
+          "label": "E-mail",
+          "value": "contato@iotnest.ai",
+          "url": "mailto:contato@iotnest.ai",
+          "icon": "mail"
+        }
+      ]
+    }
+  },
+  "media": {
+    "assets/img/hero-poster.webp": {
+      "alt": "",
+      "file": "hero-poster.webp",
+      "sha256": "0c1b344c34632c7f07f453aa1e7357398d70f62c65a5f1427d8e86fb1abdff1b"
+    },
+    "assets/video/bg-hero.webm": {
+      "alt": "",
+      "file": "bg-hero.webm",
+      "sha256": "17c836b5898cbf7e69c8c29743fa68b02691f87c57063b59951bf1035323d1d6"
+    },
+    "assets/img/otimizacao.webp": {
+      "alt": "Fábrica de injetoras plásticas com dois monitores exibindo a plataforma iotnest.ai em primeiro plano",
+      "file": "otimizacao.webp",
+      "sha256": "61bacabe0a8d7e4623013349bb5d93ab0747c89b76336a078ae8123e4658feab"
+    },
+    "assets/img/hardware-1.webp": {
+      "alt": "Módulo de aquisição iotnest.ai com entradas de relés, temperatura, RS232 e RS485",
+      "file": "hardware-1.webp",
+      "sha256": "cb01b57aad8cb3cf5de066a5fdcc441013fdf750d7fa7e3ee60f87547ca033ba"
+    },
+    "assets/img/hardware-2.webp": {
+      "alt": "Módulo de termopares iotnest.ai com 16 canais",
+      "file": "hardware-2.webp",
+      "sha256": "27d9b79ac1b961a6483d53400d3acd5d8b24bbe99138c8af1808b08694159c0c"
+    },
+    "assets/img/hardware-3.webp": {
+      "alt": "Terminal iotnest.ai com tela, instalado na injetora",
+      "file": "hardware-3.webp",
+      "sha256": "cfd56af17cf27cb48ee2e9989db04ee89639d6f9b67fc8245232606fbe3411ee"
+    },
+    "assets/img/telemetria.webp": {
+      "alt": "Profissional analisando no notebook o gráfico de telemetria da injetora, com o terminal instalado na máquina ao fundo",
+      "file": "telemetria.webp",
+      "sha256": "e0d006f20cef348cb02912070d68e81a76d7e123d3c308cf2c571a9203646b59"
+    },
+    "assets/img/ia-1.webp": {
+      "alt": "Profissional analisando no notebook os dados do processo ao lado da injetora",
+      "file": "ia-1.webp",
+      "sha256": "0ff70dcfed5556bfd0680f861e063f118ed20f8092871d0f5b1aeba3047c559d"
+    },
+    "assets/img/ia-2.webp": {
+      "alt": "Gráfico de viscosidade aparente dos últimos 100 ciclos da injetora MAQ02, com os limites de controle",
+      "file": "ia-2.webp",
+      "sha256": "5900121cf3ce8b2aa354894221107652ee4157749ceb18cb1a65d00a24021c42"
+    },
+    "assets/img/ia-4.webp": {
+      "alt": "Tela do monitor de ciclos com a interpretação da IA, o risco e a sugestão ao operador para ajustar a posição de comutação",
+      "file": "ia-4.webp",
+      "sha256": "7534520db1c3b6c275b3deda35237dc5c577b64e31352f554613af9280b45f21"
+    },
+    "assets/img/dada-poster.webp": {
+      "alt": "",
+      "file": "dada-poster.webp",
+      "sha256": "6861a5dc3cec4e31c3ffd26dd887a9c80a80ff7ac2e7d64b71b259ae81ddb9ae"
+    },
+    "assets/video/dada-ia.webm": {
+      "alt": "",
+      "file": "dada-ia.webm",
+      "sha256": "62a1e77fe4146e385b27257e962d9d4d637ed2f1715be8e0643a57da9a3ff7fd"
+    },
+    "assets/video/dada-ia.mp4": {
+      "alt": "",
+      "file": "dada-ia.mp4",
+      "sha256": "624c5fa2253a1b908ca51df65aa4dd0e1b3fb96148f001d0573748b3c7e7412e"
+    },
+    "assets/img/apontamento.webp": {
+      "alt": "Operador lendo um QR Code diante do terminal da máquina",
+      "file": "apontamento.webp",
+      "sha256": "8ce39df464ba0b64734641d27864d14bd16be717111a98bbcfbe2a15e1a11f59"
+    },
+    "assets/img/energia.webp": {
+      "alt": "Painel de consumo de energia por máquina",
+      "file": "energia.webp",
+      "sha256": "8e7d91e8f0eb4507e33b5003b2c23f61ec444d17adda0f063b47e80cd58a2591"
+    },
+    "assets/img/relatorios.webp": {
+      "alt": "Tela de relatórios com filtros e gráfico de viscosidade",
+      "file": "relatorios.webp",
+      "sha256": "fdb8df0805649e7eee50c3778b228d3cb42fbccda0c8773bfb9142de03998ea8"
+    },
+    "assets/img/mess-mes.webp": {
+      "alt": "",
+      "file": "mess-mes.webp",
+      "sha256": "40011ae02cf74f3ff1b45f08aa334cd5f10b5ddce3db27e2c1cc44d1802ed226"
+    },
+    "assets/img/mess-oee.webp": {
+      "alt": "",
+      "file": "mess-oee.webp",
+      "sha256": "13017b80a46ae24a61a9ca188c69e98a55aca43a6cfd488f8352d65d438204cf"
+    },
+    "assets/img/mess-producao.webp": {
+      "alt": "",
+      "file": "mess-producao.webp",
+      "sha256": "c1554eef958d77533da28c5492c832558cc6fdd392075446ee98ab864347ceed"
+    },
+    "assets/img/mess-defeitos.webp": {
+      "alt": "",
+      "file": "mess-defeitos.webp",
+      "sha256": "95d2ecb0280154343946d647870a39c3e2d6603b159a81cd12b47a824c3dd82c"
+    },
+    "assets/img/mess-paradas.webp": {
+      "alt": "",
+      "file": "mess-paradas.webp",
+      "sha256": "74b7fddb18d18c4009c929ab907b4c518bf77c9f8ce12244889534fedc443a03"
+    },
+    "assets/img/como-1.webp": {
+      "alt": "Hardware da iotnest.ai instalado em uma injetora",
+      "file": "como-1.webp",
+      "sha256": "cd658dce9dbdb55e849fe224f3db37146fb911d020fafee9e1024a8346322332"
+    },
+    "assets/img/como-2.webp": {
+      "alt": "Captura de dados do processo de injeção",
+      "file": "como-2.webp",
+      "sha256": "8549328b9bcc39cf9a824a98b9ef7da0f614262e97c2f2eb8d89b5de5354b6c0"
+    },
+    "assets/img/como-3-dada-3.webp": {
+      "alt": "Conversa com o Dadá IA: gráfico de viscosidade da máquina 02 entre 9h e 11h do dia 26/10, com média, faixa estatística e ponto fora do padrão",
+      "file": "como-3-dada-3.webp",
+      "sha256": "db8be28178730613f6a441890abfacd2c97cf5bd667162e1e8659b2b453b5d2f"
+    },
+    "assets/img/como-4.webp": {
+      "alt": "Plataforma iotnest.ai exibida em monitores",
+      "file": "como-4.webp",
+      "sha256": "38245e53713aa5d896353dbea77065ee394d9c79db3d0fdd5d536558fa659f3d"
+    },
+    "assets/img/video-1.webp": {
+      "alt": "",
+      "file": "video-1.webp",
+      "sha256": "d6dd2eb169f995fba1ab97f707ea5bb3a31685e0f52a8969b4d4c3c9629fae23"
+    },
+    "assets/img/video-2.webp": {
+      "alt": "",
+      "file": "video-2.webp",
+      "sha256": "b677e44c6cb2889a28eabf69707bc4314074ca1be4f90b1457e2e463935051fa"
+    },
+    "assets/img/video-3.webp": {
+      "alt": "",
+      "file": "video-3.webp",
+      "sha256": "6de9ce0a9245be840f5439f2f8ebb7365fefaaa43aa7a1c73d4a3a35941c01f3"
+    },
+    "assets/img/sobre-fabrica.webp": {
+      "alt": "Vista de cima do chão de fábrica de injeção plástica, com fileiras de injetoras verdes e operadores trabalhando",
+      "file": "sobre-fabrica.webp",
+      "sha256": "b79d0169f3d7460ee535bad25508f3ae411be2146c9246909587ce1a46bd2390"
+    },
+    "assets/img/contato-equipe.webp": {
+      "alt": "Dois profissionais conversando diante de uma injetora, um deles apontando para o terminal da iotnest.ai instalado na máquina",
+      "file": "contato-equipe.webp",
+      "sha256": "97c2bef32f1abdec1b6f10833019032124668502f67413a963685e7f22836262"
+    }
+  },
+  "settings": {
+    "footer_description": "A plataforma de dados e inteligência artificial que transforma injetoras plásticas em máquinas de alta performance.",
+    "copyright": "© 2024 iotnest.ai Tecnologia Industrial. Todos os direitos reservados.",
+    "credit_label": "Site desenvolvido por",
+    "credit_name": "FaiskaLab",
+    "platform": "https://telemetria.iotnest.ai",
+    "platform_label": "Login",
+    "commercial_cta": {
+      "label": "Entenda como funciona",
+      "kind": "section",
+      "section": "how_it_works",
+      "new_window": false
+    },
+    "whatsapp": "https://wa.me/5511950323958",
+    "whatsapp_message": "Olá! Vim pelo site da iotnest.ai e gostaria de saber mais.",
+    "socials": [
+      {
+        "id": "item-1",
+        "label": "LinkedIn",
+        "icon": "linkedin",
+        "url": "https://br.linkedin.com/company/iot-nest-tecnologia"
+      }
+    ],
+    "email": "contato@iotnest.ai",
+    "phone": "55 (11) 95032-3958",
+    "address": "Rua Mario Borin, 500 - Sala 74 Vila Virginia - Jundiaí, SP — CEP 13209-030"
+  },
+  "menus": {
+    "primary": [
+      {
+        "label": "Soluções",
+        "target": "group",
+        "children": [
+          {
+            "label": "Alertas",
+            "target": "section:solution",
+            "url": "#solucao"
+          },
+          {
+            "label": "Tomada de decisões",
+            "target": "section:ai",
+            "url": "#ia"
+          },
+          {
+            "label": "Dadá IA",
+            "target": "section:assistant",
+            "url": "#dada"
+          },
+          {
+            "label": "Apontamentos",
+            "target": "section:defects",
+            "url": "#apontamento"
+          },
+          {
+            "label": "Custo de energia",
+            "target": "section:energy",
+            "url": "#energia"
+          },
+          {
+            "label": "Relatórios",
+            "target": "section:reports",
+            "url": "#relatorios"
+          }
+        ]
+      },
+      {
+        "label": "Calculadora",
+        "target": "section:calculator",
+        "url": "#calculadora"
+      },
+      {
+        "label": "Cases",
+        "target": "cases"
+      },
+      {
+        "label": "Como funciona",
+        "target": "section:how_it_works",
+        "url": "#como-funciona"
+      },
+      {
+        "label": "Sobre nós",
+        "target": "section:about",
+        "url": "#sobre"
+      },
+      {
+        "label": "FAQ",
+        "target": "section:faq",
+        "url": "#faq"
+      },
+      {
+        "label": "Contato",
+        "target": "section:contact",
+        "url": "#contato"
+      },
+      {
+        "label": "Blog",
+        "target": "blog"
+      }
+    ],
+    "footer": [
+      {
+        "label": "Soluções",
+        "target": "section:solution",
+        "url": "#solucao"
+      },
+      {
+        "label": "Como Funciona",
+        "target": "section:how_it_works",
+        "url": "#como-funciona"
+      },
+      {
+        "label": "Cases",
+        "target": "cases"
+      },
+      {
+        "label": "Sobre Nós",
+        "target": "section:about",
+        "url": "#sobre"
+      },
+      {
+        "label": "FAQ",
+        "target": "section:faq",
+        "url": "#faq"
+      },
+      {
+        "label": "Contato",
+        "target": "section:contact",
+        "url": "#contato"
+      },
+      {
+        "label": "Blog",
+        "target": "blog"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Privacidade",
+        "page": "privacidade"
+      },
+      {
+        "label": "Cookies",
+        "page": "cookies"
+      },
+      {
+        "label": "Termos de Uso",
+        "page": "termos"
+      }
+    ]
+  },
+  "legal": [
+    {
+      "key": "privacidade",
+      "title": "Política de Privacidade",
+      "description": "Última atualização: 01 de outubro de 2026",
+      "content": "<section class=\"legal__sec\" id=\"controlador\"><h2><span class=\"legal__n\">01</span>Quem somos (controlador dos dados)</h2><p>Este site é operado pela <strong>Qoobo Tecnologia Ltda.</strong>, inscrita no CNPJ sob o nº 47.045.120/0001-79, com sede em Rua Mario Borin, 500 – Sala 74, Vila Virginia, Jundiaí/SP, CEP 13209-030, que atua sob a marca <strong>iotnest.ai</strong> (\"iotnest.ai\", \"nós\"). Para os fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD), somos a <strong>controladora</strong> dos dados pessoais tratados por meio deste site.</p>\n<p>Esta Política explica, de forma simples, quais dados coletamos, por que os usamos, com quem os compartilhamos e quais são os seus direitos. Ao usar o site, você declara ter lido este documento.</p></section>\n<section class=\"legal__sec\" id=\"dados\"><h2><span class=\"legal__n\">02</span>Quais dados coletamos</h2><h3>Dados que você nos fornece</h3>\n<ul><li><strong>Formulário de contato:</strong> nome, e-mail corporativo, telefone/WhatsApp, empresa e a mensagem que você escrever.</li><li><strong>WhatsApp e e-mail:</strong> os dados que você compartilhar ao nos chamar por esses canais (por exemplo, nome, número de telefone e conteúdo da conversa).</li><li><strong>Calculadora de potencial:</strong> valores operacionais informados (hora máquina, horas, dias e percentuais de OEE). Esses valores são calculados no seu navegador e <strong>não são enviados nem armazenados</strong> por nós.</li></ul>\n<h3>Dados coletados automaticamente</h3>\n<ul><li>Dados técnicos de acesso, como endereço IP, tipo de navegador, sistema operacional, páginas acessadas, data e hora, registrados nos logs do provedor de hospedagem para fins de segurança e funcionamento do site.</li><li>Informações obtidas por tecnologias de terceiros descritas na nossa <a href=\"cookies.html\">Política de Cookies</a>.</li></ul>\n<p>Não coletamos dados pessoais sensíveis (art. 5º, II, da LGPD) por meio deste site. Pedimos que você também não os envie.</p></section>\n<section class=\"legal__sec\" id=\"finalidades\"><h2><span class=\"legal__n\">03</span>Para que usamos os dados e em que base legal</h2><table class=\"legal__table\"><thead><tr><th>Finalidade</th><th>Base legal (LGPD)</th></tr></thead><tbody>\n<tr><td>Responder solicitações de contato e enviar a análise ou proposta comercial pedida por você</td><td>Execução de procedimentos preliminares relacionados a contrato, a pedido do titular (art. 7º, V)</td></tr>\n<tr><td>Enviar informações e materiais sobre nossos serviços, quando você solicitar</td><td>Consentimento (art. 7º, I) e legítimo interesse (art. 7º, IX)</td></tr>\n<tr><td>Manter a segurança, prevenir fraudes e abusos e garantir o funcionamento do site</td><td>Legítimo interesse (art. 7º, IX)</td></tr>\n<tr><td>Cumprir obrigações legais e regulatórias e exercer direitos em processos</td><td>Cumprimento de obrigação legal ou regulatória (art. 7º, II) e exercício regular de direitos (art. 7º, VI)</td></tr>\n</tbody></table>\n<p>Não vendemos dados pessoais e não os utilizamos para decisões exclusivamente automatizadas que afetem você.</p></section>\n<section class=\"legal__sec\" id=\"compartilhamento\"><h2><span class=\"legal__n\">04</span>Com quem compartilhamos</h2><p>Compartilhamos dados apenas quando necessário, com:</p>\n<ul><li><strong>Prestadores de serviço</strong> que nos ajudam a operar o site e a comunicação, como hospedagem (Vercel Inc.), e-mail e ferramentas de atendimento, sob obrigações de confidencialidade e segurança.</li><li><strong>Plataformas de terceiros acionadas por você</strong>, como WhatsApp (Meta), YouTube (Google) e LinkedIn, que possuem políticas de privacidade próprias.</li><li><strong>Autoridades públicas</strong>, quando exigido por lei, ordem judicial ou requisição legítima.</li></ul>\n<p>Alguns desses prestadores podem armazenar dados fora do Brasil. Nesses casos, adotamos as salvaguardas previstas nos arts. 33 e seguintes da LGPD.</p></section>\n<section class=\"legal__sec\" id=\"retencao\"><h2><span class=\"legal__n\">05</span>Por quanto tempo guardamos os dados</h2><p>Mantemos os dados pelo tempo necessário para cumprir as finalidades acima. Em regra: dados de contato e propostas são mantidos enquanto durar a relação comercial ou a negociação e, depois, pelos prazos legais de guarda aplicáveis; logs de acesso são mantidos pelo período previsto na legislação ou necessário à segurança. Encerrado o prazo, os dados são excluídos ou anonimizados.</p></section>\n<section class=\"legal__sec\" id=\"direitos\"><h2><span class=\"legal__n\">06</span>Seus direitos como titular</h2><p>Nos termos do art. 18 da LGPD, você pode solicitar a qualquer momento:</p>\n<ul><li>confirmação de que tratamos seus dados e acesso a eles;</li><li>correção de dados incompletos, inexatos ou desatualizados;</li><li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade;</li><li>portabilidade dos dados, observados os segredos comercial e industrial;</li><li>eliminação dos dados tratados com base no seu consentimento;</li><li>informação sobre com quem compartilhamos os dados;</li><li>informação sobre a possibilidade de não fornecer consentimento e suas consequências;</li><li>revogação do consentimento, sem prejuízo do tratamento já realizado.</li></ul>\n<p>Para exercer seus direitos, escreva para <a href=\"mailto:dados@iotnest.ai\">dados@iotnest.ai</a>. Responderemos no prazo legal. Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).</p></section>\n<section class=\"legal__sec\" id=\"seguranca\"><h2><span class=\"legal__n\">07</span>Como protegemos seus dados</h2><p>Adotamos medidas técnicas e administrativas razoáveis para proteger os dados contra acessos não autorizados, perda, alteração ou destruição, incluindo conexão criptografada (HTTPS), controle de acesso e uso de provedores com práticas reconhecidas de segurança. Nenhum sistema é totalmente imune a riscos; em caso de incidente que possa gerar risco relevante, comunicaremos os titulares e a ANPD conforme a lei.</p></section>\n<section class=\"legal__sec\" id=\"criancas\"><h2><span class=\"legal__n\">08</span>Crianças e adolescentes</h2><p>Este site é destinado a profissionais e empresas. Não coletamos intencionalmente dados de menores de 18 anos. Se identificarmos esse tipo de dado, ele será excluído.</p></section>\n<section class=\"legal__sec\" id=\"links\"><h2><span class=\"legal__n\">09</span>Links e serviços de terceiros</h2><p>O site contém links e conteúdos de terceiros (como vídeos do YouTube, WhatsApp e redes sociais). Não somos responsáveis pelas práticas de privacidade desses serviços; recomendamos a leitura das respectivas políticas.</p></section>\n<section class=\"legal__sec\" id=\"alteracoes\"><h2><span class=\"legal__n\">10</span>Alterações desta Política</h2><p>Podemos atualizar esta Política para refletir mudanças legais ou em nossos serviços. A versão vigente estará sempre nesta página, com a data da última atualização no topo.</p></section>\n<section class=\"legal__sec\" id=\"contato\"><h2><span class=\"legal__n\">11</span>Fale com o encarregado (DPO)</h2><p>Dúvidas sobre esta Política ou sobre o tratamento dos seus dados: <a href=\"mailto:dados@iotnest.ai\">dados@iotnest.ai</a>.<br>Atendimento geral: <a href=\"mailto:contato@iotnest.com.br\">contato@iotnest.com.br</a><br>Qoobo Tecnologia Ltda. – CNPJ 47.045.120/0001-79<br>Rua Mario Borin, 500 – Sala 74, Vila Virginia, Jundiaí/SP, CEP 13209-030</p></section>"
+    },
+    {
+      "key": "cookies",
+      "title": "Política de Cookies",
+      "description": "Última atualização: 01 de outubro de 2026",
+      "content": "<section class=\"legal__sec\" id=\"o-que-sao\"><h2><span class=\"legal__n\">01</span>O que são cookies</h2><p>Cookies são pequenos arquivos de texto salvos no seu dispositivo quando você visita um site. Eles permitem reconhecer o navegador, lembrar preferências e entender como o conteúdo é usado. Também usamos o termo para tecnologias semelhantes, como armazenamento local e identificadores de dispositivo.</p></section>\n<section class=\"legal__sec\" id=\"como-usamos\"><h2><span class=\"legal__n\">02</span>Como usamos cookies neste site</h2><p>Este site foi construído para usar o mínimo possível de rastreamento. <strong>Hoje, não utilizamos cookies de análise, de publicidade ou de remarketing</strong>, e não definimos cookies próprios para identificar você. Se isso mudar, atualizaremos esta página e, quando necessário, pediremos o seu consentimento antes de ativar esses cookies.</p></section>\n<section class=\"legal__sec\" id=\"terceiros\"><h2><span class=\"legal__n\">03</span>Serviços de terceiros que podem definir cookies</h2><table class=\"legal__table\"><thead><tr><th>Serviço</th><th>Finalidade</th><th>Quando ocorre</th></tr></thead><tbody>\n<tr><td>YouTube (Google) – modo de privacidade aprimorado <span style=\"white-space:nowrap\">(<code>youtube-nocookie.com</code>)</span></td><td>Reproduzir vídeos incorporados</td><td>Somente depois que você clica para reproduzir um vídeo</td></tr>\n<tr><td>Google Fonts</td><td>Carregar as fontes de texto do site. Não usa cookies, mas recebe o seu endereço IP para entregar o arquivo</td><td>Ao carregar a página</td></tr>\n<tr><td>WhatsApp (Meta)</td><td>Abrir uma conversa com a nossa equipe</td><td>Somente ao clicar no botão do WhatsApp</td></tr>\n<tr><td>LinkedIn</td><td>Abrir nossa página na rede social</td><td>Somente ao clicar no link</td></tr>\n<tr><td>Vercel</td><td>Hospedagem e entrega do site; registra logs técnicos de acesso</td><td>Ao acessar qualquer página</td></tr>\n</tbody></table>\n<p>Esses terceiros têm políticas próprias, que se aplicam quando você interage com eles.</p></section>\n<section class=\"legal__sec\" id=\"categorias\"><h2><span class=\"legal__n\">04</span>Categorias de cookies</h2><ul><li><strong>Estritamente necessários:</strong> permitem o funcionamento básico do site e não exigem consentimento. Atualmente o site não depende de cookies desse tipo.</li><li><strong>Funcionais e de preferências:</strong> lembram escolhas feitas por você. Não utilizamos no momento.</li><li><strong>Analíticos e de desempenho:</strong> medem o uso do site. Não utilizamos no momento.</li><li><strong>Publicidade e marketing:</strong> personalizam anúncios. Não utilizamos.</li></ul></section>\n<section class=\"legal__sec\" id=\"gerenciar\"><h2><span class=\"legal__n\">05</span>Como gerenciar ou bloquear cookies</h2><p>Você pode visualizar, bloquear ou apagar cookies a qualquer momento nas configurações do seu navegador (Chrome, Safari, Firefox, Edge e outros), no menu de privacidade e segurança. Também é possível navegar em janela anônima. Lembre-se de que bloquear cookies de terceiros pode impedir a reprodução de vídeos incorporados.</p></section>\n<section class=\"legal__sec\" id=\"dados\"><h2><span class=\"legal__n\">06</span>Dados pessoais e seus direitos</h2><p>Quando um cookie ou tecnologia semelhante permitir identificar você, o tratamento segue a nossa <a href=\"privacidade.html\">Política de Privacidade</a> e a LGPD, incluindo o direito de revogar consentimentos dados.</p></section>\n<section class=\"legal__sec\" id=\"alteracoes\"><h2><span class=\"legal__n\">07</span>Alterações e contato</h2><p>Esta Política pode ser atualizada. Dúvidas: <a href=\"mailto:dados@iotnest.ai\">dados@iotnest.ai</a>.</p></section>"
+    },
+    {
+      "key": "termos",
+      "title": "Termos de Uso",
+      "description": "Última atualização: 01 de outubro de 2026",
+      "content": "<section class=\"legal__sec\" id=\"aceite\"><h2><span class=\"legal__n\">01</span>Aceitação dos termos</h2><p>Estes Termos de Uso regulam o acesso e a utilização do site da iotnest.ai, mantido pela <strong>Qoobo Tecnologia Ltda.</strong> (CNPJ 47.045.120/0001-79). Ao navegar ou usar qualquer funcionalidade do site, você concorda com estes Termos e com a <a href=\"privacidade.html\">Política de Privacidade</a>. Se não concordar, não utilize o site.</p></section>\n<section class=\"legal__sec\" id=\"sobre\"><h2><span class=\"legal__n\">02</span>O que é este site</h2><p>O site apresenta a plataforma de dados e inteligência artificial da iotnest.ai para injetoras plásticas, seus recursos, cases e canais de contato. O acesso à plataforma de telemetria (área de login) e a contratação dos serviços são regidos por contrato próprio, que prevalece sobre estes Termos no que for específico.</p></section>\n<section class=\"legal__sec\" id=\"uso\"><h2><span class=\"legal__n\">03</span>Uso permitido</h2><p>Você se compromete a utilizar o site de forma lícita e de boa-fé. É proibido:</p>\n<ul><li>usar o site para fins ilegais, fraudulentos ou que violem direitos de terceiros;</li><li>tentar acessar áreas restritas, derrubar, sobrecarregar ou comprometer a segurança do site;</li><li>copiar, extrair em massa (scraping), modificar ou distribuir o conteúdo sem autorização;</li><li>enviar informações falsas, de terceiros sem autorização, ou conteúdo malicioso pelos formulários.</li></ul></section>\n<section class=\"legal__sec\" id=\"propriedade\"><h2><span class=\"legal__n\">04</span>Propriedade intelectual</h2><p>Marcas, logotipos, textos, imagens, vídeos, layout, software e demais conteúdos do site pertencem à Qoobo Tecnologia Ltda. ou são usados sob licença, e são protegidos pela legislação de propriedade intelectual. Nenhum direito é cedido a você, além do uso pessoal e não comercial do site. Marcas de terceiros citadas pertencem aos seus titulares.</p></section>\n<section class=\"legal__sec\" id=\"calculadora\"><h2><span class=\"legal__n\">05</span>Informações do site e calculadora</h2><p>O conteúdo do site tem caráter informativo. A <strong>calculadora de potencial</strong> apresenta <strong>estimativas</strong> baseadas nos valores que você informa e em premissas simplificadas; os resultados não constituem promessa, garantia ou proposta comercial, e os ganhos reais dependem das características de cada operação. Resultados de cases e depoimentos refletem situações específicas e não garantem o mesmo desempenho para outros clientes.</p></section>\n<section class=\"legal__sec\" id=\"contato\"><h2><span class=\"legal__n\">06</span>Contato e comunicações</h2><p>Ao enviar uma solicitação pelos canais do site, você autoriza que entremos em contato para responder ao seu pedido. O envio de um formulário não gera, por si só, qualquer contrato ou obrigação de contratação.</p></section>\n<section class=\"legal__sec\" id=\"terceiros\"><h2><span class=\"legal__n\">07</span>Links e serviços de terceiros</h2><p>O site pode conter links e conteúdos de terceiros (por exemplo, YouTube, WhatsApp e redes sociais). Não controlamos nem respondemos pelo conteúdo, disponibilidade ou práticas desses serviços.</p></section>\n<section class=\"legal__sec\" id=\"disponibilidade\"><h2><span class=\"legal__n\">08</span>Disponibilidade e responsabilidade</h2><p>Empenhamo-nos para manter o site disponível e atualizado, mas não garantimos funcionamento ininterrupto ou livre de erros. Na máxima extensão permitida pela lei, a Qoobo Tecnologia Ltda. não responde por danos indiretos, lucros cessantes ou perdas decorrentes do uso ou da impossibilidade de uso do site ou de decisões tomadas apenas com base em seu conteúdo. Nada nestes Termos exclui responsabilidades que a lei não permita excluir, inclusive as previstas no Código de Defesa do Consumidor, quando aplicável.</p></section>\n<section class=\"legal__sec\" id=\"privacidade\"><h2><span class=\"legal__n\">09</span>Privacidade e proteção de dados</h2><p>O tratamento de dados pessoais segue a <a href=\"privacidade.html\">Política de Privacidade</a> e a <a href=\"cookies.html\">Política de Cookies</a>, em conformidade com a LGPD.</p></section>\n<section class=\"legal__sec\" id=\"alteracoes\"><h2><span class=\"legal__n\">10</span>Alterações dos Termos</h2><p>Podemos alterar estes Termos a qualquer momento. A versão vigente fica publicada nesta página, com a data da última atualização. O uso contínuo do site após a publicação indica a sua concordância com as mudanças.</p></section>\n<section class=\"legal__sec\" id=\"lei\"><h2><span class=\"legal__n\">11</span>Lei aplicável e foro</h2><p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de Jundiaí/SP para dirimir controvérsias, ressalvado o foro do domicílio do consumidor, quando a legislação assim determinar.</p></section>\n<section class=\"legal__sec\" id=\"fale\"><h2><span class=\"legal__n\">12</span>Fale conosco</h2><p>Dúvidas sobre estes Termos: <a href=\"mailto:contato@iotnest.com.br\">contato@iotnest.com.br</a><br>Qoobo Tecnologia Ltda. – CNPJ 47.045.120/0001-79<br>Rua Mario Borin, 500 – Sala 74, Vila Virginia, Jundiaí/SP, CEP 13209-030</p></section>"
+    }
+  ]
+}
