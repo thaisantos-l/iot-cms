@@ -1,0 +1,140 @@
+/* ---------- Carrossel de hardware ---------- */
+.hw-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-7);
+  margin-top: var(--space-6);
+  text-align: left;
+  font-weight: 600;
+}
+
+.hw-facts li {
+  max-width: 360px;
+}
+
+.hw-carousel {
+  margin-top: var(--space-7);
+}
+
+.hw-carousel__stage {
+  position: relative;
+  width: min(100%, 760px);
+  height: clamp(200px, 32vw, 300px);
+  margin-inline: auto;
+}
+
+.hw-carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 52%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+  transition: transform 800ms cubic-bezier(.22,.8,.3,1), opacity 800ms ease;
+  will-change: transform, opacity;
+}
+
+.hw-carousel__slide[data-pos="0"] {
+  cursor: default;
+}
+
+.hw-carousel__slide[data-pos="1"] {
+  transform: translateX(10%) scale(.62);
+  opacity: .35;
+  z-index: 1;
+}
+
+.hw-carousel__slide[data-pos="2"] {
+  transform: translateX(-110%) scale(.62);
+  opacity: .35;
+  z-index: 2;
+}
+
+.hw-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.hw-carousel__dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgb(var(--ink-rgb) / 20%);
+  cursor: pointer;
+  transition: width 200ms ease-out, background-color 200ms;
+}
+
+.hw-carousel__dots button[aria-selected="true"] {
+  width: 24px;
+  background: var(--slate);
+}
+
+@media (width <= 640px) {
+  .hw-carousel__slide {
+    width: 64%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-carousel__slide {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js-motion .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .how {
+    transition: none;
+  }
+
+  .wa-fab {
+    animation: none;
+  }
+
+  .video-modal[open], .video-modal[open]::backdrop {
+    animation: none;
+  }
+
+  .faq__answer {
+    animation: none;
+  }
+
+  .marquee__track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .marquee::before, .marquee::after {
+    display: none;
+  }
+
+  .marquee__track .chip[aria-hidden="true"] {
+    display: none;
+  }
+}

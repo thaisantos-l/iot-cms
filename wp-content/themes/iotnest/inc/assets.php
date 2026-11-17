@@ -60,4 +60,12 @@ function enqueue_assets() {
 			);
 		}
 	}
+	$settings = global_settings();
+	$flags    = array();
+	foreach ( array( 'motion', 'lenis', 'autoplay', 'counters', 'dada_scroll', 'calculator', 'youtube' ) as $flag ) {
+		$flags[ $flag ] = (bool) ( $settings[ $flag ] ?? false );
+	}
+	if ( asset_file( 'app.js' ) ) {
+		wp_add_inline_script( 'iotnest-app', 'window.iotnestConfig=' . wp_json_encode( $flags ) . ';', 'before' );
+	}
 }

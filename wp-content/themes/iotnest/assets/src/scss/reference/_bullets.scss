@@ -1,0 +1,46 @@
+/* ---------- Bullets ---------- */
+
+.bullets {
+  display: grid;
+  gap: var(--space-3);
+  margin-block: var(--space-2);
+}
+
+.bullets--2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-5);
+}
+
+.bullets li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-75);
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.bullets--sm {
+  gap: var(--space-1);
+}
+
+.bullets--sm li {
+  font-size: 12px;
+  line-height: 22.75px;
+  color: var(--ink);
+}
+
+.bullets--sm li::before {
+  top: 8px;
+}
+

@@ -1,0 +1,99 @@
+/* ---------- MESS ---------- */
+
+.mess {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+  min-height: 408px;
+  padding: var(--space-9) clamp(var(--space-5), 5vw, 69px) var(--space-8);
+  background: var(--ink);
+  border-radius: var(--radius-xl);
+  color: var(--contrast);
+}
+
+/* camadas de fundo em P&B e bem escuras; trocam por fade cruzado */
+.mess__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+.mess__bg.is-active {
+  opacity: 1;
+}
+
+.mess__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 520px;
+  margin-top: auto;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.mess__copy.is-swapping {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.mess .lead {
+  color: rgb(var(--contrast-rgb) / 86%);
+}
+
+.mess__title {
+  font-size: var(--h2);
+}
+
+.mess__tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.mess__tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: 76px;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  background: rgb(var(--ink-rgb) / 72%);
+  border: 0;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgb(var(--brand-rgb) / 14%);
+  transition: background-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+
+.mess__tab strong {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.6;
+  color: var(--brand);
+}
+
+.mess__tab span {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(var(--contrast-rgb) / 78%);
+}
+
+.mess__tab:hover {
+  background: rgb(var(--ink-rgb) / 90%);
+  box-shadow: 0 10px 28px rgb(var(--brand-rgb) / 34%);
+}
+
+.mess__tab[aria-selected="true"] {
+  background: var(--ink);
+  box-shadow: 0 8px 22px rgb(var(--brand-rgb) / 26%);
+}
+
+.mess__tab[aria-selected="true"]:hover {
+  box-shadow: 0 10px 28px rgb(var(--brand-rgb) / 40%);
+}
+

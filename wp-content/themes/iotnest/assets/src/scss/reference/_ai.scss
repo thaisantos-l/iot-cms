@@ -1,0 +1,233 @@
+/* ---------- AI cards + Dadá ---------- */
+
+.ai-card__icon-box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 25%);
+}
+
+.ai-card__icon-box img {
+  width: 22px;
+  height: 22px;
+}
+
+.ai-card__icon-box--orange {
+  background: #f59e0b;
+  border: 1.5px solid rgb(var(--contrast-rgb) / 35%);
+}
+
+.ai-card__icon-box--green {
+  background: #22c55e;
+  border: 1.5px solid rgb(var(--contrast-rgb) / 35%);
+}
+
+/* Inteligência artificial: palco com a imagem inteira (sem corte) + seletor */
+.ai-tabs {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: clamp(var(--space-6), 4vw, var(--space-8));
+  align-items: center;
+}
+
+.ai-tabs__stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  padding: var(--space-3);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 6%), 0 18px 44px rgb(var(--ink-rgb) / 12%);
+}
+
+.ai-tabs__stage img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: calc(100% - 2 * var(--space-3));
+  max-height: calc(100% - 2 * var(--space-3));
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.ai-tabs__stage img.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.ai-tabs__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ai-tabs__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.ai-tabs__item:hover {
+  background: rgb(var(--ink-rgb) / 5%);
+}
+
+.ai-tabs__item[aria-selected="true"] {
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgb(var(--ink-rgb) / 10%);
+}
+
+@media (width <= 960px) {
+  .ai-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-card__icon-box--blue {
+  background: var(--brand);
+  border: 1.5px solid rgb(var(--contrast-rgb) / 35%);
+}
+
+.dada-full {
+  padding-block: var(--space-9) 0;
+  background: var(--surface);
+}
+
+.dada-head {
+  margin-bottom: 100px;
+}
+
+/* vídeo em largura total (16:9, inteiro, sem corte); o véu branco some conforme a seção chega */
+.dada-full__frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f3f3f3;
+}
+
+.dada__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dada-full__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--surface);
+  opacity: var(--veil, 0);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.dada-full__bar {
+  position: absolute;
+  z-index: 2;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-6) var(--space-5);
+  background: linear-gradient(to top, rgb(11 18 24 / 30%), transparent);
+}
+
+.dada-full__toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(var(--surface-rgb) / 92%);
+  color: var(--slate);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+  transition: transform 160ms ease-out, background-color 160ms;
+}
+
+.dada-full__toggle:hover {
+  background: var(--surface);
+  transform: scale(1.06);
+}
+
+.dada-full__toggle:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.dada-full__toggle svg {
+  fill: currentcolor;
+}
+
+.dada-full__toggle .ic-play {
+  display: none;
+  margin-left: 2px;
+}
+
+.dada-full__toggle.is-paused .ic-pause {
+  display: none;
+}
+
+.dada-full__toggle.is-paused .ic-play {
+  display: block;
+}
+
+.dada-full__progress {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: rgb(var(--surface-rgb) / 40%);
+  cursor: pointer;
+  position: relative;
+}
+
+.dada-full__progress::before {
+  content: "";
+  position: absolute;
+  inset: -10px 0;
+}
+
+.dada-full__progress i {
+  display: block;
+  width: calc(var(--prog, 0) * 1%);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--surface);
+}
+
+@media (width <= 640px) {
+  .dada-full__bar {
+    padding: var(--space-6) var(--space-4) var(--space-3);
+  }
+
+  .dada-full__toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+

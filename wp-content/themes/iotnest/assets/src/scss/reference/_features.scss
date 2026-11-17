@@ -1,0 +1,60 @@
+/* ---------- Clients marquee ---------- */
+
+.clients {
+  padding-block: var(--space-7) 0;
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee::before, .marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: clamp(40px, 8%, 120px);
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--surface), rgb(var(--surface-rgb) / 0%));
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--surface), rgb(var(--surface-rgb) / 0%));
+}
+
+.marquee__track {
+  display: flex;
+  gap: var(--space-4);
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.chip {
+  flex: none;
+  padding: 13px 25px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--ink-75);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - var(--space-2)));
+  }
+}
+

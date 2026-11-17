@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 require_once __DIR__ . '/inc/setup.php';
 require_once __DIR__ . '/inc/assets.php';
+require_once __DIR__ . '/inc/presentation.php';
 require_once __DIR__ . '/inc/customizer.php';
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
