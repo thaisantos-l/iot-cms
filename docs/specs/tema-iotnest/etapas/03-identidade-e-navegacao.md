@@ -1,6 +1,6 @@
 # Etapa 03 — Identidade, header, footer e navegação
 
-Situação: planejada. Depende da etapa 02. Requisitos: R03, R04, R05, R06, R08, R10. Branch sugerida: `feat/03-identidade-navegacao`.
+Situação: em implementação e comparação visual local em 17/11/2026; ainda sem aceite ou merge. Depende da etapa 02. Requisitos: R03, R04, R05, R06, R08, R10. Branch sugerida: `feat/03-identidade-navegacao`.
 
 ## Entregáveis
 
@@ -24,3 +24,9 @@ Não renderizar duas cópias divergentes do header ou footer. Registrar compara�
 3. `refactor: modularizar navegacao e estilos compartilhados`
 
 Merge com componentes navegáveis e configurações funcionando. Rollback usa o artefato anterior e preserva menus/opções; chaves não reconhecidas pela versão anterior não devem produzir fatal.
+
+## Execução em andamento
+
+Branch criada a partir da `main` integrada da etapa 02 (`5f819e6`). Implementados header/footer, logos originais, Inter local, paleta no HTML inicial, navegação condicional nativa e teclado. Sass separado por componente preserva a cascata da referência; exceções de lint de especificidade documentam essa ordem, sem reordenar regras para satisfazer o lint.
+
+Testes de fundação/campos continuam passando. Em andamento: comparações de componentes nas cinco larguras, teclado, ausência de JS, cores/logos, mídia ausente, zoom e deslocamento do header. Nenhum resultado de T24/CLS desta etapa está aprovado até fechar as evidências.

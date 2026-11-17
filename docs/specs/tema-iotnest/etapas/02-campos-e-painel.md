@@ -1,6 +1,6 @@
 # Etapa 02 — Modelo de conteúdo e painel
 
-Situação: implementada e validada localmente em 17/11/2026; apta ao merge local. Depende da etapa 01. Requisitos: R01, R05, R08, R09. Branch sugerida: `feat/02-campos-nativos`.
+Situação: implementada e validada localmente em 17/11/2026; integrada à `main` pelo merge local `5f819e6`. Depende da etapa 01. Requisitos: R01, R05, R08, R09. Branch sugerida: `feat/02-campos-nativos`.
 
 ## Entregáveis
 
@@ -37,3 +37,5 @@ Merge com contratos de dados estáveis e verificações aprovadas. Migrações d
 Aplicação dos campos no HTML público, identidade final, importação e T24 visual pertencem às próximas etapas. SMTP/cache reais seguem pendentes para execução futura autorizada em PRD.
 
 Verificações T04/T11/T14/T17 do recorte aprovadas: lints, build, testes PHP reais e 5 testes Chromium. Detalhes e reprodução: [evidências da etapa 02](../../../evidencias/etapa-02.md). Sem pendência de aceite local dos campos.
+
+Commit de testes/evidências: `c8bab4a`. Artefato: `artifacts/iotnest-c8bab4a24884dd3c7a49b7be18ff7199994e3f7c.zip`, com checksum.
