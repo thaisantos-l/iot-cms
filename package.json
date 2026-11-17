@@ -1,0 +1,31 @@
+{
+  "name": "iotnest-wordpress",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.17.x",
+    "npm": "10.9.x"
+  },
+  "scripts": {
+    "dev": "node scripts/build.mjs --watch",
+    "build": "node scripts/build.mjs",
+    "package": "node scripts/package.mjs",
+    "lint": "eslint . && stylelint 'wp-content/{themes/iotnest,plugins/iotnest-core}/assets/src/scss/**/*.scss'",
+    "test:js": "node --test tests/js/*.test.mjs",
+    "test:e2e": "playwright test",
+    "reference:check": "node scripts/reference.mjs check",
+    "test:integration": "node scripts/test-integration.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "fflate": "0.8.3",
+    "globals": "17.14.0",
+    "sass": "1.108.2",
+    "stylelint": "16.26.1",
+    "stylelint-config-standard-scss": "14.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 # Especificação do tema WordPress iotnest
 
-Data: 17 de novembro de 2026. Situação: especificação preparada para revisão e implementação em etapas. Nenhuma etapa de implementação está concluída por este documento.
+Data: 17 de novembro de 2026. Situação: etapa 01 implementada e validada localmente (T01/T22); etapas 02–08 pendentes. Evidências e limites em [etapa 01](etapas/01-fundacao.md) e [relatório de validação](../../evidencias/etapa-01.md).
 
 Converter o site estático em um tema WordPress clássico personalizado, preservando seu desenho e suas funções, com conteúdo administrável e renderização em PHP. O destino é a instalação em `cms`; a referência visual e funcional é o diretório `iotnest-site`, incluindo suas alterações locais atuais.
 

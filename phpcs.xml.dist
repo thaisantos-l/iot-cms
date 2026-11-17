@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="iotnest">
+  <description>Padrões WordPress limitados ao código próprio.</description>
+  <file>wp-content/themes/iotnest</file>
+  <file>wp-content/plugins/iotnest-core</file>
+  <arg name="extensions" value="php"/>
+  <arg name="colors"/>
+  <rule ref="WordPress"/>
+  <config name="minimum_supported_wp_version" value="7.1"/>
+  <rule ref="WordPress.WP.I18n"><properties><property name="text_domain" type="array"><element value="iotnest"/><element value="iotnest-core"/></property></properties></rule>
+  <rule ref="WordPress.Files.FileName"><properties><property name="strict_class_file_names" value="false"/></properties></rule>
+</ruleset>
