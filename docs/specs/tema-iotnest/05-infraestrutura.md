@@ -1,6 +1,6 @@
 # Contrato com infraestrutura — WordPress convencional
 
-Este documento descreve a configuração a executar nas etapas de implementação. Nenhum workflow ou acesso a servidor foi configurado nesta entrega documental.
+Contrato atualizado em 17/11/2026: haverá **somente produção (PRD)**, conforme confirmação do responsável. Runtime: PHP 8.2 e WordPress 7.1. A execução atual prepara código, CI e pacote local; não publica em PRD. A instalação descartável local serve para QA e não equivale ao ambiente real de produção.
 
 ## Arquitetura para o time
 
@@ -22,13 +22,12 @@ Os nomes são propostas para arquivos em `.github/workflows/`. Desenvolver os sc
 | Workflow | Gatilho proposto | Responsabilidade |
 | --- | --- | --- |
 | `ci.yml` | PR e push na `main` | Instalar por lockfiles, lint PHP/JS/Sass, testes pertinentes, compilar e verificar pacote. PR não recebe credenciais de produção. |
-| `deploy-staging.yml` | Commit integrado na `main`, após CI aprovado para o mesmo SHA | Disponibilizar artefato identificado pelo commit, transferir por SSH, atualizar homologação e executar smoke checks. |
-| `deploy-production.yml` | Release/tag de commit já aprovado, ou execução manual de promoção | Promover o mesmo artefato homologado, verificar dependências/migrações e saúde, registrar versão publicada. |
+| `deploy-production.yml` | Release/tag de commit já aprovado, ou execução manual de promoção | Promover o mesmo artefato aprovado no QA local e CI, verificar dependências/migrações e saúde, registrar versão publicada. |
 | `rollback.yml` | Execução manual com versão anterior conhecida | Reaplicar artefato compatível e validar saúde, sem substituir banco ou uploads. Pode ser também um modo explícito do workflow de deploy. |
 
-Durante a conversão, `main` atualiza homologação. Produção começa após o aceite da etapa 08. Depois, o time pode optar por produção automática a cada merge aprovado, mantendo a dependência dos checks e o controle de versões. Uma execução de PR ou código não confiável não deve disparar promoção com secrets.
+Durante esta execução, os merges são locais e não disparam deploy. A publicação inicial em produção depende de instrução adicional e da avaliação das pendências de aceite. Sem homologação, recebimento SMTP e prazo de atualização sob o cache real terão de ser medidos em PRD numa execução futura autorizada. Não marcar esses testes como aprovados por equivalência com QA local. Uma execução de PR ou código não confiável não deve disparar promoção com secrets.
 
-Configurar ambientes separados, secrets por destino, restrição de branches/tags e histórico de deploy. A disponibilidade de proteções depende do plano e da visibilidade do repositório; confirmar o que a conta suporta. [Ambientes do GitHub Actions](https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments), [disponibilidade de proteções](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
+Configurar o ambiente protegido `production`, secrets restritos ao destino, restrição de branches/tags e histórico de deploy. A disponibilidade de proteções depende do plano e da visibilidade do repositório; confirmar o que a conta suporta. [Ambientes do GitHub Actions](https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments), [disponibilidade de proteções](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
 
 Serializar deploys por ambiente, sem cancelar uma transferência/publicação já em andamento. CI de commits ultrapassados pode ser cancelado. Também impedir concorrência entre deploy e rollback. [Controle de concorrência](https://docs.github.com/en/actions/concepts/workflows-and-actions/concurrency).
 
@@ -42,7 +41,7 @@ Transferir primeiro para uma área de release e depois fazer troca coordenada, s
 
 Validar home, página interna, arquivo de cases/blog, HTTP 404 e carregamento de assets após a troca. Falha de saúde deve interromper a promoção ou retornar ao último release compatível. Registrar resultado no workflow.
 
-Não executar rsync destrutivo sobre toda a raiz WordPress ou `wp-content`. O deploy não transporta banco, `wp-config.php`, uploads, caches, credenciais, SMTP, `node_modules` ou dependências de desenvolvimento. Core WordPress e plugins de terceiros têm processo próprio de atualização, testado em homologação.
+Não executar rsync destrutivo sobre toda a raiz WordPress ou `wp-content`. O deploy não transporta banco, `wp-config.php`, uploads, caches, credenciais, SMTP, `node_modules` ou dependências de desenvolvimento. Core WordPress e plugins de terceiros têm processo próprio de atualização, testado primeiro em cópia descartável, com backup e retorno preparados para produção.
 
 Git preserva histórico de código; **não substitui backup de banco e mídia**. Infra define frequência, retenção e teste de restauração. Rollback de código não implica restaurar um banco antigo.
 
@@ -64,7 +63,7 @@ Configurar execução de tarefas WordPress independente de visitas. Só desabili
 
 O prazo de 10 segundos adotado nesta spec começa na publicação efetivamente concluída. Se o negócio exigir também 10 segundos contados do horário previsto de um post futuro, infra deve oferecer e medir um executor compatível; cron de um minuto pode atrasar mais do que isso. Registrar fuso horário e impedir execuções sobrepostas.
 
-Para o formulário, liberar conectividade para o provedor SMTP, configurar credenciais e remetente pelo plugin definido, preparar autenticação do domínio de e-mail e verificar recebimento real em homologação. Preservar configuração e credenciais entre releases. Usar destinatário de teste em homologação.
+Para o formulário, liberar conectividade para o provedor SMTP, configurar credenciais e remetente pelo plugin definido, preparar autenticação do domínio de e-mail e verificar recebimento real em produção numa execução futura autorizada. Preservar configuração e credenciais entre releases. Definir destinatário de teste autorizado antes dessa verificação; provedor/plugin e destinatário ainda não foram informados.
 
 ## Responsabilidades e decisões pendentes
 
@@ -77,6 +76,6 @@ Para o formulário, liberar conectividade para o provedor SMTP, configurar crede
 | E-mail | Handler, validação e mensagens. | Plugin/provedor, credenciais, rede, remetente e domínio. |
 | Backups/atualizações | Compatibilidade de schema e instruções de migração. | Banco/mídia, restauração, core/plugins de terceiros e patches do ambiente. |
 
-Antes das etapas dependentes, preencher no runbook: domínios e paths de homologação/produção, versões suportadas de PHP/WordPress, plugin SMTP, cache/proxy/CDN existentes, política de promoção e retenção. Definir também o gerenciador de consentimento antes de habilitar fornecedores que dependam dele. Esses dados não impedem escrever a spec ou implementar os contratos independentes.
+Antes das etapas dependentes, preencher no runbook: domínio e paths de produção, versões suportadas de PHP/WordPress, plugin SMTP, cache/proxy/CDN existentes, política de promoção e retenção. Definir também o gerenciador de consentimento antes de habilitar fornecedores que dependam dele. Esses dados não impedem escrever a spec ou implementar os contratos independentes.
 
 O time deve confirmar a conectividade do runner com o servidor. Se o servidor não aceitar conexão do runner hospedado pelo GitHub, usar acesso de rede controlado ou runner próprio em ambiente separado e com permissões limitadas, conforme a infraestrutura disponível.
