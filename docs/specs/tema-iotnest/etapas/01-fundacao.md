@@ -1,6 +1,6 @@
 # Etapa 01 — Fundação do tema, plugin e build
 
-Situação: implementada e validada localmente em 17/11/2026, pronta para merge local. Depende da especificação. Requisitos: R03, R04 e base para R01/R10. Branch: `feat/01-fundacao-wordpress`.
+Situação: implementada, validada e integrada localmente à `main` em 17/11/2026 pelo merge `7bb858b`. Depende da especificação. Requisitos: R03, R04 e base para R01/R10. Branch: `feat/01-fundacao-wordpress`.
 
 ## Entregáveis
 

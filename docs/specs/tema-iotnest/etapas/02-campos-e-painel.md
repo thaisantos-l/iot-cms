@@ -1,6 +1,6 @@
 # Etapa 02 — Modelo de conteúdo e painel
 
-Situação: planejada. Depende da etapa 01. Requisitos: R01, R05, R08, R09. Branch sugerida: `feat/02-campos-nativos`.
+Situação: implementada e validada localmente em 17/11/2026; apta ao merge local. Depende da etapa 01. Requisitos: R01, R05, R08, R09. Branch sugerida: `feat/02-campos-nativos`.
 
 ## Entregáveis
 
@@ -24,3 +24,16 @@ As regras de disponibilidade devem ter testes úteis para título vazio, seção
 3. `test: validar revisoes permissoes e regras de conteudo`
 
 Merge com contratos de dados estáveis e verificações aprovadas. Migrações devem ser aditivas; reverter código não apaga metadados. Não criar posts/cases de demonstração no banco de entrega.
+
+## Execução em 17/11/2026
+
+- `bcdecb4`: tipos, taxonomia, 20 seções, ordem, case e schemas explícitos com revisões e REST protegido.
+- `65ee982`: meta boxes, repetidores com IDs persistentes e teclado, biblioteca de mídia, configurações operacionais, Customizer, validação íntegra, revisão/preview e autosave de campos.
+- `1ae1cb4`: contrato atualizado: PHP 8.2/WordPress 7.1, somente PRD; QA local isolado. Sem deploy autorizado.
+- Home usa meta boxes e template institucional explícito; artigos, cases e páginas comuns mantêm editor nativo. Ativação não importa nem altera conteúdo.
+- Limites: 50 itens por repetidor como regra, FAQ 100, CTAs hero 4, colunas/células 6, configurações sociais 10; indicados no painel. Payload de até 1 MiB, com nonce, capacidade, marcador e validação de todas as seções antes de gravar. Falhas preservam dados anteriores.
+- Preview/autosave usa revisão do autor; trata arrays no filtro nativo e o caso em que só metadados mudam, inclusive previews consecutivos. Não altera core nem a página pública.
+
+Aplicação dos campos no HTML público, identidade final, importação e T24 visual pertencem às próximas etapas. SMTP/cache reais seguem pendentes para execução futura autorizada em PRD.
+
+Verificações T04/T11/T14/T17 do recorte aprovadas: lints, build, testes PHP reais e 5 testes Chromium. Detalhes e reprodução: [evidências da etapa 02](../../../evidencias/etapa-02.md). Sem pendência de aceite local dos campos.

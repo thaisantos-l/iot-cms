@@ -1,13 +1,13 @@
 # Etapas, commits e merges
 
-A etapa **01 está implementada e validada localmente** em 17/11/2026; as etapas 02–08 permanecem planejadas. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra os próprios commits e evidências; nenhuma publicação remota foi feita.
+A etapa **01 está implementada e validada localmente** em 17/11/2026; a etapa 02 está implementada e validada localmente e 03–08 permanecem planejadas. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra os próprios commits e evidências; nenhuma publicação remota foi feita.
 
 ## Sequência de PRs
 
 | Etapa | Documento | Depende de | Resultado revisável |
 | --- | --- | --- | --- |
 | 01 | [Fundação](01-fundacao.md) | Spec | Validada: tema/plugin instaláveis, T01/T22 e build reproduzível. |
-| 02 | [Campos e painel](02-campos-e-painel.md) | 01 | Dados editáveis, seguros e versionados por revisões. |
+| 02 | [Campos e painel](02-campos-e-painel.md) | 01 | Validada: campos, revisões, preview, autosave e permissões. |
 | 03 | [Identidade e navegação](03-identidade-e-navegacao.md) | 02 | Header/footer, menus e identidade configuráveis. |
 | 04 | [Home e importação](04-home-e-importacao.md) | 03 | Conteúdo institucional em PHP, com importação repetível. |
 | 05 | [Blog, cases e páginas](05-blog-cases-e-paginas.md) | 04 | Publicações e rotas completas, respeitando estados. |
@@ -25,7 +25,7 @@ Os IDs R01–R14 estão na [spec principal](../README.md). Os cenários T01–T2
 4. Abrir PR com problema/resultado, requisitos atendidos, verificações, evidências visuais quando cabíveis e efeitos nos dados.
 5. Integrar após passar nos checks aplicáveis; homologar o artefato e só então iniciar a etapa dependente.
 
-As primeiras etapas não compõem um site completo. Durante a conversão, merges podem atualizar **homologação**; a publicação inicial em produção ocorre após a etapa 08. Esse destino precisa ser refletido no workflow para evitar publicar um tema parcial a cada merge.
+As primeiras etapas não compõem um site completo. Foi confirmado que haverá **somente PRD**. Durante esta execução, merges são locais e o QA usa instalação descartável. Não há deploy autorizado; a publicação inicial e os testes reais de SMTP/cache ficam para uma execução futura autorizada. Nenhum merge de etapa parcial deve publicar automaticamente.
 
 Após a primeira entrega, o time pode manter promoção por release ou adotar deploy em produção a cada merge aprovado na `main`. A política escolhida deve ser documentada, com o mesmo artefato validado e rollback disponível. Os detalhes estão no [contrato com infraestrutura](../05-infraestrutura.md).
 
