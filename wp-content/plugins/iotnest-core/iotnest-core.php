@@ -3,7 +3,7 @@
  * Plugin Name: iotnest Core
  * Description: Conteúdo, campos nativos e funcionalidades do iotnest, independentes do tema.
  * Version: 0.1.0
- * Requires at least: 6.4
+ * Requires at least: 7.1
  * Requires PHP: 8.2
  * Text Domain: iotnest-core
  * License: GPL-2.0-or-later

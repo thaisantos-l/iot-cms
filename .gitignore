@@ -3,6 +3,26 @@
 !/.gitignore
 !/wp-content/
 !/docs/
+!/scripts/
+!/tests/
+!/.github/
+!/package.json
+!/package-lock.json
+!/composer.json
+!/composer.lock
+!/.nvmrc
+!/eslint.config.mjs
+!/stylelint.config.mjs
+!/phpcs.xml.dist
+!/playwright.config.mjs
+
+# Build e artefatos são reproduzidos pelos lockfiles, não pelo servidor.
+/wp-content/themes/iotnest/assets/dist/
+/wp-content/plugins/iotnest-core/assets/dist/
+/vendor/
+/artifacts/
+/test-results/
+/playwright-report/
 
 # Midias enviadas pelo WordPress.
 /wp-content/uploads/

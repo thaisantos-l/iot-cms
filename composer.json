@@ -1,0 +1,16 @@
+{
+  "name": "iotnest/wordpress",
+  "description": "Ferramentas de desenvolvimento do tema e plugin iotnest",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "require": { "php": ">=8.2" },
+  "require-dev": { "wp-coding-standards/wpcs": "^3.2" },
+  "config": {
+    "allow-plugins": { "dealerdirect/phpcodesniffer-composer-installer": true },
+    "sort-packages": true
+  },
+  "scripts": {
+    "lint": ["@php scripts/php-lint.php", "@php vendor/bin/phpcs"],
+    "test": "@php tests/php/foundation.php"
+  }
+}
