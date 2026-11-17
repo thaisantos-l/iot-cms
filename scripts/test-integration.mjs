@@ -77,6 +77,8 @@ $table_prefix = 'iotnest_qa_';
 if (!defined('ABSPATH')) { define('ABSPATH', __DIR__ . '/'); }
 require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
   await writeFile(path.join(wp, '.iotnest-test'), 'Disposable integration environment.\n');
+  await mkdir(path.join(wp, 'wp-content/mu-plugins'), { recursive: true });
+  await cp(resolveRoot('tests/php/offline-updates.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-updates.php'));
   const env = { ...process.env, PHP_BIN: php, IOTNEST_TEST_WP_ROOT: wp, IOTNEST_TEST_URL: url,
     IOTNEST_TEST_ADMIN_PASSWORD: randomBytes(24).toString('hex'), IOTNEST_TEST_DB_PASSWORD: password, IOTNEST_TEST_DB_PORT: dbPort };
   // A referência é servida diretamente em modo somente leitura; nunca copiada para o release.
