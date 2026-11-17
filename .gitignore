@@ -1,7 +1,8 @@
-# Versionar somente wp-content e este arquivo de regras.
+# Versionar wp-content, documentação e este arquivo de regras.
 /*
 !/.gitignore
 !/wp-content/
+!/docs/
 
 # Midias enviadas pelo WordPress.
 /wp-content/uploads/
