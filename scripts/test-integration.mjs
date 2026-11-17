@@ -118,7 +118,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
     try { await fetch(url); break; } catch { await wait(100); }
   }
   const code = await new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [resolveRoot('node_modules/@playwright/test/cli.js'), 'test'], { cwd: root, env, stdio: 'inherit' });
+    const child = spawn(process.execPath, [resolveRoot('node_modules/@playwright/test/cli.js'), 'test', ...process.argv.slice(3)], { cwd: root, env, stdio: 'inherit' });
     child.once('error', reject);
     child.once('exit', resolve);
   });

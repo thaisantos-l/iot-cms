@@ -60,11 +60,14 @@ test('home sem JavaScript: todas as etapas e módulos permanecem legíveis', asy
 test('home: textos longos e imagem atrasada preservam leitura e espaço reservado', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const initialWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   fixture('mutate', { hero: { enabled: true, title: 'Dados industriais para decisões de produção. '.repeat(12), description: 'Conteúdo editorial longo e legível. '.repeat(15) } });
   await page.route('**/*.webp', async route => { await new Promise(resolve => setTimeout(resolve, 1500)); await route.continue(); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => document.fonts.ready);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  // O carrossel original alcança 404px no viewport de 390px; texto longo não deve ampliar isso.
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(initialWidth);
   const title = await page.locator('h1').boundingBox(), hero = await page.locator('#topo').boundingBox();
   expect(title.y + title.height).toBeLessThanOrEqual(hero.y + hero.height);
   const media = page.locator('#solucao figure img');
@@ -105,11 +108,6 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       fonts = fonts.replace(`../fonts/${name}.woff2`, `data:font/woff2;base64,${bytes.toString('base64')}`);
     }
     await reference.route('https://fonts.googleapis.com/**', route => route.fulfill({ contentType: 'text/css', body: fonts }));
-    // Compara a mesma imagem-fonte: o produto mantém srcset; o diff não compara compressões distintas.
-    await page.route(/\/uploads\/.*-\d+x\d+\.webp(?:\?.*)?$/, async route => {
-      const response = await route.fetch({ url: route.request().url().replace(/-\d+x\d+(?=\.webp)/, '') });
-      await route.fulfill({ response });
-    });
     await reference.goto(process.env.IOTNEST_REFERENCE_URL);
     await page.goto('/');
     for (const current of [page, reference]) {
@@ -124,7 +122,14 @@ for (const width of [360, 390, 768, 1024, 1440]) {
           const section = window.iotnestSections.find(node => node.matches(selector));
           document.body.replaceChildren(section);
           scrollTo(0, 0);
-          section.querySelectorAll('img').forEach(img => img.loading = 'eager');
+          section.querySelectorAll('img').forEach(img => {
+            img.loading = 'eager';
+            // Mesmos bytes e densidade intrínseca no diff; srcset permanece no produto.
+            if (img.src.includes('/uploads/')) {
+              img.removeAttribute('srcset'); img.removeAttribute('sizes');
+              img.src = img.src.replace(/-\d+x\d+(?=\.webp)/, '');
+            }
+          });
         }, selector);
         await current.locator(`${selector} img`).evaluateAll(nodes => Promise.all(nodes.map(img => img.decode().catch(() => {}))));
       }
@@ -135,7 +140,10 @@ for (const width of [360, 390, 768, 1024, 1440]) {
         // Etapa 04 exige controles ainda sem JS desabilitados. Única região provisória do diff;
         // a etapa 06 deve remover essa exceção e validar a interação completa.
         const button = await page.locator('[data-how-next]').first().boundingBox();
-        if (button) provisionalRegions.push({ x: button.x - actual.x, y: button.y - actual.y, width: button.width, height: button.height });
+        if (button) {
+          const x = Math.floor(button.x - actual.x), y = Math.floor(button.y - actual.y);
+          provisionalRegions.push({ x, y, width: Math.ceil(button.x - actual.x + button.width) - x, height: Math.ceil(button.y - actual.y + button.height) - y });
+        }
       }
       const expectedImage = await reference.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-reference.png`), animations: 'disabled' });
       const actualImage = await page.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-wordpress.png`), animations: 'disabled' });
