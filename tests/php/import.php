@@ -56,7 +56,7 @@ try {
     $about = $original['_iotnest_home_about']; $about['number'] = 0;
     update_post_meta( $home, '_iotnest_home_about', $about );
     ob_start(); get_template_part( 'template-parts/sections/about', null, Iotnest\Theme\home_sections( $home )['about'] ); $html = ob_get_clean();
-    iotnest_check( str_contains( $html, 'data-count="0">0</span>' ), 'zero remains a valid visible numeric indicator' );
+    iotnest_check( str_contains( $html, 'data-count="0"' ) && str_contains( $html, '<span data-count-value>0</span>' ), 'zero remains a valid visible numeric indicator' );
     update_post_meta( $home, '_iotnest_home_about', $original['_iotnest_home_about'] );
     $solution = $original['_iotnest_home_solution'];
     $solution['image'] = 999999; $solution['description'] = ''; $solution['bullets'] = array(); $solution['cta'] = array( 'label' => 'Incomplete', 'kind' => 'url', 'url' => '' );

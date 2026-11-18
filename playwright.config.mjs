@@ -8,7 +8,8 @@ export default defineConfig({
   reporter: 'list',
   use: {
     baseURL: process.env.IOTNEST_TEST_URL,
-    browserName: 'chromium',
+    browserName: process.env.IOTNEST_BROWSER || 'chromium',
+    channel: process.env.IOTNEST_BROWSER_CHANNEL || undefined,
     headless: true,
     trace: 'retain-on-failure',
   },

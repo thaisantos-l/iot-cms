@@ -67,8 +67,9 @@ test('logos extremos, arquivo removido, header estável e escala 200%', async ({
     expect(await page.locator('.site-header').boundingBox()).toEqual(original);
     for (const image of await page.locator('.custom-logo').all()) {
       const box = await image.boundingBox();
-      expect(box.width).toBe(188);
-      expect(box.height).toBe(47);
+      // Bounding boxes em camadas transformadas podem variar < 0,001px por precisão float.
+      expect(box.width).toBeCloseTo(188, 2);
+      expect(box.height).toBeCloseTo(47, 2);
     }
   }
   fixture('mutate', { logo_missing: true });

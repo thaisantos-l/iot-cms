@@ -20,7 +20,7 @@ if ( $args['images'] ) :
 	<div class="hw-carousel" data-hw aria-roledescription="carrossel" aria-label="<?php esc_attr_e( 'Hardware iotnest.ai', 'iotnest' ); ?>"><div class="hw-carousel__stage">
 	<?php
 	foreach ( $args['images'] as $index => $item ) {
-		media_image( $item['image'], 'hw-carousel__slide', 'full', 0 === $index, array( 'data-pos' => $index % 3 ) ); }
+		media_image( $item['image'], 'hw-carousel__slide', 'full', 0 === $index, array( 'data-pos' => 0 === $index ? 0 : ( 1 === $index ? 1 : ( count( $args['images'] ) - 1 === $index ? 2 : 3 ) ) ) ); }
 	?>
 </div>
 	<?php

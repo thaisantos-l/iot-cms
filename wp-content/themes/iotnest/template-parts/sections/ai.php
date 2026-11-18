@@ -14,13 +14,24 @@ defined( 'ABSPATH' ) || exit;
 <div class="ai-tabs" data-ai-tabs><div class="ai-tabs__stage">
 <?php
 foreach ( $args['items'] as $index => $item ) {
-	media_image( $item['image'], 0 === $index ? 'is-on' : '', 'full', 0 === $index ); }
+	media_image(
+		$item['image'],
+		0 === $index ? 'is-on' : '',
+		'full',
+		0 === $index,
+		array(
+			'id'              => 'ai-panel-' . $item['id'],
+			'role'            => 'tabpanel',
+			'aria-labelledby' => 'ai-tab-' . $item['id'],
+			'aria-hidden'     => 0 === $index ? 'false' : 'true',
+		)
+	); }
 ?>
 </div><div class="ai-tabs__list" role="tablist" aria-label="<?php echo esc_attr( wp_strip_all_tags( $args['title'] ) ); ?>">
 <?php
 foreach ( $args['items'] as $index => $item ) :
 	?>
-	<button class="ai-tabs__item" role="tab" type="button" aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>" disabled>
+	<button id="ai-tab-<?php echo esc_attr( $item['id'] ); ?>" aria-controls="ai-panel-<?php echo esc_attr( $item['id'] ); ?>" class="ai-tabs__item" role="tab" type="button" aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>" disabled>
 	<?php
 	if ( ! empty( $item['icon'] ) ) :
 		?>

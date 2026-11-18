@@ -119,12 +119,12 @@ function background_video( $data, $classes, $hero = false ) {
 		media_image( $data['poster'] ?? 0, $classes, 'full', $hero );
 		return;
 	}
-	echo '<video class="' . esc_attr( $classes ) . '" muted loop playsinline preload="' . ( $hero ? 'auto' : 'metadata' ) . '" aria-hidden="true" tabindex="-1" disablepictureinpicture';
+	echo '<video class="' . esc_attr( $classes ) . '" playsinline preload="' . ( $hero ? 'auto' : 'metadata' ) . '" data-autoplay="' . ( $hero || ! empty( $data['autoplay'] ) ? 'true' : 'false' ) . '"' . ( $hero || ! empty( $data['muted'] ) ? ' muted' : '' ) . ( $hero || ! empty( $data['loop'] ) ? ' loop' : '' ) . ( $hero ? ' aria-hidden="true" tabindex="-1"' : ' controls' ) . ' disablepictureinpicture';
 	$poster = media_url( $data['poster'] ?? 0 );
 	if ( $poster ) {
 		echo ' poster="' . esc_url( $poster ) . '"';
 	}
-	// Etapa 06 habilita autoplay respeitando flags, visibilidade e movimento reduzido.
+	// Autoplay é progressivo e respeita flags, visibilidade e redução de movimento.
 	echo '>';
 	foreach ( array( $video['file'] ?? 0, $video['alternate'] ?? 0 ) as $id ) {
 		$url = media_url( $id, 'video' );

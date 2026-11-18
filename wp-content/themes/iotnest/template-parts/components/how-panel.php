@@ -12,7 +12,7 @@ $item  = $args['item'];
 $index = $args['index'];
 $total = $args['total'];
 ?>
-<div class="how__panel<?php echo ! empty( $args['fallback'] ) ? ' how__panel--fallback' : ''; ?>" data-step-item="<?php echo esc_attr( $item['id'] ); ?>"<?php echo $args['inactive'] ? ' hidden' : ''; ?>>
+<div class="how__panel<?php echo ! empty( $args['fallback'] ) ? ' how__panel--fallback' : ''; ?>" id="<?php echo ! empty( $args['fallback'] ) ? 'fallback-' : ''; ?>how-panel-<?php echo esc_attr( $item['id'] ); ?>" role="tabpanel" aria-labelledby="how-tab-<?php echo esc_attr( $item['id'] ); ?>" data-step-item="<?php echo esc_attr( $item['id'] ); ?>"<?php echo $args['inactive'] ? ' hidden' : ''; ?>>
 <div class="how__copy"><div class="how__head">
 	<?php
 	if ( ! empty( $item['icon'] ) ) :

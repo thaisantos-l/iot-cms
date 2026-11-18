@@ -125,7 +125,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
     await page.goto('/');
     for (const current of [page, reference]) {
       await current.evaluate(() => document.fonts.ready);
-      await current.evaluate(() => { window.iotnestSections = [...document.querySelector('main').children].filter(node => node.matches('section')); });
+      await current.evaluate(() => { window.iotnestMessHeight = document.querySelector('.mess__copy')?.style.minHeight; window.iotnestSections = [...document.querySelector('main').children].filter(node => node.matches('section')); });
     }
     const report = [];
     const selectors = ['#topo', '.clients', '#solucao', '#hardware', '#ia', '.dada-full', '#apontamento', '#energia', '#relatorios', '#mess', '#calculadora', '#comparativo', '#como-funciona', '#videos', '#sobre', '#faq'];
@@ -134,6 +134,8 @@ for (const width of [360, 390, 768, 1024, 1440]) {
         await current.evaluate(selector => {
           const section = window.iotnestSections.find(node => node.matches(selector));
           document.body.replaceChildren(section);
+          // Screenshots de seções altas disparam resize com MES desconectado; restaura a medição real da referência.
+          if (selector === '#mess' && window.iotnestMessHeight) section.querySelector('.mess__copy').style.minHeight = window.iotnestMessHeight;
           scrollTo(0, 0);
           section.querySelectorAll('img').forEach(img => {
             img.loading = 'eager';
@@ -164,15 +166,6 @@ for (const width of [360, 390, 768, 1024, 1440]) {
           width: actualMedia.rect.width, height: actualMedia.rect.height, radius: 16 });
         await writeFile(testInfo.outputPath('how-geometry.json'), JSON.stringify({reference: expectedMedia, wordpress: actualMedia}, null, 2));
       }
-      if (selector === '#como-funciona') {
-        // Etapa 04 exige controles ainda sem JS desabilitados. Única região provisória do diff;
-        // a etapa 06 deve remover essa exceção e validar a interação completa.
-        const button = await page.locator('[data-how-next]').first().boundingBox();
-        if (button) {
-          const x = Math.floor(button.x - actual.x), y = Math.floor(button.y - actual.y);
-          provisionalRegions.push({ x, y, width: Math.ceil(button.x - actual.x + button.width) - x, height: Math.ceil(button.y - actual.y + button.height) - y });
-        }
-      }
       const expectedImage = await reference.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-reference.png`), animations: 'disabled' });
       const actualImage = await page.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-wordpress.png`), animations: 'disabled' });
       const pixels = await comparePixels(page, expectedImage, actualImage, provisionalRegions, rasterEdges);
@@ -181,7 +174,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       const record = { selector, expected, actual, heightDifference: actual.height - expected.height, widthDifference: actual.width - expected.width, pixels };
       report.push(record);
     }
-    await writeFile(testInfo.outputPath('composition.json'), JSON.stringify({ width, report, provisional: ['controls/interactions: stage 06', 'contact form: stage 07', 'legal pages remain drafts'] }, null, 2));
+    await writeFile(testInfo.outputPath('composition.json'), JSON.stringify({ width, report, provisional: ['contact form: stage 07', 'legal pages remain drafts'] }, null, 2));
     await reference.close();
     expect(report.filter(row => Math.abs(row.heightDifference) > 1 || Math.abs(row.widthDifference) > 1)).toEqual([]);
     expect(report.filter(row => row.pixels.outsideProvisional !== 0)).toEqual([]);

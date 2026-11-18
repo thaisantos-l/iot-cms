@@ -1,6 +1,6 @@
 # Etapa 06 — Interações e estabilidade visual
 
-Situação: planejada. Depende da etapa 05. Requisitos: R03, R04, R06. Branch sugerida: `feat/06-interacoes-componentes`.
+Situação: implementação verificada localmente, com duas decisões R14 pendentes; checkpoint na branch `feat/06-interacoes-componentes`, a partir da etapa 05 integrada em `f267f3d`. Requisitos: R03, R04, R06. Branch sugerida: `feat/06-interacoes-componentes`.
 
 ## Entregáveis
 
@@ -24,3 +24,12 @@ Medir carregamento e interações com fontes/mídia lentas conforme o [protocolo
 3. `perf: estabilizar paineis midias e resultados`
 
 Merge após evidências funcionais/visuais pertinentes. Rollback deve manter o HTML renderizado funcional; nenhuma interação depende de campos antigos hardcoded para recuperar conteúdo.
+
+
+## Execução local em 18/11/2026
+
+Módulos de tabs/MES/etapas, carrosséis, calculadora, contadores, mídia local, reveal, parallax e rolagem Dadá conectados ao HTML do CMS. MES reserva todos os painéis via CSS grid sem trocar textos para medir. Mantidos intervalos de 2s/4s, crossfade de vídeo de 1,5s e easing da referência. Modal compartilhado preparado para adapters da etapa 07. Commits `f3ef049`, `e52a016`, `0da6b19` e `1b679ce`. Checkpoint local dos componentes verificados para continuidade independente; não é aceite das duas alterações visuais pendentes.
+
+Verificações executadas: 7 testes Node, lint/build/PHP/WPCS, bateria PHP descartável e 61/62 testes de navegador, com o único teste de precisão geométrica corrigido e aprovado em repetição focada no mesmo artefato. T24 inclui 80 componentes da home e 80 estados de interação. CLS da home: 12 amostras, todas 0. [Evidências e limites](../../../evidencias/etapa-06.md).
+
+Conflitos R14 apresentados ao responsável, ainda sem resposta: (1) o erro da calculadora original desloca o botão em 62px a 390px; proposta de erro abaixo do botão, substituindo a nota somente durante o erro; (2) painéis de “Como funciona” variam de altura, e reservar o maior acrescenta 7,59375px à altura inicial a 360px. Os dois comportamentos originais permanecem até a decisão. Protótipos locais: `artifacts/revisao-estabilidade/`; não houve escrita no front. A exigência de aprovação vem de R14 e do contrato de interações na arquitetura; não é exigência de ferramenta ou skill.

@@ -13,7 +13,8 @@ defined( 'ABSPATH' ) || exit;
 $labels   = array_column( $args['labels'], 'text', 'key' );
 $messages = array_column( $args['messages'] ?? array(), 'text', 'key' );
 ?>
-<section class="calc" id="calculadora" data-calc><div class="container calc__head"><div class="calc__intro">
+<section class="calc" id="calculadora" data-calc>
+<script type="application/json" data-calc-messages><?php echo wp_json_encode( $messages, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON com escape de caracteres HTML. ?></script><div class="container calc__head"><div class="calc__intro">
 <?php
 text_element( 'p', $args['eyebrow'] ?? '', 'eyebrow eyebrow--light' );
 text_element( 'h2', $args['title'] );
