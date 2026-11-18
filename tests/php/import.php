@@ -17,7 +17,7 @@ try {
     $original = array();
     foreach ( Iotnest\Core\meta_schemas( 'page' ) as $key => $field ) $original[$key] = get_post_meta( $home, $key, true );
     $view = Iotnest\Theme\home_sections( $home );
-    iotnest_check( count( $view ) === 18 && ! isset( $view['cases'], $view['blog'] ), 'eighteen institutional sections are available; collections remain absent' );
+    iotnest_check( count( $view ) === 17 && ! isset( $view['cases'], $view['blog'] ), 'seventeen institutional sections are available; collections remain absent' );
     ob_start();
     foreach ( $view as $key => $data ) get_template_part( 'template-parts/sections/' . str_replace( '_', '-', $key ), null, $data );
     $html = ob_get_clean();
@@ -37,6 +37,7 @@ try {
         $meta = '_iotnest_home_' . $key;
         foreach ( array( 0, 1, 2 ) as $count ) {
             $data = $original[$meta];
+            $data['enabled'] = true;
             $data['items'] = array_slice( $data['items'], 0, $count );
             update_post_meta( $home, $meta, $data );
             $current = Iotnest\Theme\home_sections( $home );

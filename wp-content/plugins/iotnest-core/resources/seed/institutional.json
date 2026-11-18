@@ -934,7 +934,7 @@
       ]
     },
     "testimonials": {
-      "enabled": true,
+      "enabled": false,
       "eyebrow": "Depoimentos",
       "title": "O que nossos clientes dizem",
       "description": "",

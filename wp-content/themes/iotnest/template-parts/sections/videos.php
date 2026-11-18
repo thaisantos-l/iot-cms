@@ -9,7 +9,7 @@ namespace Iotnest\Theme;
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<section class="section section--tight-top" id="videos"><div class="container container--narrow"><?php section_heading( $args, 'section-head' ); ?><ul class="videos">
+<section class="section" id="videos"><div class="container container--narrow"><?php section_heading( $args, 'section-head' ); ?><ul class="videos">
 <?php
 foreach ( $args['items'] as $item ) :
 	?>

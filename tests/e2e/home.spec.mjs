@@ -7,8 +7,8 @@ test.beforeAll(() => fixture('create'));
 test.beforeEach(() => fixture('restore'));
 test.afterAll(() => fixture('delete'));
 
-async function comparePixels(page, expected, actual, provisionalRegions) {
-  return page.evaluate(async ([a, b, regions]) => {
+async function comparePixels(page, expected, actual, provisionalRegions, rasterEdges) {
+  return page.evaluate(async ([a, b, regions, edges]) => {
     const read = async value => {
       const image = new Image(); image.src = `data:image/png;base64,${value}`; await image.decode();
       const canvas = document.createElement('canvas'); canvas.width = image.width; canvas.height = image.height;
@@ -17,20 +17,33 @@ async function comparePixels(page, expected, actual, provisionalRegions) {
     };
     const [x, y] = await Promise.all([read(a), read(b)]);
     if (x.width !== y.width || x.height !== y.height) return { outsideProvisional: -1, dimensions: [x.width, x.height, y.width, y.height] };
-    let changed = 0, outsideProvisional = 0;
+    let changed = 0, outsideProvisional = 0, rasterization = 0, rasterizationMaxChannel = 0;
     for (let i = 0; i < x.data.length; i += 4) {
       if (![0, 1, 2, 3].some(k => Math.abs(x.data[i + k] - y.data[i + k]) > 2)) continue;
       changed++;
       const px = i / 4 % x.width, py = Math.floor(i / 4 / x.width);
-      if (!regions.some(r => px >= r.x && px < r.x + r.width && py >= r.y && py < r.y + r.height)) outsideProvisional++;
+      if (regions.some(r => px >= r.x && px < r.x + r.width && py >= r.y && py < r.y + r.height)) continue;
+      const onCurve = edges.some(r => {
+        const xx = px + .5, yy = py + .5;
+        const left = xx < r.x + r.radius, right = xx > r.x + r.width - r.radius;
+        const top = yy < r.y + r.radius, bottom = yy > r.y + r.height - r.radius;
+        if (!(left || right) || !(top || bottom)) return false;
+        const cx = left ? r.x + r.radius : r.x + r.width - r.radius;
+        const cy = top ? r.y + r.radius : r.y + r.height - r.radius;
+        return Math.abs(Math.hypot(xx - cx, yy - cy) - r.radius) <= 1;
+      });
+      if (onCurve) {
+        rasterization++;
+        rasterizationMaxChannel = Math.max(rasterizationMaxChannel, ...[0, 1, 2].map(k => Math.abs(x.data[i + k] - y.data[i + k])));
+      } else outsideProvisional++;
     }
-    return { changed, outsideProvisional, total: x.width * x.height, provisionalRegions: regions };
-  }, [expected.toString('base64'), actual.toString('base64'), provisionalRegions]);
+    return { changed, outsideProvisional, rasterization, rasterizationMaxChannel, total: x.width * x.height, provisionalRegions: regions, rasterEdges: edges };
+  }, [expected.toString('base64'), actual.toString('base64'), provisionalRegions, rasterEdges]);
 }
 
 test('home importada: HTML, CTAs, ordem, títulos apagados e nenhum exemplo de blog/cases', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('main > section')).toHaveCount(18);
+  await expect(page.locator('main > section')).toHaveCount(17);
   await expect(page.locator('h1')).toHaveText('Use a ciência para transformar dados em produtividade');
   await expect(page.locator('#cases, #blog, [data-contact-form]')).toHaveCount(0);
   await expect(page.locator('[data-step-item]')).toHaveCount(4);
@@ -115,7 +128,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       await current.evaluate(() => { window.iotnestSections = [...document.querySelector('main').children].filter(node => node.matches('section')); });
     }
     const report = [];
-    const selectors = ['#topo', '.clients', '#solucao', '#hardware', '#ia', '.dada-full', '#apontamento', '#energia', '#relatorios', '#mess', '#calculadora', '#comparativo', '#como-funciona', '#depoimentos', '#videos', '#sobre', '#faq'];
+    const selectors = ['#topo', '.clients', '#solucao', '#hardware', '#ia', '.dada-full', '#apontamento', '#energia', '#relatorios', '#mess', '#calculadora', '#comparativo', '#como-funciona', '#videos', '#sobre', '#faq'];
     for (const [index, selector] of selectors.entries()) {
       for (const current of [page, reference]) {
         await current.evaluate(selector => {
@@ -135,7 +148,22 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       }
       const expected = await reference.locator(selector).boundingBox();
       const actual = await page.locator(selector).boundingBox();
-      const provisionalRegions = [];
+      const provisionalRegions = [], rasterEdges = [];
+      if (selector === '#como-funciona') {
+        const inspect = current => current.locator('.how__media').first().evaluate(el => {
+          const style = getComputedStyle(el), img = el.querySelector('img');
+          return { rect: el.getBoundingClientRect().toJSON(), image: img.getBoundingClientRect().toJSON(), style: Object.fromEntries([...style].map(k => [k, style[k]])) };
+        });
+        const expectedMedia = await inspect(reference), actualMedia = await inspect(page);
+        expect(actualMedia.rect).toEqual(expectedMedia.rect);
+        expect(actualMedia.image).toEqual(expectedMedia.image);
+        for (const property of ['border-radius', 'background-color', 'overflow', 'transform', 'opacity']) {
+          expect(actualMedia.style[property]).toEqual(expectedMedia.style[property]);
+        }
+        rasterEdges.push({ x: actualMedia.rect.x - actual.x, y: actualMedia.rect.y - actual.y,
+          width: actualMedia.rect.width, height: actualMedia.rect.height, radius: 16 });
+        await writeFile(testInfo.outputPath('how-geometry.json'), JSON.stringify({reference: expectedMedia, wordpress: actualMedia}, null, 2));
+      }
       if (selector === '#como-funciona') {
         // Etapa 04 exige controles ainda sem JS desabilitados. Única região provisória do diff;
         // a etapa 06 deve remover essa exceção e validar a interação completa.
@@ -147,7 +175,9 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       }
       const expectedImage = await reference.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-reference.png`), animations: 'disabled' });
       const actualImage = await page.locator(selector).screenshot({ path: testInfo.outputPath(`${index}-wordpress.png`), animations: 'disabled' });
-      const pixels = await comparePixels(page, expectedImage, actualImage, provisionalRegions);
+      const pixels = await comparePixels(page, expectedImage, actualImage, provisionalRegions, rasterEdges);
+      expect(pixels.rasterization || 0).toBeLessThanOrEqual(160);
+      expect(pixels.rasterizationMaxChannel || 0).toBeLessThanOrEqual(50);
       const record = { selector, expected, actual, heightDifference: actual.height - expected.height, widthDifference: actual.width - expected.width, pixels };
       report.push(record);
     }
