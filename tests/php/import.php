@@ -3,7 +3,7 @@
 require __DIR__ . '/bootstrap.php';
 wp_set_current_user( get_user_by( 'login', 'iotnest-qa' )->ID );
 $options = array();
-foreach ( array( 'show_on_front', 'page_on_front', 'page_for_posts', 'iotnest_settings' ) as $key ) $options[$key] = get_option( $key, null );
+foreach ( array( 'permalink_structure', 'show_on_front', 'page_on_front', 'page_for_posts', 'iotnest_settings' ) as $key ) $options[$key] = get_option( $key, null );
 $mods = get_theme_mods();
 $extra = array();
 try {

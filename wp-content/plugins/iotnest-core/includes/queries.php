@@ -134,3 +134,16 @@ function legacy_redirect() {
 	}
 }
 add_action( 'template_redirect', __NAMESPACE__ . '\\legacy_redirect', 1 );
+
+/**
+ * URLs legadas sem equivalente não devem ser adivinhadas pelo canonical nativo.
+ *
+ * @param string|false $redirect URL sugerida pelo WordPress.
+ * @param string       $requested URL solicitada.
+ * @return string|false
+ */
+function prevent_legacy_guess( $redirect, $requested ) {
+	$path = (string) wp_parse_url( $requested, PHP_URL_PATH );
+	return str_ends_with( $path, '.html' ) ? false : $redirect;
+}
+add_filter( 'redirect_canonical', __NAMESPACE__ . '\\prevent_legacy_guess', 10, 2 );

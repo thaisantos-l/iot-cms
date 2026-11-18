@@ -1,6 +1,6 @@
 # Etapa 05 — Blog, cases e páginas internas
 
-Situação: planejada. Depende da etapa 04. Requisitos: R02, R05, R06, R11. Branch sugerida: `feat/05-blog-cases-paginas`.
+Situação: em implementação em 18/11/2026, branch criada da main após merge `a9474d2`. Depende da etapa 04. Requisitos: R02, R05, R06, R11. Branch sugerida: `feat/05-blog-cases-paginas`.
 
 ## Entregáveis
 

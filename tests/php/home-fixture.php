@@ -7,7 +7,7 @@ $state = get_option( 'iotnest_qa_home', array() );
 if ( 'create' === $action ) {
     if ( $state || get_option( 'iotnest_seed_registry' ) ) throw new RuntimeException( 'Fixture already exists.' );
     $state = array( 'mods' => get_theme_mods(), 'options' => array() );
-    foreach ( array( 'show_on_front', 'page_on_front', 'page_for_posts', 'iotnest_settings' ) as $key ) $state['options'][$key] = get_option( $key, null );
+    foreach ( array( 'permalink_structure', 'show_on_front', 'page_on_front', 'page_for_posts', 'iotnest_settings' ) as $key ) $state['options'][$key] = get_option( $key, null );
     $report = Iotnest\Core\import_institutional();
     if ( is_wp_error( $report ) ) throw new RuntimeException( $report->get_error_message() );
     $result = Iotnest\Core\setup_institutional();
