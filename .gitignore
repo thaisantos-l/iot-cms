@@ -105,3 +105,6 @@ Desktop.ini
 .idea/
 .vscode/
 *.sublime-workspace
+
+# Dependência externa instalada pelo ambiente, fora do pacote próprio.
+/wp-content/plugins/wordpress-seo/

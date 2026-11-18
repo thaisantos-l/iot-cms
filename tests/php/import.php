@@ -11,6 +11,7 @@ try {
     iotnest_check( ! is_wp_error( $report ), 'institutional import succeeds: ' . ( is_wp_error( $report ) ? $report->get_error_message() : 'schema valid' ) );
     iotnest_check( count( $report['created'] ) === 39, '30 media, five draft pages, settings and three native menus created' );
     $home = $report['pages']['home'];
+    iotnest_check( str_contains( get_post_meta( $home, '_yoast_wpseo_title', true ), 'iotnest' ), 'new institutional page receives the supplied SEO title' );
     foreach ( $report['pages'] as $id ) iotnest_check( 'draft' === get_post_status( $id ), 'imported page remains a draft for review' );
     iotnest_check( ! get_option( 'page_on_front' ) && ! get_option( 'page_for_posts' ), 'import does not configure or publish home/blog implicitly' );
     iotnest_check( ! get_posts( array( 'post_type' => array( 'post', 'iot_case' ), 'post_status' => 'any' ) ), 'import creates zero articles and zero cases' );
@@ -69,8 +70,10 @@ try {
     update_post_meta( $home, '_iotnest_home_hero', array( 'enabled' => true, 'title' => '' ) );
     update_option( 'iotnest_settings', array( 'footer_description' => '', 'phone' => 'Edited' ) );
     wp_update_post( array( 'ID' => $report['pages']['privacidade'], 'post_content' => 'Legal revised by editor.' ) );
+    update_post_meta( $home, '_yoast_wpseo_title', '' );
     $again = Iotnest\Core\import_institutional();
     iotnest_check( ! is_wp_error( $again ) && ! $again['created'], 'second import creates no duplicate pages, media or menus' );
+    iotnest_check( get_post_meta( $home, '_yoast_wpseo_title', true ) === '', 'reimport preserves an intentionally cleared SEO title' );
     iotnest_check( get_post_meta( $home, '_iotnest_home_hero', true )['title'] === '', 'second import preserves intentionally cleared title' );
     iotnest_check( get_post_meta( $home, '_iotnest_home_order', true ) === array_reverse( Iotnest\Core\section_keys() ), 'second import preserves changed order' );
     iotnest_check( get_option( 'iotnest_settings' ) === array( 'footer_description' => '', 'phone' => 'Edited' ), 'second import preserves global changes and clears' );
