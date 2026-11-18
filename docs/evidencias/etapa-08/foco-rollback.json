@@ -1,0 +1,10 @@
+{
+  "artifactCommit": "81cd56053e83b92880417599de63bc6bb4f77377",
+  "secondFixture": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "rejectedFixture": "cccccccccccccccccccccccccccccccccccccccc",
+  "corruptChecksumRejected": true,
+  "atomicPairVerified": true,
+  "retainedAssetsVerified": true,
+  "editorial": "PASS: rollback preserves recent editorial body and metadata\nPASS: rollback preserves uploaded media bytes",
+  "scope": "Somente instalação descartável; versões B/C sintéticas para exercitar troca/falha."
+}

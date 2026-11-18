@@ -1,0 +1,84 @@
+{
+  "samples": [
+    {
+      "label": "wordpress",
+      "colors": [
+        {
+          "selector": "btn hero__cta",
+          "text": "rgb(255, 255, 255)",
+          "background": "rgb(2, 175, 239)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(255, 255, 255, 0.86)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "label": "reference",
+      "colors": [
+        {
+          "selector": "btn hero__cta reveal is-in",
+          "text": "rgb(255, 255, 255)",
+          "background": "rgb(2, 175, 239)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(21, 30, 38, 0.62)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "lead",
+          "text": "rgba(255, 255, 255, 0.86)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    }
+  ],
+  "whiteOnBrand": 2.5056768276354737,
+  "normalTextAA": false,
+  "largeTextAA": false,
+  "decision": "Cores originais preservadas por R14; medir não equivale a declarar conformidade AA.",
+  "reflow": {
+    "physicalWidth": 1440,
+    "cssWidth": 720,
+    "cssHeight": 450,
+    "description": "Equivalência de layout a 200%, sem afirmar acionamento do zoom nativo."
+  }
+}

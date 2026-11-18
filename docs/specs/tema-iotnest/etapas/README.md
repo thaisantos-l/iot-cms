@@ -1,6 +1,6 @@
 # Etapas, commits e merges
 
-As etapas **01–06 estão implementadas e validadas localmente** até 18/11/2026; as duas decisões R14 da etapa 06 foram respondidas, preservando os comportamentos originais. A etapa 07 tem testes locais aprovados e SMTP real pendente; 08 está implementada, em verificação integrada final. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
+As etapas **01–06 estão implementadas e validadas localmente** até 18/11/2026; as duas decisões R14 da etapa 06 foram respondidas, preservando os comportamentos originais. As etapas 07 e 08 têm implementação e testes locais aprovados, com aceites externos pendentes. A spec permanece sem aceite integral de SMTP, cache/agendador/infraestrutura de PRD e Safari nativo. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
 
 ## Sequência de PRs
 
@@ -11,9 +11,9 @@ As etapas **01–06 estão implementadas e validadas localmente** até 18/11/202
 | 03 | [Identidade e navegação](03-identidade-e-navegacao.md) | 02 | Validada localmente: header/footer, menus, identidade e T24 de navegação. |
 | 04 | [Home e importação](04-home-e-importacao.md) | 03 | Conteúdo institucional em PHP, com importação repetível. |
 | 05 | [Blog, cases e páginas](05-blog-cases-e-paginas.md) | 04 | Publicações e rotas completas, respeitando estados. |
-| 06 | [Interações](06-interacoes.md) | 05 | Comportamentos modulares, acessíveis e estáveis. |
-| 07 | [Formulário e integrações](07-formulario-e-integracoes.md) | 06 | Contato com SMTP e scripts controlados por flags. |
-| 08 | [Qualidade e publicação](08-qualidade-e-publicacao.md) | 07 | SEO, cache, evidências e pacote pronto para produção. |
+| 06 | [Interações](06-interacoes.md) | 05 | Validada localmente, com as duas exceções R14 expressamente aprovadas. |
+| 07 | [Formulário e integrações](07-formulario-e-integracoes.md) | 06 | Código/QA aprovados; recebimento SMTP real pendente. |
+| 08 | [Qualidade e publicação](08-qualidade-e-publicacao.md) | 07 | SEO, contratos de cache, pacote e QA local aprovados; aceites externos pendentes. |
 
 Os IDs R01–R14 estão na [spec principal](../README.md). Os cenários T01–T24 estão na [matriz de validação](../03-validacao-e-entrega.md). Cada etapa lista seu recorte; a etapa final valida o conjunto integrado. R14 é transversal: preservar o front e sua aparência/comportamento, sem redesign, em todas as etapas.
 
@@ -40,3 +40,19 @@ Após a primeira entrega, o time pode manter promoção por release ou adotar de
 - Instruções suficientes para reproduzir a verificação em outro checkout.
 
 Rollback reverte o código para um artefato compatível. Não restaurar automaticamente um banco antigo, pois isso apagaria publicações recentes. Importação institucional e alterações editoriais não devem ocorrer como efeito colateral de todo deploy.
+
+## Histórico local de integração
+
+| Etapa | Branch | Merge / evidência |
+| --- | --- | --- |
+| Spec | `docs/spec-tema-iotnest` | `2e2014e` |
+| 01 | `feat/01-fundacao-wordpress` | `7bb858b` — [evidência](../../../evidencias/etapa-01.md) |
+| 02 | `feat/02-campos-nativos` | `5f819e6` — [evidência](../../../evidencias/etapa-02.md) |
+| 03 | `feat/03-identidade-navegacao` | `cdd042e` — [evidência](../../../evidencias/etapa-03.md) |
+| 04 | `feat/04-home-institucional` | `a9474d2` — [evidência](../../../evidencias/etapa-04.md) |
+| 05 | `feat/05-blog-cases-paginas` | `f267f3d` — [evidência](../../../evidencias/etapa-05.md) |
+| 06 | `feat/06-interacoes-componentes` | `396434e` — [evidência](../../../evidencias/etapa-06.md) |
+| 07 | `feat/07-contato-integracoes` | `eebfe5f` — [evidência](../../../evidencias/etapa-07.md) |
+| 08 | `feat/08-qualidade-publicacao` | Integração local na main após QA; commit identificável no histórico Git — [evidência e matriz final](../../../evidencias/etapa-08.md). |
+
+[Manual de edição](../../../edicao.md) · [Desenvolvimento](../../../desenvolvimento.md) · [Operação, instalação e PRD](../../../operacao.md).

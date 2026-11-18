@@ -1,6 +1,6 @@
 # Especificação do tema WordPress iotnest
 
-Data: 17 de novembro de 2026. Situação: etapas 01–06 implementadas e validadas localmente; etapa 07 validada localmente, com SMTP real pendente; etapa 08 implementada, em verificação integrada final. Evidências e limites no [status das etapas](etapas/README.md).
+Data: 17 de novembro de 2026. Situação: implementação local das etapas 01–08 entregue e verificada. Etapas 07/08 mantêm aceites externos pendentes (SMTP, cache/agendador/infraestrutura de PRD e Safari nativo); a spec não está integralmente aceita. Evidências e limites no [status das etapas](etapas/README.md).
 
 Converter o site estático em um tema WordPress clássico personalizado, preservando seu desenho e suas funções, com conteúdo administrável e renderização em PHP. O destino é a instalação em `cms`; a referência visual e funcional é o diretório `iotnest-site`, incluindo suas alterações locais atuais.
 
@@ -98,4 +98,4 @@ Cada etapa deve funcionar com os dados que já existem e com os recursos das eta
 
 A seção de blog da home está comentada no HTML. Os cases de exemplo incluem texto provisório e não serão importados. A home tem conteúdo fixo dentro do JS, o formulário usa `mailto:`, há links `#` sem destino e o HTML contém bloqueios de indexação de homologação. Esses comportamentos serão tratados nas etapas correspondentes.
 
-Os cinco HTMLs atualmente modificados no repositório de referência são parte da fonte de migração e devem ser preservados. A especificação está no repositório CMS; a única alteração de configuração nesta entrega libera `docs` no `.gitignore` para permitir versionar estes documentos.
+Os cinco HTMLs atualmente modificados no repositório de referência são parte da fonte de migração e devem ser preservados. A especificação e suas evidências estão versionadas no repositório CMS. O `.gitignore` permite código próprio, tooling e documentação, preservando as exclusões de core, credenciais, banco, uploads e arquivos de ambiente.

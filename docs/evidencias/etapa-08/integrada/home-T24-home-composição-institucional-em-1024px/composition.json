@@ -1,0 +1,433 @@
+{
+  "width": 1024,
+  "report": [
+    {
+      "selector": "#topo",
+      "expected": {
+        "x": 21.5,
+        "y": 12,
+        "width": 981,
+        "height": 758
+      },
+      "actual": {
+        "x": 21.5,
+        "y": 12,
+        "width": 981,
+        "height": 758
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 744356,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": ".clients",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 152
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 152
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 155648,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#solucao",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 722.21875
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 722.21875
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 740352,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#hardware",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1154.28125
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1154.28125
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 1182720,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#ia",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 796.296875
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 796.296875
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 816128,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": ".dada-full",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 822.9375
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 822.9375
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 842752,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#apontamento",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 501.453125
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 501.453125
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 514048,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#energia",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 518.3125
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 518.3125
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 531456,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#relatorios",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 456.84375
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 456.84375
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 467968,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#mess",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 541.5
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 541.5
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 555008,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#calculadora",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 889.625
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 889.625
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 911360,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#comparativo",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1530.59375
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1530.59375
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 1567744,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#como-funciona",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 871.71875
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 871.71875
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 117,
+        "outsideProvisional": 0,
+        "rasterization": 117,
+        "rasterizationMaxChannel": 47,
+        "total": 892928,
+        "provisionalRegions": [],
+        "rasterEdges": [
+          {
+            "x": 544,
+            "y": 349.328125,
+            "width": 440,
+            "height": 420,
+            "radius": 16
+          }
+        ]
+      }
+    },
+    {
+      "selector": "#videos",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 791.140625
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 791.140625
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 811008,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#sobre",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 686.3125
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 686.3125
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 703488,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    },
+    {
+      "selector": "#faq",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1952.96875
+      },
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1952.96875
+      },
+      "heightDifference": 0,
+      "widthDifference": 0,
+      "pixels": {
+        "changed": 0,
+        "outsideProvisional": 0,
+        "rasterization": 0,
+        "rasterizationMaxChannel": 0,
+        "total": 1999872,
+        "provisionalRegions": [],
+        "rasterEdges": []
+      }
+    }
+  ],
+  "provisional": [
+    "contact form: stage 07",
+    "legal pages remain drafts"
+  ]
+}

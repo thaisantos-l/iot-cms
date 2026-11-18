@@ -1,0 +1,33 @@
+{
+  "url": "http://localhost:8082/iotnest/cms/",
+  "pages": [
+    {
+      "width": 390,
+      "status": 200,
+      "title": "iotnest.ai — Indústria 4.0 para Injetoras Plásticas",
+      "heading": "Use a ciência para transformar dados em produtividade",
+      "assets": [
+        {
+          "url": "http://localhost:8082/iotnest/cms/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4",
+          "status": 200
+        }
+      ],
+      "missingImages": []
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "iotnest.ai — Indústria 4.0 para Injetoras Plásticas",
+      "heading": "Use a ciência para transformar dados em produtividade",
+      "assets": [
+        {
+          "url": "http://localhost:8082/iotnest/cms/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4",
+          "status": 200
+        }
+      ],
+      "missingImages": []
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

@@ -1,6 +1,6 @@
 # Etapa 08 — SEO, cache, qualidade e publicação
 
-Situação: em implementação e validação local. Aceites reais de PRD não estão autorizados nesta execução. Depende da etapa 07. Requisitos: R01–R14, com foco em R06, R11, R12 e R14. Branch sugerida: `feat/08-qualidade-publicacao`.
+Situação: implementação e QA local concluídos; aceite integral pendente. SMTP/cache/agendador/infraestrutura de PRD não foram exercitados, e Safari nativo não estava disponível para automação. Não houve autorização de deploy. Depende da etapa 07. Requisitos: R01–R14, com foco em R06, R11, R12 e R14. Branch sugerida: `feat/08-qualidade-publicacao`.
 
 ## Entregáveis
 
@@ -24,3 +24,11 @@ T22/T23: promover o mesmo artefato verificado, conferir páginas e assets, rever
 3. `docs: registrar aceite e operacao do site`
 
 Merge com verificações concluídas e limitações resolvidas ou explicitamente acordadas. Produção recebe somente o release completo após esta etapa. Infra segue o [contrato de entrega](../05-infraestrutura.md), preservando banco/uploads e compatibilidade entre tema, plugin e schema.
+
+## Execução local em 18/11/2026
+
+Branch criada da main `eebfe5f`. Yoast real ativo/inativo e análise editorial, paleta completa, invalidação depois das gravações, política sem cache não certificado, saúde de release, promoção atômica e rollback implementados. Principais arquivos: `includes/{seo,cache,health}.php` no Core, `inc/{breadcrumbs,customizer}.php` no tema, `ops/`, `.github/workflows/` e manuais em `docs/`.
+
+Commits funcionais `511d6a1`, `3ca1447`, `81c899c`, `372d076`, `a781efb` e `f59d71d`; testes/manuais em commits separados. Verificações: 201 asserções PHP, 81/81 testes Chromium integrados, 36 amostras CLS iguais a zero, T24 nas cinco larguras e movimento real, testes focados em Chrome/Firefox/WebKit, zoom nativo a 200%, build em checkout novo e ZIP reproduzido byte a byte. Actionlint validou CI/deploy/rollback; nenhuma Action remota executada. [Evidências, artefatos e matriz T01–T24](../../../evidencias/etapa-08.md).
+
+A integração local entrega código, pacote e documentação revisáveis; **não encerra o aceite integral da etapa**. Pendências reais: transporte SMTP/recebimento, medição de até dez segundos com cache preenchido, executor de cron, domínio/indexação, FPM/OPcache/SSH e Safari nativo/mobile. O formulário continua desligado até o transporte ser validado. Políticas legais importadas continuam em rascunho para revisão. Essas pendências não autorizam publicação nesta execução.
