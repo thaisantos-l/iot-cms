@@ -1,0 +1,36 @@
+{
+    "checked_at": "2026-11-18T19:13:55+00:00",
+    "site": "http://localhost:8082/iotnest/cms/",
+    "theme": "iotnest",
+    "plugins": [
+        "iotnest-core/iotnest-core.php",
+        "wordpress-seo/wp-seo.php"
+    ],
+    "pages": {
+        "page:home": {
+            "status": "publish",
+            "title": "Início"
+        },
+        "page:privacidade": {
+            "status": "draft",
+            "title": "Política de Privacidade"
+        },
+        "page:cookies": {
+            "status": "draft",
+            "title": "Política de Cookies"
+        },
+        "page:termos": {
+            "status": "draft",
+            "title": "Termos de Uso"
+        },
+        "page:blog": {
+            "status": "publish",
+            "title": "Conteúdo sobre dados e inteligência na injeção plástica"
+        }
+    },
+    "public_posts": 0,
+    "public_cases": 0,
+    "contact_enabled": false,
+    "permalinks": "/blog/%postname%/",
+    "test_uploads": []
+}

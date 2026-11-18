@@ -1,6 +1,6 @@
 # Etapas, commits e merges
 
-As etapas **01, 02, 03, 04 e 05 estão implementadas e validadas localmente** até 18/11/2026, nos respectivos recortes; 06 tem implementação verificada, com duas decisões R14 pendentes; 07 tem testes locais aprovados e SMTP real pendente; 08 está em execução. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
+As etapas **01–06 estão implementadas e validadas localmente** até 18/11/2026; as duas decisões R14 da etapa 06 foram respondidas, preservando os comportamentos originais. A etapa 07 tem testes locais aprovados e SMTP real pendente; 08 está implementada, em verificação integrada final. A especificação foi integrada à `main` no merge documental `2e2014e`. Cada etapa registra commits e evidências; nenhuma publicação remota foi feita.
 
 ## Sequência de PRs
 

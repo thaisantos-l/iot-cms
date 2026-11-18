@@ -9,7 +9,7 @@ Só existe PRD, conforme decisão do responsável. Nenhum workflow ou comando re
 1. Preparar backup de banco e uploads, com restauração testada. Instalar WordPress 7.1 e PHP 8.2 com as extensões previstas no ambiente de CI. Atualizações de core/plugins são um processo separado do release do tema.
 2. Instalar o plugin próprio e o tema do mesmo ZIP verificado. Ativar o plugin e o tema. Sem conteúdo, a home continua válida e não apresenta seções vazias.
 3. Em **Ferramentas → Importar conteúdo iotnest**, executar a importação institucional e conferir o relatório. Ela cria apenas seus registros ausentes; preserva alterações, campos intencionalmente apagados e tombstones. Mídia própria importada vai à biblioteca, não é sobrescrita por releases.
-4. Executar a configuração inicial explícita oferecida pelo importador somente após revisar o resultado. Ela recusa home/slug conflitante, publica os destinos institucionais previstos e configura os menus disponíveis. Blog e cases não recebem exemplos. O post nativo “Hello world” só é retirado da publicação quando reconhecido como exemplar original intacto.
+4. Executar a configuração inicial explícita oferecida pelo importador somente após revisar o resultado. Ela recusa home/slug conflitante, publica somente home e página do blog e configura os menus disponíveis. Os três documentos legais importados continuam em rascunho para revisão e publicação deliberada. Blog e cases não recebem exemplos. O post nativo “Hello world” só é retirado da publicação quando reconhecido como exemplar original intacto.
 5. Conferir links, políticas, endereço, contatos e destinatário. Formulário permanece desligado até validar SMTP. YouTube carrega sob demanda; analytics/GTM ficam desligados inicialmente.
 
 ## SMTP e consentimento

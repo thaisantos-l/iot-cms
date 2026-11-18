@@ -14,8 +14,8 @@ Movimento executado nas duas implementações: Lenis ativo, zoom conforme scroll
 
 CLS da home: 12 amostras, três repetições frio/quente a 390 e 1440px, latência 150ms, download 1,6Mbps, upload 0,75Mbps, CPU 4×. Carregamento e percurso real por hardware, IA, MES, etapas, calculadora e contadores. **Todas as amostras tiveram CLS 0**, por janelas de sessão e excluindo entradas recentes conforme a definição da métrica. É evidência de laboratório, não dado de campo. [Dados completos](etapa-06/home-cls.json).
 
-## Pendências explícitas
+## Decisões de fidelidade e limites
 
-A integração local conserva o comportamento original exigido por R14. A etapa não recebe aceite irrestrito de estabilidade: continuam aguardando decisão as duas propostas já apresentadas, erro da calculadora abaixo do botão e reserva da maior altura de “Como funciona”. No front, o primeiro desloca o botão 62px a 390px; a segunda acrescentaria 7,59375px à altura inicial a 360px. Não aplicar mudança visual sem resposta. Esses contratos continuam abertos, mesmo com o orçamento CLS aprovado.
+Em 18/11/2026, a responsável respondeu **“Manter erro na posição original”** e **“Preservar alturas originais”**. O código já preservava os dois comportamentos. Ficam aprovadas as exceções ao contrato de estabilidade: erro antes do botão da calculadora, com deslocamento original de 62px a 390px, e alturas variáveis de “Como funciona”. A reserva do maior painel acrescentaria 7,59375px à altura inicial a 360px e não foi aplicada. Não resta decisão pendente nesses pontos; o aceite local da etapa 06 está concluído com essas exceções expressas.
 
-A continuidade das etapas 07/08 utiliza os componentes verificados; o checkpoint local não autoriza deploy nem declara a spec integralmente concluída. Nenhum arquivo do front foi alterado: `npm run reference:check` conferiu 83 arquivos e o estado Git.
+Merge local `396434e`. Não houve deploy nem alteração no front: `npm run reference:check` conferiu 83 arquivos e o estado Git. O CLS medido continua sendo evidência de laboratório; os movimentos em resposta imediata à interação não podem ser apresentados como eliminados só porque ficam fora da métrica.
