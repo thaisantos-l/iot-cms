@@ -226,7 +226,7 @@ function contact_routes() {
 			'methods'             => 'POST',
 			'permission_callback' => '__return_true',
 			'callback'            => function ( $request ) {
-				$result = strlen( $request->get_body() ) > 24000 ? array(
+				$result = strlen( $request->get_body() ) > 98304 ? array(
 					'code'   => 'invalid',
 					'status' => 413,
 					'fields' => array(),
