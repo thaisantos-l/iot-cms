@@ -1211,6 +1211,13 @@
           "url": "mailto:contato@iotnest.ai",
           "icon": "mail"
         }
+      ],
+      "messages": [
+        {
+          "id": "note",
+          "key": "note",
+          "text": "Retornamos em até 24h úteis. Sem spam."
+        }
       ]
     }
   },
@@ -1415,7 +1422,11 @@
         "kind": "section",
         "section": "contact"
       }
-    }
+    },
+    "contact_enabled": false,
+    "contact_recipient": "contato@iotnest.ai",
+    "contact_subject": "Solicitação de contato — site",
+    "youtube_consent": false
   },
   "menus": {
     "primary": [

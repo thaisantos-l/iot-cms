@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="contact" id="contato"><div class="container container--narrow"><?php section_heading( $args, 'section-head section-head--center' ); ?>
 <?php
-if ( $args['image'] || $args['channels'] ) :
+$form_ready = function_exists( '\\Iotnest\\Core\\contact_context' ) && \Iotnest\Core\contact_context( get_queried_object_id() );
+if ( $args['image'] || $args['channels'] || $form_ready ) :
 	?>
 	<div class="contact__grid"><div class="contact__side">
 	<?php
@@ -51,4 +52,9 @@ if ( $args['image'] || $args['channels'] ) :
 		else :
 			?>
 			<?php echo wp_kses_post( $item['value'] ); ?><?php endif; ?></span></p><?php endforeach; ?></address><?php endif; ?>
-</div></div><?php endif; ?></div></section>
+</div>
+	<?php
+	if ( $form_ready ) {
+		get_template_part( 'template-parts/components/contact-form' ); }
+	?>
+</div><?php endif; ?></div></section>

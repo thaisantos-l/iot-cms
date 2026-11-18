@@ -66,6 +66,9 @@ function enqueue_assets() {
 		$flags[ $flag ] = (bool) ( $settings[ $flag ] ?? false );
 	}
 	if ( asset_file( 'app.js' ) ) {
+		if ( function_exists( '\\Iotnest\\Core\\integration_config' ) ) {
+			wp_add_inline_script( 'iotnest-app', 'window.iotnestIntegrations=' . wp_json_encode( \Iotnest\Core\integration_config() ) . ';', 'before' );
+		}
 		wp_add_inline_script( 'iotnest-app', 'window.iotnestConfig=' . wp_json_encode( $flags ) . ';', 'before' );
 	}
 }
