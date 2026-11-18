@@ -1,0 +1,26 @@
+{
+  "width": 768,
+  "name": "artigo-1",
+  "expected": {
+    "x": 0,
+    "y": 0,
+    "width": 768,
+    "height": 2625.203125
+  },
+  "actual": {
+    "x": 0,
+    "y": 0,
+    "width": 768,
+    "height": 2625.203125
+  },
+  "diff": {
+    "dimensions": true,
+    "changed": 0,
+    "total": 2016768
+  },
+  "normalization": [
+    "reading time calculated",
+    "native article breadcrumb",
+    "missing cover omitted"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "width": 360,
+  "name": "cases",
+  "expected": {
+    "x": 0,
+    "y": 0,
+    "width": 360,
+    "height": 2149.03125
+  },
+  "actual": {
+    "x": 0,
+    "y": 0,
+    "width": 360,
+    "height": 2149.03125
+  },
+  "diff": {
+    "dimensions": true,
+    "changed": 0,
+    "total": 774000
+  },
+  "normalization": [
+    "reading time calculated",
+    "native article breadcrumb",
+    "missing cover omitted"
+  ]
+}
