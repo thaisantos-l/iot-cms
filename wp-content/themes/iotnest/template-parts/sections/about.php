@@ -17,7 +17,7 @@ if ( $args['image'] ) :
 	<?php
 	if ( isset( $args['number'] ) && is_numeric( $args['number'] ) && has_text( $args['label'] ?? '' ) ) :
 		?>
-	<figcaption><strong><span data-count="<?php echo esc_attr( $args['number'] ); ?>"><?php echo esc_html( $args['number'] ); ?></span><?php echo esc_html( $args['unit'] ?? '' ); ?></strong><span><?php echo esc_html( $args['label'] ); ?></span></figcaption><?php endif; ?></figure><?php endif; ?>
+	<figcaption><strong><span data-count="<?php echo esc_attr( $args['number'] ); ?>"><span aria-hidden="true" class="count-reserve"><?php echo esc_html( $args['number'] ); ?></span><span data-count-value><?php echo esc_html( $args['number'] ); ?></span></span><?php echo esc_html( $args['unit'] ?? '' ); ?></strong><span><?php echo esc_html( $args['label'] ); ?></span></figcaption><?php endif; ?></figure><?php endif; ?>
 <div class="stack">
 <?php
 section_heading( $args );

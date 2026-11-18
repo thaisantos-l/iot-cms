@@ -14,7 +14,7 @@ export function scrollToElement(element, offset = -80) {
 export function initializeScroll() {
   if (state.initialized) return;
   state.initialized = true;
-  if (!reducedMotion() && window.iotnestConfig?.lenis && window.Lenis) {
+  if (!reducedMotion() && window.iotnestConfig?.lenis && window.Lenis && 'ResizeObserver' in window) {
     state.lenis = new window.Lenis({
       duration: 1.5,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

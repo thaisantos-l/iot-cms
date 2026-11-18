@@ -23,7 +23,7 @@ if ( count( $args['items'] ) > 1 ) :
 	<?php
 	foreach ( $args['items'] as $index => $item ) :
 		?>
-	<button class="pill" role="tab" type="button" aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>" disabled><b><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></b><?php echo esc_html( $item['label'] ?? '' ); ?></button><?php endforeach; ?></div><?php endif; ?>
+	<button id="how-tab-<?php echo esc_attr( $item['id'] ); ?>" aria-controls="how-panel-<?php echo esc_attr( $item['id'] ); ?>" class="pill" role="tab" type="button" aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>" disabled><b><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></b><?php echo esc_html( $item['label'] ?? '' ); ?></button><?php endforeach; ?></div><?php endif; ?>
 <?php
 foreach ( $args['items'] as $index => $item ) {
 	get_template_part(

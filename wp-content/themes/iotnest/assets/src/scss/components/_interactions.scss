@@ -1,0 +1,86 @@
+.mess__copy {
+  display: grid;
+}
+
+.mess__panel {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  visibility: hidden;
+}
+
+.mess__panel.is-active {
+  visibility: visible;
+}
+
+.hw-carousel__slide[data-pos="3"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.screen-reader-text.motion-toggle:focus-visible {
+  clip-path: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 12px;
+  overflow: visible;
+  white-space: normal;
+  z-index: 30;
+  inset: auto auto 8px 8px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid var(--brand);
+  border-radius: 8px;
+}
+
+[data-count].is-counting {
+  display: inline-grid;
+}
+
+[data-count].is-counting > span {
+  grid-area: 1 / 1;
+}
+
+.count-reserve {
+  display: none;
+}
+
+.is-counting .count-reserve {
+  display: inline;
+  visibility: hidden;
+}
+
+.marquee[data-animate="false"] .marquee__track {
+  animation: none;
+}
+
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+
+.result__loss {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mess__bg, .mess__copy, .how, .ai-tabs__stage img, .hw-carousel__slide {
+  transition: none;
+}
+}
+
+// A quantidade conhecida no servidor reserva controles conforme o layout original.
+@media (width >= 961px) {
+  [data-carousel][data-count="2"], [data-carousel][data-count="3"] {
+    .arrows, .dots { display: none; }
+  }
+}
+
+@media (width >= 641px) and (width <= 960px) {
+  [data-carousel][data-count="2"] {
+    .arrows, .dots { display: none; }
+  }
+}

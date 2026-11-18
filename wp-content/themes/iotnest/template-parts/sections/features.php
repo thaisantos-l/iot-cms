@@ -9,7 +9,7 @@ namespace Iotnest\Theme;
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<section class="clients" id="recursos" aria-label="<?php echo esc_attr( $args['label'] ); ?>"><div class="marquee"><ul class="marquee__track">
+<section class="clients" id="recursos" aria-label="<?php echo esc_attr( $args['label'] ); ?>"><div class="marquee" data-animate="<?php echo ! empty( $args['animate'] ) && count( $args['items'] ) > 1 ? 'true' : 'false'; ?>"><ul class="marquee__track">
 <?php
 foreach ( $args['items'] as $item ) :
 	?>

@@ -522,6 +522,21 @@
           "id": "item-3",
           "key": "cta",
           "text": "Utilize as ferramentas iotnest.ai para atingir as suas metas e melhorar seus resultados"
+        },
+        {
+          "id": "invalid",
+          "key": "invalid",
+          "text": "Confira o campo \"{field}\"."
+        },
+        {
+          "id": "positive",
+          "key": "positive",
+          "text": "Informe valores maiores que zero para hora máquina, horas e dias."
+        },
+        {
+          "id": "target",
+          "key": "target",
+          "text": "O OEE Meta deve ser igual ou maior que o OEE atual."
         }
       ],
       "cta": {

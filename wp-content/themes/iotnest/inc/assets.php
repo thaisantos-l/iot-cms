@@ -43,7 +43,7 @@ function enqueue_assets() {
 		wp_enqueue_style( 'iotnest-app', $base . $css, array(), explode( '.', $css )[1] );
 	}
 	foreach ( array( 'app', 'home' ) as $entry ) {
-		if ( 'home' === $entry && ! is_front_page() ) {
+		if ( 'home' === $entry && ! is_front_page() && ! is_page_template( 'page-templates/institutional.php' ) ) {
 			continue;
 		}
 		$file = asset_file( $entry . '.js' );
