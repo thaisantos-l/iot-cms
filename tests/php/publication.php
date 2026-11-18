@@ -25,6 +25,12 @@ try {
         $b = Iotnest\Core\public_query( $type, array( 'posts_per_page' => 2, 'paged' => 2, 'no_found_rows' => false ) );
         iotnest_check( (int) $a->found_posts === 5 && (int) $a->max_num_pages === 3 && ! array_intersect( array_column( $a->posts, 'ID' ), array_column( $b->posts, 'ID' ) ), "$type pagination has no duplicates and counts only public records" );
         iotnest_check( $a->posts[0]->ID === $local['many3'], "$type date order uses descending ID as tie-break" );
+        if ( 'post' === $type ) {
+            $term = wp_insert_term( 'QA category filter', 'category' );
+            wp_set_post_categories( $local['many3'], array( $term['term_id'] ) );
+            iotnest_check( Iotnest\Core\has_public_content( 'post', $term['term_id'] ) && count( Iotnest\Core\public_query( 'post', array( 'cat' => $term['term_id'] ) )->posts ) === 1, 'category filter uses the same public policy in count and cards' );
+            wp_delete_term( $term['term_id'], 'category' );
+        }
         $related = Iotnest\Core\public_query( $type, array( 'post__not_in' => array( $local['many3'] ) ) )->posts;
         iotnest_check( ! in_array( $local['many3'], array_column( $related, 'ID' ), true ), "$type related excludes current record" );
         iotnest_check( Iotnest\Theme\entry_data( get_post( $local['many3'] ) )['reading'] === '3 min de leitura', 'reading time is calculated from editorial text' );

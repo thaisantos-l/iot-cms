@@ -177,3 +177,22 @@ function legal_document( $content ) {
 		'toc'  => $toc,
 	);
 }
+
+/**
+ * Mantém a pontuação editorial literal dos documentos de referência.
+ *
+ * @return array
+ */
+function current_legal_document() {
+	$priority = has_filter( 'the_content', 'wptexturize' );
+	if ( false !== $priority ) {
+		remove_filter( 'the_content', 'wptexturize', $priority );
+	}
+	try {
+		return legal_document( apply_filters( 'the_content', get_the_content() ) );
+	} finally {
+		if ( false !== $priority ) {
+			add_filter( 'the_content', 'wptexturize', $priority );
+		}
+	}
+}

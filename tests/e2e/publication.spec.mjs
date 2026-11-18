@@ -2,6 +2,16 @@ import { test, expect } from '@playwright/test';
 import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 const fixture = (action, patch = {}) => JSON.parse(execFileSync(process.env.PHP_BIN || 'php', ['tests/php/publication-fixture.php', action, JSON.stringify(patch)], {encoding:'utf8'}));
+
+async function compareImages(page, a, b) {
+  return page.evaluate(async([a,b])=>{
+      const read=async s=>{const i=new Image();i.src='data:image/png;base64,'+s;await i.decode();const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const x=c.getContext('2d');x.drawImage(i,0,0);return{w:i.width,h:i.height,data:x.getImageData(0,0,i.width,i.height).data};};
+      const [x,y]=await Promise.all([read(a),read(b)]);if(x.w!==y.w||x.h!==y.h)return{dimensions:false};let changed=0;
+      for(let j=0;j<x.data.length;j+=4)if([0,1,2].some(k=>Math.abs(x.data[j+k]-y.data[j+k])>2))changed++;
+      return{dimensions:true,changed,total:x.w*x.h};
+    },[a.toString('base64'),b.toString('base64')]);
+}
+
 let records;
 test.beforeAll(() => {records = fixture('create');});
 test.afterAll(() => fixture('delete'));
@@ -73,7 +83,10 @@ for(const width of [360,390,768,1024,1440]) test(`T24 páginas internas: documen
   await reference.goto(process.env.IOTNEST_REFERENCE_URL+'/privacidade.html');await page.goto('/privacidade/');
   for(const p of [page,reference]) {await p.evaluate(()=>document.fonts.ready);await p.evaluate(()=>{document.body.replaceChildren(document.querySelector('main'));scrollTo(0,0);});}
   const expected=await reference.locator('main').boundingBox(),actual=await page.locator('main').boundingBox();
-  await reference.locator('main').screenshot({path:testInfo.outputPath('reference.png')});await page.locator('main').screenshot({path:testInfo.outputPath('wordpress.png')});
+  const a=await reference.locator('main').screenshot({path:testInfo.outputPath('reference.png')}),b=await page.locator('main').screenshot({path:testInfo.outputPath('wordpress.png')});
+  const diff=await compareImages(page,a,b);
+  await writeFile(testInfo.outputPath('pixels.json'),JSON.stringify(diff,null,2));
+  expect(diff.changed).toBe(0);
   await writeFile(testInfo.outputPath('geometry.json'),JSON.stringify({width,expected,actual},null,2));
   expect(actual).toEqual(expected);
   await reference.close();
@@ -107,12 +120,7 @@ for(const width of [360,390,768,1024,1440]) {
     for(const p of [page,reference]) {await p.evaluate(()=>document.fonts.ready);await p.evaluate(()=>{document.body.replaceChildren(document.querySelector('main'));scrollTo(0,0);});}
     const expected=await reference.locator('main').boundingBox(),actual=await page.locator('main').boundingBox();
     const a=await reference.locator('main').screenshot({path:testInfo.outputPath('reference.png')}),b=await page.locator('main').screenshot({path:testInfo.outputPath('wordpress.png')});
-    const diff=await page.evaluate(async([a,b])=>{
-      const read=async s=>{const i=new Image();i.src='data:image/png;base64,'+s;await i.decode();const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const x=c.getContext('2d');x.drawImage(i,0,0);return{w:i.width,h:i.height,data:x.getImageData(0,0,i.width,i.height).data};};
-      const [x,y]=await Promise.all([read(a),read(b)]);if(x.w!==y.w||x.h!==y.h)return{dimensions:false};let changed=0;
-      for(let j=0;j<x.data.length;j+=4)if([0,1,2].some(k=>Math.abs(x.data[j+k]-y.data[j+k])>2))changed++;
-      return{dimensions:true,changed,total:x.w*x.h};
-    },[a.toString('base64'),b.toString('base64')]);
+    const diff=await compareImages(page,a,b);
     await writeFile(testInfo.outputPath('comparison.json'),JSON.stringify({width,name,expected,actual,diff,normalization:['reading time calculated','native article breadcrumb','missing cover omitted']},null,2));
     expect(actual).toEqual(expected);expect(diff.changed).toBe(0);
     await reference.close();

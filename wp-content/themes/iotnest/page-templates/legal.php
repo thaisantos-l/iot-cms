@@ -27,7 +27,7 @@ while ( have_posts() ) :
 	if ( post_password_required() ) :
 		the_content();
 else :
-	$document = legal_document( apply_filters( 'the_content', get_the_content() ) );
+	$document = current_legal_document();
 	?>
 <div class="legal__grid<?php echo $document['toc'] ? '' : ' legal__grid--solo'; ?>">
 		<?php
