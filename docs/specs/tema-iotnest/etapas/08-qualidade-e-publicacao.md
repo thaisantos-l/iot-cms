@@ -1,6 +1,6 @@
 # Etapa 08 — SEO, cache, qualidade e publicação
 
-Situação: planejada. Depende da etapa 07. Requisitos: R01–R14, com foco em R06, R11, R12 e R14. Branch sugerida: `feat/08-qualidade-publicacao`.
+Situação: em implementação e validação local. Aceites reais de PRD não estão autorizados nesta execução. Depende da etapa 07. Requisitos: R01–R14, com foco em R06, R11, R12 e R14. Branch sugerida: `feat/08-qualidade-publicacao`.
 
 ## Entregáveis
 

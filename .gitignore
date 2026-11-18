@@ -4,6 +4,8 @@
 !/wp-content/
 !/docs/
 !/scripts/
+!/ops/
+/ops/config*.json
 !/tests/
 !/.github/
 !/package.json

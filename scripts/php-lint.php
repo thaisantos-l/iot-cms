@@ -1,6 +1,6 @@
 <?php
 /** Syntax checks restricted to project PHP, never WordPress core. */
-$roots = array( 'wp-content/themes/iotnest', 'wp-content/plugins/iotnest-core', 'scripts', 'tests/php' );
+$roots = array( 'wp-content/themes/iotnest', 'wp-content/plugins/iotnest-core', 'scripts', 'tests/php', 'ops' );
 $failed = false;
 foreach ( $roots as $root ) {
     if ( ! is_dir( $root ) ) {
