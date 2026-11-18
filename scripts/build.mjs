@@ -1,9 +1,15 @@
 import { createHash } from 'node:crypto';
-import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
+import { chmod, mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
 import { watch } from 'node:fs';
 import { build } from 'esbuild';
 import * as sass from 'sass';
 import { projects, resolveRoot } from './paths.mjs';
+
+async function writeAsset(filename, content) {
+  await writeFile(filename, content);
+  // O servidor web pode usar outro usuário; não herdar uma umask restritiva.
+  await chmod(filename, 0o644);
+}
 
 async function compile() {
   for (const project of projects) {
@@ -27,11 +33,13 @@ async function compile() {
           }
           const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
           const filename = `${entry}.${hash}.${extension}`;
-          await writeFile(`${temporary}/${filename}`, content);
+          await writeAsset(`${temporary}/${filename}`, content);
           manifest[`${entry}.${extension}`] = filename;
         }
       }
-      await writeFile(`${temporary}/manifest.json`, `${JSON.stringify(manifest, null, 2)}\n`);
+      await writeAsset(`${temporary}/manifest.json`, `${JSON.stringify(manifest, null, 2)}\n`);
+      // mkdtemp cria 0700; dist precisa permitir travessia e leitura pelo Apache/FPM.
+      await chmod(temporary, 0o755);
       await rm(`${assets}/dist`, { recursive: true, force: true });
       await rename(temporary, `${assets}/dist`);
       console.log(`Build: ${project.directory}`);

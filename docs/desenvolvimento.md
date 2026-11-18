@@ -23,6 +23,8 @@ Neste XAMPP, executar Composer com `/Applications/XAMPP/xamppfiles/bin/php /usr/
 
 Assets recebem hash no nome e manifesto por pacote. `assets/dist` não é versionado; executar build depois de trocar de branch. O loader não emite URLs quando o manifesto/arquivo está ausente e mostra aviso ao administrador. Um checkout sem build não é um release.
 
+O build define `0755` nos diretórios `assets/dist` e `0644` nos manifestos e bundles, inclusive com uma umask restritiva. Isso permite que Apache/PHP leia os arquivos quando roda com outro usuário, sem conceder escrita pública. Não remover essa normalização ao publicar o diretório temporário criado por `mkdtemp` (`0700`).
+
 `npm run package` exige checkout limpo e gera `artifacts/iotnest-COMMIT.zip` e `.zip.sha256`. `--allow-dirty` identifica explicitamente um pacote de desenvolvimento e não é aceito na promoção. O formato 2 contém somente runtime de tema/plugin, mídias institucionais próprias para importação explícita, assets compilados e `release.json` com hashes, commit, schema 1 e contrato PHP/WordPress. O empacotador gera a identificação de release dos dois componentes. Datas ZIP fixas permitem reprodução. Fontes Sass/JS, tooling, core, plugins de terceiros, banco, credenciais e uploads não são entregues.
 
 ## Validar o ZIP em WordPress isolado

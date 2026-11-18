@@ -1,0 +1,142 @@
+{
+  "url": "http://localhost:8082/iotnest/cms/",
+  "testedAt": "2026-11-18T20:34:03.106Z",
+  "assets": [
+    {
+      "file": "wp-content/themes/iotnest/assets/dist/manifest.json",
+      "status": 200,
+      "bytes": 155
+    },
+    {
+      "file": "wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css",
+      "status": 200,
+      "type": "text/css",
+      "bytes": 60026
+    },
+    {
+      "file": "wp-content/themes/iotnest/assets/dist/editor.c8ac155f0989.css",
+      "status": 200,
+      "type": "text/css",
+      "bytes": 146
+    },
+    {
+      "file": "wp-content/themes/iotnest/assets/dist/app.e4fdb3d16f93.js",
+      "status": 200,
+      "type": "application/x-javascript",
+      "bytes": 24899
+    },
+    {
+      "file": "wp-content/themes/iotnest/assets/dist/home.c07d8c7e4b9e.js",
+      "status": 200,
+      "type": "application/x-javascript",
+      "bytes": 31229
+    },
+    {
+      "file": "wp-content/plugins/iotnest-core/assets/dist/manifest.json",
+      "status": 200,
+      "bytes": 83
+    },
+    {
+      "file": "wp-content/plugins/iotnest-core/assets/dist/admin.3faa6237820b.css",
+      "status": 200,
+      "type": "text/css",
+      "bytes": 637
+    },
+    {
+      "file": "wp-content/plugins/iotnest-core/assets/dist/admin.0a461f3672a2.js",
+      "status": 200,
+      "type": "application/x-javascript",
+      "bytes": 5718
+    }
+  ],
+  "viewports": [
+    {
+      "width": 360,
+      "styles": {
+        "stylesheet": [
+          {
+            "href": "http://localhost:8082/iotnest/cms/wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css?ver=5ef15576ba1d",
+            "rules": 553
+          }
+        ],
+        "font": "Inter, \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+        "margin": "0px",
+        "scrollWidth": 371,
+        "heading": "Use a ciência para transformar dados em produtividade"
+      },
+      "errors": [],
+      "mobileMenu": "PASS"
+    },
+    {
+      "width": 390,
+      "styles": {
+        "stylesheet": [
+          {
+            "href": "http://localhost:8082/iotnest/cms/wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css?ver=5ef15576ba1d",
+            "rules": 553
+          }
+        ],
+        "font": "Inter, \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+        "margin": "0px",
+        "scrollWidth": 404,
+        "heading": "Use a ciência para transformar dados em produtividade"
+      },
+      "errors": [],
+      "mobileMenu": "PASS"
+    },
+    {
+      "width": 768,
+      "styles": {
+        "stylesheet": [
+          {
+            "href": "http://localhost:8082/iotnest/cms/wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css?ver=5ef15576ba1d",
+            "rules": 553
+          }
+        ],
+        "font": "Inter, \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+        "margin": "0px",
+        "scrollWidth": 768,
+        "heading": "Use a ciência para transformar dados em produtividade"
+      },
+      "errors": [],
+      "mobileMenu": "PASS"
+    },
+    {
+      "width": 1024,
+      "styles": {
+        "stylesheet": [
+          {
+            "href": "http://localhost:8082/iotnest/cms/wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css?ver=5ef15576ba1d",
+            "rules": 553
+          }
+        ],
+        "font": "Inter, \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+        "margin": "0px",
+        "scrollWidth": 1024,
+        "heading": "Use a ciência para transformar dados em produtividade"
+      },
+      "errors": [],
+      "mobileMenu": "PASS"
+    },
+    {
+      "width": 1440,
+      "styles": {
+        "stylesheet": [
+          {
+            "href": "http://localhost:8082/iotnest/cms/wp-content/themes/iotnest/assets/dist/app.5ef15576ba1d.css?ver=5ef15576ba1d",
+            "rules": 553
+          }
+        ],
+        "font": "Inter, \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+        "margin": "0px",
+        "scrollWidth": 1440,
+        "heading": "Use a ciência para transformar dados em produtividade"
+      },
+      "errors": [],
+      "mobileMenu": "not applicable"
+    }
+  ],
+  "runtimeFilesIdenticalToPreviousRelease": 153,
+  "overflow360": "371px no CMS e na referência; mesma imagem hw-carousel__slide. Preservado conforme R14.",
+  "browser": "159.0.8154.6"
+}
