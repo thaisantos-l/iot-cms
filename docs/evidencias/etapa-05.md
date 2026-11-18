@@ -1,6 +1,6 @@
 # Etapa 05 — Publicações, rotas e páginas internas
 
-Em validação local; sem merge ou aceite final. Branch `feat/05-blog-cases-paginas`, criada da main `a9474d2`.
+Implementada e validada localmente em 18/11/2026, no recorte da etapa. Branch `feat/05-blog-cases-paginas`, criada da main `a9474d2`.
 
 ## Implementação
 
@@ -21,3 +21,13 @@ Comparação de páginas internas nas cinco larguras: mesma Inter e mesmo estado
 PHP 8.2.4/WordPress 7.1.4. O roteador do servidor descartável trata o alias `/var`/`/private/var` do macOS, arquivos estáticos e índices dos diretórios nativos. Rodadas anteriores com CSS não carregado ou redirecionamento de `/wp-admin/` foram descartadas como evidência visual e de administração.
 
 SEO com Yoast e cache/agendador reais pertencem à etapa 08. O teste local de `wp_publish_post` comprova a transição/visibilidade, sem alegar precisão do agendador de PRD. Sem push ou deploy.
+
+## Aceite local
+
+Lints PHP/WPCS, JavaScript/Sass e cinco testes Node aprovados. Cenários PHP reais aprovados: ciclo de estados para posts/cases, filtro de categoria, reutilização de consultas, paginação, senha, busca pública do administrador, transição futura, permissões de setup, conflito de slugs, sumário e IDs.
+
+Rodada integrada no artefato `a82933d`: 49/51 testes Chromium aprovados; somente duas falhas do roteador de QA no admin. Após a correção, sete testes focados no artefato `4917f7768fb4bdb58372d741c771c935022f9043` aprovados, incluindo os dois fluxos administrativos e os cinco diffs legais, com todos os cenários PHP repetidos e sem diagnósticos PHP. A mudança final de runtime só preserva aspas literais no template legal; não altera as páginas previamente aprovadas. A rodada focada inclui o teste adicional de categoria.
+
+T24: 25 comparações de páginas internas, geometria e pixels coincidentes (delta máximo tolerado de 2 por canal). Vinte comparações de arquivos/individuais e cinco de documento legal. Resultados e capturas selecionadas em `etapa-05/`; a tabela de normalizações está em cada comparação. Os 80 diffs da home e 15 de navegação também passaram na rodada integrada.
+
+`640c52c` conserva a pontuação legal, corrige o roteador e completa os testes; `4917f77` registra rotas/evidências. Sem pendência local do recorte 05. Yoast, precisão do agendador e cache real continuam nos aceites posteriores.
