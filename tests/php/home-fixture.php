@@ -17,6 +17,10 @@ if ( 'create' === $action ) {
     foreach ( Iotnest\Core\meta_schemas( 'page' ) as $key => $schema ) $state['defaults'][$key] = get_post_meta( $state['home'], $key, true );
     update_option( 'iotnest_qa_home', $state );
     echo wp_json_encode( array( 'home' => $state['home'] ) );
+} elseif ( 'read' === $action ) {
+    echo wp_json_encode( $state['defaults'] );
+} elseif ( 'settings' === $action ) {
+    update_option( 'iotnest_settings', array_merge( Iotnest\Core\settings(), json_decode( $argv[2], true, 32, JSON_THROW_ON_ERROR ) ) );
 } elseif ( 'restore' === $action ) {
     foreach ( $state['defaults'] as $key => $value ) update_post_meta( $state['home'], $key, $value );
 } elseif ( 'mutate' === $action ) {
