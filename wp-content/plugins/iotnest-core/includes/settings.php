@@ -45,15 +45,16 @@ function settings_schema() {
 		'gtm_id'             => field( 'text', 'ID GTM' ),
 	);
 	foreach ( array(
-		'motion'      => 'Animações',
-		'lenis'       => 'Rolagem Lenis',
-		'autoplay'    => 'Autoplay dos componentes',
-		'counters'    => 'Contadores',
-		'dada_scroll' => 'Rolagem da Dadá',
-		'calculator'  => 'Calculadora',
-		'youtube'     => 'Player YouTube',
-		'analytics'   => 'Analytics',
-		'tag_manager' => 'Gerenciador de tags',
+		'motion'          => 'Animações',
+		'lenis'           => 'Rolagem Lenis',
+		'autoplay'        => 'Autoplay dos componentes',
+		'counters'        => 'Contadores',
+		'dada_scroll'     => 'Rolagem da Dadá',
+		'calculator'      => 'Calculadora',
+		'youtube'         => 'Player YouTube',
+		'youtube_consent' => 'Exigir consentimento para incorporar YouTube',
+		'analytics'       => 'Analytics',
+		'tag_manager'     => 'Gerenciador de tags',
 	) as $key => $label ) {
 		$fields[ $key ] = field( 'boolean', $label );
 	}

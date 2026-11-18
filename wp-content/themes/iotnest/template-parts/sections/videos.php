@@ -14,11 +14,20 @@ defined( 'ABSPATH' ) || exit;
 foreach ( $args['items'] as $item ) :
 	?>
 	<?php
-	$video = $item['video'];
-	$url   = 'youtube' === $video['provider'] ? 'https://www.youtube.com/watch?v=' . $video['youtube'] . '&t=' . absint( $video['start'] ?? 0 ) : media_url( $video['file'] ?? 0, 'video' );
-	$thumb = media_url( $item['thumbnail'] ?? 0 );
+	$video     = $item['video'];
+	$url       = 'youtube' === $video['provider'] ? 'https://www.youtube.com/watch?v=' . $video['youtube'] . '&t=' . absint( $video['start'] ?? 0 ) : media_url( $video['file'] ?? 0, 'video' );
+	$available = 'local' === $video['provider'] || ( \Iotnest\Core\integration_config()['youtube']['available'] ?? false );
+	$thumb     = media_url( $item['thumbnail'] ?? 0 );
 	?>
-<li class="video"><a class="video__thumb" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer" data-video-id="<?php echo esc_attr( $video['youtube'] ?? '' ); ?>" data-video-start="<?php echo absint( $video['start'] ?? 0 ); ?>" data-video-title="<?php echo esc_attr( $item['title'] ); ?>" aria-label="<?php echo esc_attr( $item['title'] ); ?>"
+<li class="video"><a class="video__thumb" 
+	<?php
+	if ( $available ) :
+		?>
+	href="<?php echo esc_url( $url ); ?>"
+		<?php
+else :
+	?>
+	aria-disabled="true" tabindex="-1"<?php endif; ?> target="_blank" rel="noopener noreferrer" data-video-provider="<?php echo esc_attr( $video['provider'] ); ?>" data-video-id="<?php echo esc_attr( $video['youtube'] ?? '' ); ?>" data-video-start="<?php echo absint( $video['start'] ?? 0 ); ?>" data-video-title="<?php echo esc_attr( $item['title'] ); ?>" aria-label="<?php echo esc_attr( $item['title'] ); ?>"
 	<?php
 	if ( $thumb ) :
 		?>

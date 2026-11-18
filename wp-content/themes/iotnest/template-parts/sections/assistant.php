@@ -19,5 +19,7 @@ defined( 'ABSPATH' ) || exit;
 </button>
 <div class="dada-full__progress" data-dada-progress role="progressbar" aria-label="<?php esc_attr_e( 'Progresso do vídeo', 'iotnest' ); ?>" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </div>
+<?php elseif ( 'youtube' === ( $args['video']['provider'] ?? '' ) && ( \Iotnest\Core\integration_config()['youtube']['available'] ?? false ) ) : ?>
+<div class="dada-full__bar"><a class="dada-full__toggle is-paused" href="<?php echo esc_url( 'https://www.youtube.com/watch?v=' . $args['video']['youtube'] . '&t=' . absint( $args['video']['start'] ?? 0 ) ); ?>" target="_blank" rel="noopener noreferrer" data-video-provider="youtube" data-video-id="<?php echo esc_attr( $args['video']['youtube'] ); ?>" data-video-start="<?php echo absint( $args['video']['start'] ?? 0 ); ?>" data-video-title="<?php echo esc_attr( wp_strip_all_tags( $args['title'] ) ); ?>" aria-label="<?php esc_attr_e( 'Reproduzir vídeo', 'iotnest' ); ?>"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></a></div>
 <?php endif; ?>
 </div></section>

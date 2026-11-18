@@ -79,6 +79,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
   await writeFile(path.join(wp, '.iotnest-test'), 'Disposable integration environment.\n');
   await mkdir(path.join(wp, 'wp-content/mu-plugins'), { recursive: true });
   await cp(resolveRoot('tests/php/offline-updates.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-updates.php'));
+  await cp(resolveRoot('tests/php/contact-mailer.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-mailer.php'));
   const env = { ...process.env, PHP_BIN: php, IOTNEST_TEST_WP_ROOT: wp, IOTNEST_TEST_URL: url,
     IOTNEST_TEST_ADMIN_PASSWORD: randomBytes(24).toString('hex'), IOTNEST_TEST_DB_PASSWORD: password, IOTNEST_TEST_DB_PORT: dbPort };
   // A referência é servida diretamente em modo somente leitura; nunca copiada para o release.
@@ -122,7 +123,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
     } catch { await wait(500); }
   }
   if (!ready) throw new Error('MySQL de QA não ficou disponível.');
-  for (const script of ['install', 'foundation', 'content', 'navigation', 'import', 'publication']) {
+  for (const script of ['install', 'foundation', 'content', 'navigation', 'import', 'publication', 'contact']) {
     console.log(execute(php, [`tests/php/${script}.php`], { env, encoding: 'utf8' }).trim());
   }
   server = spawn(php, ['-S', `127.0.0.1:${port}`, '-t', wp, resolveRoot('tests/php/router.php')], { env, stdio: ['ignore', 'pipe', 'pipe'] });
