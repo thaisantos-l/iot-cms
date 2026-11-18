@@ -1,6 +1,6 @@
 # Etapa 05 — Blog, cases e páginas internas
 
-Situação: planejada. Depende da etapa 04. Requisitos: R02, R05, R06, R11. Branch sugerida: `feat/05-blog-cases-paginas`.
+Situação: implementada e validada localmente em 18/11/2026, branch criada da main após merge `a9474d2`. Depende da etapa 04. Requisitos: R02, R05, R06, R11. Branch sugerida: `feat/05-blog-cases-paginas`.
 
 ## Entregáveis
 
@@ -24,3 +24,7 @@ Publicação agendada não aparece enquanto o status for `future`; a execução 
 3. `test: cobrir estados de publicacao e rotas`
 
 Merge com listagens coerentes em todos os estados. Preservar dados e slugs em rollback; mudança de permalink exige mapa compatível, sem redirecionar URLs para páginas inexistentes.
+
+## Execução
+
+Templates, consultas públicas, rotas, preview e documentos legais implementados. Lints, testes PHP/Node, matriz de navegação/publicação e 25 comparações T24 de páginas internas aprovados. [Evidências e commits](../../../evidencias/etapa-05.md); [mapa de URLs](../../../urls-legadas.md). Blog/cases de entrega continuam sem registros. Não houve push ou deploy.

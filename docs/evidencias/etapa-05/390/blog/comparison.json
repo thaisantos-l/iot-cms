@@ -1,0 +1,26 @@
+{
+  "width": 390,
+  "name": "blog",
+  "expected": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 2692.078125
+  },
+  "actual": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 2692.078125
+  },
+  "diff": {
+    "dimensions": true,
+    "changed": 0,
+    "total": 1050270
+  },
+  "normalization": [
+    "reading time calculated",
+    "native article breadcrumb",
+    "missing cover omitted"
+  ]
+}

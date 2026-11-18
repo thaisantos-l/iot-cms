@@ -45,9 +45,10 @@ test('T01: plugin desativado preserva fallback e mostra aviso só no admin', asy
     await checkPage(page);
     await expect(page.locator('body')).not.toContainText('Ative o plugin');
     await page.goto('/wp-login.php');
+    await expect(page.locator('#user_login')).toBeFocused();
     await page.locator('#user_login').fill('iotnest-qa');
     await page.locator('#user_pass').fill(process.env.IOTNEST_TEST_ADMIN_PASSWORD);
-    await page.locator('#wp-submit').click();
+    await Promise.all([page.waitForURL(/\/wp-admin\/$/), page.locator('#wp-submit').click()]);
     await expect(page.locator('.notice-warning')).toContainText('Ative o plugin iotnest-core');
   } finally {
     plugin('on');

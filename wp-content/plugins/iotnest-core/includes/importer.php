@@ -245,8 +245,9 @@ function import_institutional() {
 		$pages['blog'] = seed_page(
 			'page:blog',
 			array(
-				'post_title' => 'Blog',
-				'post_name'  => 'blog',
+				'post_title'   => $seed['blog_page']['title'],
+				'post_excerpt' => $seed['blog_page']['description'],
+				'post_name'    => 'blog',
 			),
 			$report
 		);
@@ -302,6 +303,10 @@ function setup_institutional() {
 	}
 	if ( get_option( 'page_on_front' ) && (int) get_option( 'page_on_front' ) !== $home ) {
 		return new \WP_Error( 'existing_home', 'Já existe uma home configurada. Revise em Configurações → Leitura; nada foi substituído.' );
+	}
+	$routes = configure_routes();
+	if ( is_wp_error( $routes ) ) {
+		return $routes;
 	}
 	$result = wp_update_post(
 		array(

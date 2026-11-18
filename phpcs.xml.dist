@@ -6,6 +6,10 @@
   <arg name="extensions" value="php"/>
   <arg name="colors"/>
   <rule ref="WordPress"/>
+  <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+    <exclude-pattern>*/archive-iot_case.php</exclude-pattern>
+    <exclude-pattern>*/single-iot_case.php</exclude-pattern>
+  </rule>
   <config name="minimum_supported_wp_version" value="7.1"/>
   <rule ref="WordPress.WP.I18n"><properties><property name="text_domain" type="array"><element value="iotnest"/><element value="iotnest-core"/></property></properties></rule>
   <rule ref="WordPress.Files.FileName"><properties><property name="strict_class_file_names" value="false"/></properties></rule>

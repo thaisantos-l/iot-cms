@@ -19,7 +19,7 @@ define( 'IOTNEST_CORE_VERSION', '0.1.0' );
 define( 'IOTNEST_CORE_FILE', __FILE__ );
 
 require_once __DIR__ . '/includes/bootstrap.php';
-foreach ( array( 'schema', 'validation', 'post-types', 'visibility', 'meta-boxes', 'settings', 'rest', 'autosave', 'navigation', 'importer' ) as $module ) {
+foreach ( array( 'schema', 'validation', 'post-types', 'queries', 'visibility', 'meta-boxes', 'settings', 'rest', 'autosave', 'navigation', 'importer' ) as $module ) {
 	require_once __DIR__ . '/includes/' . $module . '.php';
 }
 
