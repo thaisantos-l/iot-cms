@@ -12,7 +12,7 @@
   margin: var(--space-3) clamp(var(--space-4), 2.1vw, 30px) 0;
   padding: var(--space-9) clamp(var(--space-5), 6vw, 84px);
   border-radius: var(--radius-xl);
-  background: #cecece;
+  background: var(--hero-surface);
   color: var(--contrast);
 }
 
@@ -81,7 +81,7 @@
   }
 
   .hero__title, .hero__text {
-    text-shadow: 0 1px 14px rgb(0 0 0 / 55%), 0 0 2px rgb(0 0 0 / 35%);
+    text-shadow: 0 1px 14px rgb(var(--shadow-rgb) / 55%), 0 0 2px rgb(var(--shadow-rgb) / 35%);
   }
 
   .hero__text br {

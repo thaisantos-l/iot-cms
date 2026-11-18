@@ -23,7 +23,7 @@
   aspect-ratio: 16 / 9;
   padding: 0;
   border: 0;
-  background: var(--thumb, linear-gradient(135deg, #5b646c, #2a3138)) center / cover no-repeat;
+  background: var(--thumb, linear-gradient(135deg, var(--card-gradient-start), var(--card-gradient-end))) center / cover no-repeat;
 }
 
 .video__thumb::after {
@@ -48,7 +48,7 @@
   border-radius: 50%;
   background: var(--brand);
   color: var(--contrast);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  box-shadow: 0 8px 24px rgb(var(--shadow-rgb) / 25%);
   transition: transform 160ms ease-out;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .video-modal::backdrop {
-  background: rgb(8 12 16 / 86%);
+  background: rgb(var(--modal-backdrop-rgb) / 86%);
   backdrop-filter: blur(6px);
 }
 
@@ -146,8 +146,8 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: #000;
-  box-shadow: 0 24px 64px rgb(0 0 0 / 50%);
+  background: var(--media-black);
+  box-shadow: 0 24px 64px rgb(var(--shadow-rgb) / 50%);
 }
 
 .video-modal__frame iframe {

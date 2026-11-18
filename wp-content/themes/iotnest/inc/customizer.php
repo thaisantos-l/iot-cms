@@ -22,6 +22,48 @@ function customize_register( $manager ) {
 			'description' => 'Os valores iniciais preservam a referência. Ao mudar cores, confira contraste e legibilidade.',
 		)
 	);
+	$labels = array(
+		'brand'                 => 'Marca principal',
+		'green'                 => 'Verde da marca',
+		'ink'                   => 'Texto principal',
+		'surface'               => 'Superfície branca',
+		'surface_soft'          => 'Superfície suave',
+		'surface_gray'          => 'Superfície cinza',
+		'slate'                 => 'Texto secundário',
+		'danger'                => 'Alerta',
+		'border'                => 'Bordas',
+		'contrast'              => 'Texto de contraste',
+		'accent_orange'         => 'Destaque laranja',
+		'indicator_green'       => 'Indicador verde',
+		'accent_green'          => 'Destaque verde',
+		'media_surface'         => 'Fundo de mídia',
+		'card_gradient_start'   => 'Card: gradiente inicial',
+		'card_gradient_end'     => 'Card: gradiente final',
+		'media_black'           => 'Fundo do player',
+		'whatsapp'              => 'WhatsApp',
+		'credit'                => 'Crédito do rodapé',
+		'calculator_bg'         => 'Calculadora: fundo',
+		'calculator_surface'    => 'Calculadora: painéis',
+		'calculator_text'       => 'Calculadora: texto',
+		'calculator_muted'      => 'Calculadora: texto secundário',
+		'calculator_faint'      => 'Calculadora: legenda',
+		'calculator_error'      => 'Calculadora: erro',
+		'calculator_success'    => 'Calculadora: resultado',
+		'field_surface'         => 'Campos: fundo',
+		'calculator_error_text' => 'Calculadora: texto do erro',
+		'calculator_hover'      => 'Calculadora: hover',
+		'step_surface'          => 'Etapas: mídia',
+		'card_two_start'        => 'Segundo card: início',
+		'card_two_end'          => 'Segundo card: fim',
+		'card_three_start'      => 'Terceiro card: início',
+		'card_three_end'        => 'Terceiro card: fim',
+		'hero_surface'          => 'Hero: fundo',
+		'shadow'                => 'Sombras',
+		'media_shadow'          => 'Sombra da mídia',
+		'modal_backdrop'        => 'Modal: fundo externo',
+		'calculator_glow'       => 'Calculadora: brilho',
+		'calculator_shadow'     => 'Calculadora: sombra',
+	);
 	foreach ( palette() as $key => $color ) {
 		$id = 'iotnest_color_' . $key;
 		$manager->add_setting(
@@ -38,7 +80,7 @@ function customize_register( $manager ) {
 				$manager,
 				$id,
 				array(
-					'label'   => $key,
+					'label'   => $labels[ $key ] ?? $key,
 					'section' => 'iotnest_identity',
 				)
 			)

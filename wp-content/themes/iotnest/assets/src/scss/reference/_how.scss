@@ -42,7 +42,7 @@
 }
 
 .pill[aria-selected="true"] {
-  background: rgb(0 0 0 / 30%);
+  background: rgb(var(--shadow-rgb) / 30%);
   border-color: rgb(var(--contrast-rgb) / 50%);
   color: var(--contrast);
 }
@@ -68,7 +68,7 @@
   width: 56px;
   height: 56px;
   border-radius: var(--radius-lg);
-  background: rgb(0 0 0 / 25%);
+  background: rgb(var(--shadow-rgb) / 25%);
 }
 
 .how__step {
@@ -111,7 +111,7 @@
   overflow: hidden;
   height: 420px;
   border-radius: var(--radius-lg);
-  background: #c4c4c4;
+  background: var(--step-surface);
 }
 
 .how__media img {

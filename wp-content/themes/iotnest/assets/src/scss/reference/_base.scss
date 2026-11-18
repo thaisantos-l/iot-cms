@@ -41,7 +41,7 @@
   --radius-pill: 999px;
 
   /* Elevation */
-  --shadow-media: 0 4px 44px rgb(0 0 0 / 5%);
+  --shadow-media: 0 4px 44px rgb(var(--shadow-rgb) / 5%);
 
   /* Type */
   --font: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
