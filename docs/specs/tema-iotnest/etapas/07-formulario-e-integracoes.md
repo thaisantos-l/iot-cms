@@ -1,6 +1,6 @@
 # Etapa 07 — Formulário e integrações externas
 
-Situação: em implementação local. SMTP real permanece pendente de execução futura autorizada em PRD, único ambiente informado. Depende da etapa 06. Requisitos: R06, R07, R09. Branch sugerida: `feat/07-contato-integracoes`.
+Situação: implementação e testes locais aprovados; aceite de envio real pendente. SMTP real permanece pendente de execução futura autorizada em PRD, único ambiente informado. Depende da etapa 06. Requisitos: R06, R07, R09. Branch sugerida: `feat/07-contato-integracoes`.
 
 ## Entregáveis
 
@@ -24,3 +24,9 @@ Flag desligada/consentimento negado não emite tags nem requisições ao fornece
 3. `test: validar SMTP consentimento e falhas de envio`
 
 Merge com serviço verificado em homologação. Se credenciais ainda faltarem, registrar a etapa como pendente de aceite de envio. Rollback conserva configurações e pode desligar adapters; não altera SMTP ou banco editorial automaticamente.
+
+## Execução local em 18/11/2026
+
+Branch criada da main `396434e`. Commits `6212fa3` (servidor/adapters), `0fb15eb` (formulário/mídia) e `0738886` (testes). Artefato limpo do último commit instalado em WordPress descartável: bateria PHP aprovada, 12/12 testes Chromium, cinco diffs de contato com zero pixels divergentes e 12 amostras CLS iguais a zero. Lint PHP/WPCS/JS/Sass e build aprovados. [Evidências](../../../evidencias/etapa-07.md).
+
+Checkpoint local permite concluir os contratos independentes da etapa 08. Não representa aceite de SMTP: plugin/provedor, remetente, credenciais e destinatário de teste precisam ser definidos e o recebimento medido em PRD numa execução futura autorizada. Formulário permanece desligado por padrão até essa configuração. Não houve envio real ou publicação remota.
