@@ -92,8 +92,22 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
         if (!file.startsWith(`${referenceRoot}${path.sep}`)) throw new Error('Path inválido');
         const content = await readFile(file);
         const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.webm': 'video/webm', '.mp4': 'video/mp4' };
-        response.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
-        response.end(content);
+        const headers = { 'Content-Type': types[path.extname(file)] || 'application/octet-stream', 'Accept-Ranges': 'bytes' };
+        const range = request.headers.range;
+        if (range) {
+          const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+          const start = match?.[1] ? Number(match[1]) : Math.max(0, content.length - Number(match?.[2] || 0));
+          const end = match?.[1] && match[2] ? Math.min(Number(match[2]), content.length - 1) : content.length - 1;
+          if (!match || start > end || start >= content.length) {
+            response.writeHead(416, { 'Content-Range': `bytes */${content.length}` }); response.end(); return;
+          }
+          const slice = content.subarray(start, end + 1);
+          response.writeHead(206, { ...headers, 'Content-Length': slice.length, 'Content-Range': `bytes ${start}-${end}/${content.length}` });
+          response.end(request.method === 'HEAD' ? undefined : slice);
+        } else {
+          response.writeHead(200, { ...headers, 'Content-Length': content.length });
+          response.end(request.method === 'HEAD' ? undefined : content);
+        }
       } catch { response.writeHead(404); response.end(); }
     });
     await new Promise(resolve => referenceServer.listen(0, '127.0.0.1', resolve));

@@ -90,14 +90,14 @@ for(const width of [360,390,768,1024,1440]) {
     await reference.route('https://fonts.googleapis.com/**',route=>route.fulfill({contentType:'text/css',body:fonts}));
     for(const current of [page,reference]) {await current.setViewportSize({width,height:1000});await current.emulateMedia({reducedMotion:'reduce'});await current.route('**/*.{webm,mp4}',route=>route.fulfill({status:204}));}
     await reference.goto(process.env.IOTNEST_REFERENCE_URL);await page.goto('/');
-    for(const current of [page,reference]) {await current.evaluate(()=>document.fonts.ready);await current.evaluate(()=>{window.sections=[...document.querySelector('main').children].filter(node=>node.matches('section'));});}
+    for(const current of [page,reference]) {await current.evaluate(()=>document.fonts.ready);await current.evaluate(()=>{window.messHeight=document.querySelector('.mess__copy')?.style.minHeight;window.sections=[...document.querySelector('main').children].filter(node=>node.matches('section'));});}
     const report=[];
-    for(const selector of ['#ia','#mess','#hardware','#calculadora']) {
+    for(const selector of ['#ia','#mess','#hardware','#como-funciona','#calculadora']) {
       for(const current of [page,reference]) {
-        await current.evaluate(selector=>{document.body.replaceChildren(window.sections.find(node=>node.matches(selector)));scrollTo(0,0);document.querySelectorAll('img').forEach(img=>{img.loading='eager';if(img.src.includes('/uploads/')){img.removeAttribute('srcset');img.removeAttribute('sizes');img.src=img.src.replace(/-\d+x\d+(?=\.webp)/,'');}});},selector);
+        await current.evaluate(selector=>{document.body.replaceChildren(window.sections.find(node=>node.matches(selector)));if(selector==='#mess' && window.messHeight) document.querySelector('.mess__copy').style.minHeight=window.messHeight;scrollTo(0,0);document.querySelectorAll('img').forEach(img=>{img.loading='eager';if(img.src.includes('/uploads/')){img.removeAttribute('srcset');img.removeAttribute('sizes');img.src=img.src.replace(/-\d+x\d+(?=\.webp)/,'');}});},selector);
         await current.locator('img').evaluateAll(images=>Promise.all(images.map(img=>img.decode().catch(()=>{}))));
       }
-      const controls={'#ia':'.ai-tabs__item','#mess':'.mess__tab','#hardware':'.hw-carousel__dots button'};
+      const controls={'#ia':'.ai-tabs__item','#mess':'.mess__tab','#hardware':'.hw-carousel__dots button','#como-funciona':'.how__tabs button'};
       const count=controls[selector]?await page.locator(controls[selector]).count():1;
       for(let index=0;index<count;index++) {
         for(const current of [page,reference]) {
@@ -107,9 +107,49 @@ for(const width of [360,390,768,1024,1440]) {
         }
         const expected=await reference.locator(selector).screenshot({path:testInfo.outputPath(`${selector.slice(1)}-${index}-reference.png`),animations:'disabled'});
         const actual=await page.locator(selector).screenshot({path:testInfo.outputPath(`${selector.slice(1)}-${index}-wordpress.png`),animations:'disabled'});
-        const diff=await pixels(page,expected,actual);report.push({selector,index,diff});
+        let diff;
+        if(selector==='#como-funciona') {
+          expect(await page.locator(selector).boundingBox()).toEqual(await reference.locator(selector).boundingBox());
+          const active=current=>current.locator('.how__panel:visible').first();
+          expect(await active(page).locator('.how__media').boundingBox()).toEqual(await active(reference).locator('.how__media').boundingBox());
+          const a=await active(reference).locator('.how__copy').screenshot({animations:'disabled'}),b=await active(page).locator('.how__copy').screenshot({animations:'disabled'});
+          diff=await pixels(page,a,b);
+        } else diff=await pixels(page,expected,actual);
+        report.push({selector,index,diff});
       }
     }
     await writeFile(testInfo.outputPath('interactions-visual.json'),JSON.stringify({width,report},null,2));await reference.close();expect(report.filter(row=>row.diff.changed!==0)).toEqual([]);
   });
 }
+
+test('T24 movimento real: Lenis, zoom, crossfade e pausa persistente da Dadá',async({page,context},testInfo)=>{
+  test.setTimeout(120000);test.skip(!process.env.IOTNEST_REFERENCE_URL);
+  const reference=await context.newPage(),samples=[];
+  let fonts=await readFile('wp-content/themes/iotnest/assets/src/scss/base/_fonts.scss','utf8');
+  for(const name of ['inter-latin','inter-latin-ext']) fonts=fonts.replace(`../fonts/${name}.woff2`,`data:font/woff2;base64,${(await readFile(`wp-content/themes/iotnest/assets/fonts/${name}.woff2`)).toString('base64')}`);
+  await reference.route('https://fonts.googleapis.com/**',route=>route.fulfill({contentType:'text/css',body:fonts}));
+  for(const [label,current,url] of [['reference',reference,process.env.IOTNEST_REFERENCE_URL],['wordpress',page,process.env.IOTNEST_TEST_URL]]) {
+    await current.bringToFront();await current.setViewportSize({width:1440,height:900});await current.goto(url);await current.evaluate(()=>document.fonts.ready);
+    await expect(current.locator('html')).toHaveClass(/lenis/);
+    await expect(current.locator('video.hero__bg')).toHaveCount(2);
+    await expect.poll(()=>current.locator('video.hero__bg').first().evaluate(v=>Number.isFinite(v.duration)&&v.duration>0)).toBe(true);
+    await expect.poll(()=>current.locator('video.hero__bg').evaluateAll(videos=>videos.some(v=>!v.paused))).toBe(true);
+    await writeFile(testInfo.outputPath('motion-progress.json'),JSON.stringify({label,completed:samples},null,2));
+    const duration=await current.locator('video.hero__bg').evaluateAll(videos=>{const active=videos.find(v=>!v.paused && getComputedStyle(v).opacity==='1')||videos.find(v=>!v.paused);active.currentTime=active.duration-1.4;return active.duration;});
+    try {
+      await expect.poll(()=>current.locator('video.hero__bg').evaluateAll(videos=>videos.filter(v=>!v.paused).length),{timeout:4000,intervals:[50]}).toBe(2);
+    } finally {
+      await writeFile(testInfo.outputPath(`video-${label}.json`),JSON.stringify(await current.locator('video.hero__bg').evaluateAll(videos=>({visibility:document.visibilityState,scrollY,videos:videos.map(v=>({duration:v.duration,time:v.currentTime,paused:v.paused,ready:v.readyState,seekable:v.seekable.length,opacity:v.style.opacity,transition:v.style.transition,error:v.error?.message}))})),null,2));
+    }
+    const fade=await current.locator('video.hero__bg').evaluateAll(videos=>videos.map(v=>getComputedStyle(v).transitionDuration));expect(fade).toContain('1.5s');
+    await current.mouse.wheel(0,600);await current.waitForTimeout(1800);
+    const zoom=await current.locator('.hero').evaluate(el=>({actual:Number(el.style.getPropertyValue('--zoom')),expected:1+Math.min(1,scrollY/el.offsetHeight)*0.14}));expect(Math.abs(zoom.actual-zoom.expected)).toBeLessThan(0.001);
+    await current.locator('[data-dada-frame]').scrollIntoViewIfNeeded();await current.waitForTimeout(2000);
+    const video=current.locator('video.dada__bg');await expect.poll(()=>video.evaluate(v=>Number.isFinite(v.duration)&&v.duration>0)).toBe(true);
+    if(await video.evaluate(v=>v.paused)) await current.locator('[data-dada-toggle]').click();
+    await expect.poll(()=>video.evaluate(v=>v.paused)).toBe(false);await current.locator('[data-dada-toggle]').click();await expect.poll(()=>video.evaluate(v=>v.paused)).toBe(true);
+    await current.locator('#energia').scrollIntoViewIfNeeded();await current.waitForTimeout(500);await current.locator('[data-dada-frame]').scrollIntoViewIfNeeded();await current.waitForTimeout(700);await expect.poll(()=>video.evaluate(v=>v.paused)).toBe(true);
+    samples.push({label,duration,fade,zoom,dadaPaused:true});
+  }
+  await writeFile(testInfo.outputPath('motion-reference.json'),JSON.stringify(samples,null,2));await reference.close();
+});

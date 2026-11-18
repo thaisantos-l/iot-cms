@@ -125,7 +125,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
     await page.goto('/');
     for (const current of [page, reference]) {
       await current.evaluate(() => document.fonts.ready);
-      await current.evaluate(() => { window.iotnestSections = [...document.querySelector('main').children].filter(node => node.matches('section')); });
+      await current.evaluate(() => { window.iotnestMessHeight = document.querySelector('.mess__copy')?.style.minHeight; window.iotnestSections = [...document.querySelector('main').children].filter(node => node.matches('section')); });
     }
     const report = [];
     const selectors = ['#topo', '.clients', '#solucao', '#hardware', '#ia', '.dada-full', '#apontamento', '#energia', '#relatorios', '#mess', '#calculadora', '#comparativo', '#como-funciona', '#videos', '#sobre', '#faq'];
@@ -134,6 +134,8 @@ for (const width of [360, 390, 768, 1024, 1440]) {
         await current.evaluate(selector => {
           const section = window.iotnestSections.find(node => node.matches(selector));
           document.body.replaceChildren(section);
+          // Screenshots de seções altas disparam resize com MES desconectado; restaura a medição real da referência.
+          if (selector === '#mess' && window.iotnestMessHeight) section.querySelector('.mess__copy').style.minHeight = window.iotnestMessHeight;
           scrollTo(0, 0);
           section.querySelectorAll('img').forEach(img => {
             img.loading = 'eager';

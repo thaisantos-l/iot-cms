@@ -1,5 +1,6 @@
 .mess__copy {
   display: grid;
+  height: calc-size(auto, round(up, size, 1px));
 }
 
 .mess__panel {
