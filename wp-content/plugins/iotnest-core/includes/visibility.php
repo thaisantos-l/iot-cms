@@ -58,7 +58,7 @@ function has_public_content( $type, $category = 0 ) {
 	if ( 'post' === $type && $category ) {
 		$args['cat'] = absint( $category );
 	}
-	return (bool) get_posts( $args );
+	return (bool) public_query( $type, $args )->posts;
 }
 
 /**

@@ -57,6 +57,22 @@ function settings_schema() {
 	) as $key => $label ) {
 		$fields[ $key ] = field( 'boolean', $label );
 	}
+	foreach ( array(
+		'blog'  => 'Blog',
+		'cases' => 'Cases',
+	) as $key => $label ) {
+		$fields[ 'archive_' . $key ] = group(
+			'Página de ' . $label,
+			array(
+				'eyebrow'         => field( 'text', 'Sobretítulo' ),
+				'title'           => field( 'text', 'Título do arquivo (Cases)' ),
+				'description'     => field( 'text', 'Descrição do arquivo (Cases)' ),
+				'cta_title'       => field( 'text', 'Título da chamada final' ),
+				'cta_description' => field( 'text', 'Texto da chamada final' ),
+				'cta'             => cta_schema(),
+			)
+		);
+	}
 	return group( 'Contatos, conteúdo global e integrações', $fields );
 }
 

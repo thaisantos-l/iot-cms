@@ -1376,7 +1376,31 @@
     ],
     "email": "contato@iotnest.ai",
     "phone": "55 (11) 95032-3958",
-    "address": "Rua Mario Borin, 500 - Sala 74 Vila Virginia - Jundiaí, SP — CEP 13209-030"
+    "address": "Rua Mario Borin, 500 - Sala 74 Vila Virginia - Jundiaí, SP — CEP 13209-030",
+    "archive_blog": {
+      "eyebrow": "Blog",
+      "title": "Conteúdo sobre dados e inteligência na injeção plástica",
+      "description": "Artigos sobre OEE, qualidade, energia e inteligência artificial para quem decide no chão de fábrica.",
+      "cta_title": "Quer conversar sobre a sua operação?",
+      "cta_description": "Fale com o nosso time de especialistas e receba uma análise personalizada em até 24h úteis.",
+      "cta": {
+        "label": "Falar com a nossa equipe",
+        "kind": "section",
+        "section": "contact"
+      }
+    },
+    "archive_cases": {
+      "eyebrow": "Cases de sucesso",
+      "title": "Resultados reais em indústrias reais",
+      "description": "Veja como indústrias de injeção plástica usam a iotnest.ai para ganhar eficiência, reduzir paradas e cortar desperdício.",
+      "cta_title": "Quer resultados como esses na sua fábrica?",
+      "cta_description": "Conte para a gente sobre a sua operação e receba uma análise personalizada em até 24h úteis.",
+      "cta": {
+        "label": "Falar com a nossa equipe",
+        "kind": "section",
+        "section": "contact"
+      }
+    }
   },
   "menus": {
     "primary": [
@@ -1519,5 +1543,9 @@
       "description": "Última atualização: 01 de outubro de 2026",
       "content": "<section class=\"legal__sec\" id=\"aceite\"><h2><span class=\"legal__n\">01</span>Aceitação dos termos</h2><p>Estes Termos de Uso regulam o acesso e a utilização do site da iotnest.ai, mantido pela <strong>Qoobo Tecnologia Ltda.</strong> (CNPJ 47.045.120/0001-79). Ao navegar ou usar qualquer funcionalidade do site, você concorda com estes Termos e com a <a href=\"privacidade.html\">Política de Privacidade</a>. Se não concordar, não utilize o site.</p></section>\n<section class=\"legal__sec\" id=\"sobre\"><h2><span class=\"legal__n\">02</span>O que é este site</h2><p>O site apresenta a plataforma de dados e inteligência artificial da iotnest.ai para injetoras plásticas, seus recursos, cases e canais de contato. O acesso à plataforma de telemetria (área de login) e a contratação dos serviços são regidos por contrato próprio, que prevalece sobre estes Termos no que for específico.</p></section>\n<section class=\"legal__sec\" id=\"uso\"><h2><span class=\"legal__n\">03</span>Uso permitido</h2><p>Você se compromete a utilizar o site de forma lícita e de boa-fé. É proibido:</p>\n<ul><li>usar o site para fins ilegais, fraudulentos ou que violem direitos de terceiros;</li><li>tentar acessar áreas restritas, derrubar, sobrecarregar ou comprometer a segurança do site;</li><li>copiar, extrair em massa (scraping), modificar ou distribuir o conteúdo sem autorização;</li><li>enviar informações falsas, de terceiros sem autorização, ou conteúdo malicioso pelos formulários.</li></ul></section>\n<section class=\"legal__sec\" id=\"propriedade\"><h2><span class=\"legal__n\">04</span>Propriedade intelectual</h2><p>Marcas, logotipos, textos, imagens, vídeos, layout, software e demais conteúdos do site pertencem à Qoobo Tecnologia Ltda. ou são usados sob licença, e são protegidos pela legislação de propriedade intelectual. Nenhum direito é cedido a você, além do uso pessoal e não comercial do site. Marcas de terceiros citadas pertencem aos seus titulares.</p></section>\n<section class=\"legal__sec\" id=\"calculadora\"><h2><span class=\"legal__n\">05</span>Informações do site e calculadora</h2><p>O conteúdo do site tem caráter informativo. A <strong>calculadora de potencial</strong> apresenta <strong>estimativas</strong> baseadas nos valores que você informa e em premissas simplificadas; os resultados não constituem promessa, garantia ou proposta comercial, e os ganhos reais dependem das características de cada operação. Resultados de cases e depoimentos refletem situações específicas e não garantem o mesmo desempenho para outros clientes.</p></section>\n<section class=\"legal__sec\" id=\"contato\"><h2><span class=\"legal__n\">06</span>Contato e comunicações</h2><p>Ao enviar uma solicitação pelos canais do site, você autoriza que entremos em contato para responder ao seu pedido. O envio de um formulário não gera, por si só, qualquer contrato ou obrigação de contratação.</p></section>\n<section class=\"legal__sec\" id=\"terceiros\"><h2><span class=\"legal__n\">07</span>Links e serviços de terceiros</h2><p>O site pode conter links e conteúdos de terceiros (por exemplo, YouTube, WhatsApp e redes sociais). Não controlamos nem respondemos pelo conteúdo, disponibilidade ou práticas desses serviços.</p></section>\n<section class=\"legal__sec\" id=\"disponibilidade\"><h2><span class=\"legal__n\">08</span>Disponibilidade e responsabilidade</h2><p>Empenhamo-nos para manter o site disponível e atualizado, mas não garantimos funcionamento ininterrupto ou livre de erros. Na máxima extensão permitida pela lei, a Qoobo Tecnologia Ltda. não responde por danos indiretos, lucros cessantes ou perdas decorrentes do uso ou da impossibilidade de uso do site ou de decisões tomadas apenas com base em seu conteúdo. Nada nestes Termos exclui responsabilidades que a lei não permita excluir, inclusive as previstas no Código de Defesa do Consumidor, quando aplicável.</p></section>\n<section class=\"legal__sec\" id=\"privacidade\"><h2><span class=\"legal__n\">09</span>Privacidade e proteção de dados</h2><p>O tratamento de dados pessoais segue a <a href=\"privacidade.html\">Política de Privacidade</a> e a <a href=\"cookies.html\">Política de Cookies</a>, em conformidade com a LGPD.</p></section>\n<section class=\"legal__sec\" id=\"alteracoes\"><h2><span class=\"legal__n\">10</span>Alterações dos Termos</h2><p>Podemos alterar estes Termos a qualquer momento. A versão vigente fica publicada nesta página, com a data da última atualização. O uso contínuo do site após a publicação indica a sua concordância com as mudanças.</p></section>\n<section class=\"legal__sec\" id=\"lei\"><h2><span class=\"legal__n\">11</span>Lei aplicável e foro</h2><p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de Jundiaí/SP para dirimir controvérsias, ressalvado o foro do domicílio do consumidor, quando a legislação assim determinar.</p></section>\n<section class=\"legal__sec\" id=\"fale\"><h2><span class=\"legal__n\">12</span>Fale conosco</h2><p>Dúvidas sobre estes Termos: <a href=\"mailto:contato@iotnest.com.br\">contato@iotnest.com.br</a><br>Qoobo Tecnologia Ltda. – CNPJ 47.045.120/0001-79<br>Rua Mario Borin, 500 – Sala 74, Vila Virginia, Jundiaí/SP, CEP 13209-030</p></section>"
     }
-  ]
+  ],
+  "blog_page": {
+    "title": "Conteúdo sobre dados e inteligência na injeção plástica",
+    "description": "Artigos sobre OEE, qualidade, energia e inteligência artificial para quem decide no chão de fábrica."
+  }
 }

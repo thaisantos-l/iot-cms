@@ -87,7 +87,7 @@ function home_sections( $id ) {
 			if ( 'blog' === $key && ! empty( $data['category_id'] ) ) {
 				$query['cat'] = absint( $data['category_id'] );
 			}
-			$data['posts'] = get_posts( $query );
+			$data['posts'] = \Iotnest\Core\public_query( $query['post_type'], $query )->posts;
 			if ( ! $data['posts'] ) {
 				continue;
 			}
