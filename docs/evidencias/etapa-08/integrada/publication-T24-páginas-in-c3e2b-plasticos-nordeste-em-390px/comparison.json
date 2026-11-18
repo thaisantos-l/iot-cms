@@ -1,0 +1,26 @@
+{
+  "width": 390,
+  "name": "case-plasticos-nordeste",
+  "expected": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 3620.0625
+  },
+  "actual": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 3620.0625
+  },
+  "diff": {
+    "dimensions": true,
+    "changed": 0,
+    "total": 1412190
+  },
+  "normalization": [
+    "reading time calculated",
+    "native article breadcrumb",
+    "missing cover omitted"
+  ]
+}

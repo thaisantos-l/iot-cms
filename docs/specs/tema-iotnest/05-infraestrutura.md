@@ -15,15 +15,15 @@ O site será renderizado pelo próprio WordPress/PHP. O repositório de entrega 
 
 Node compila assets no desenvolvimento/CI. Produção precisa do runtime WordPress/PHP, banco, servidor web, armazenamento persistente e serviços operacionais definidos pelo time.
 
-## Workflows propostos
+## Workflows implementados localmente
 
-Os nomes são propostas para arquivos em `.github/workflows/`. Desenvolver os scripts de build/checks junto com o código; infra configura acesso, ambientes e execução do deploy.
+Os três arquivos estão em `.github/workflows/`, com scripts operacionais em `ops/`. O [runbook](../../operacao.md) detalha paths, secrets, hooks, primeira instalação e promoção. Infra configura acesso, ambiente protegido e execução; não houve acionamento remoto nesta entrega.
 
-| Workflow | Gatilho proposto | Responsabilidade |
+| Workflow | Gatilho | Responsabilidade |
 | --- | --- | --- |
 | `ci.yml` | PR e push na `main` | Instalar por lockfiles, lint PHP/JS/Sass, testes pertinentes, compilar e verificar pacote. PR não recebe credenciais de produção. |
-| `deploy-production.yml` | Release/tag de commit já aprovado, ou execução manual de promoção | Promover o mesmo artefato aprovado no QA local e CI, verificar dependências/migrações e saúde, registrar versão publicada. |
-| `rollback.yml` | Execução manual com versão anterior conhecida | Reaplicar artefato compatível e validar saúde, sem substituir banco ou uploads. Pode ser também um modo explícito do workflow de deploy. |
+| `deploy-production.yml` | Execução manual na main de commit aprovado | Promover o mesmo artefato aprovado no QA local e CI, verificar dependências/migrações e saúde, registrar versão publicada. |
+| `rollback.yml` | Execução manual na main com versão anterior conhecida | Reaplicar artefato compatível e validar saúde, sem substituir banco ou uploads. Usa o mesmo grupo de concorrência do deploy. |
 
 Durante esta execução, os merges são locais e não disparam deploy. A publicação inicial em produção depende de instrução adicional e da avaliação das pendências de aceite. Sem homologação, recebimento SMTP e prazo de atualização sob o cache real terão de ser medidos em PRD numa execução futura autorizada. Não marcar esses testes como aprovados por equivalência com QA local. Uma execução de PR ou código não confiável não deve disparar promoção com secrets.
 

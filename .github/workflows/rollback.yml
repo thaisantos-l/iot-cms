@@ -1,0 +1,41 @@
+name: iotnest rollback manual
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Commit completo já aprovado na main
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: iotnest-production
+  cancel-in-progress: false
+jobs:
+  promote:
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+      - name: Promover bytes aprovados, sem build ou importação
+        run: node ops/promote.mjs rollback
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_COMMIT: ${{ inputs.commit }}
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          RELEASE_ROOT: ${{ vars.RELEASE_ROOT }}
+          WORDPRESS_ROOT: ${{ vars.WORDPRESS_ROOT }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}

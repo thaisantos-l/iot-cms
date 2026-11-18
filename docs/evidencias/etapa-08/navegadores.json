@@ -1,0 +1,38 @@
+{
+  "executed": "2026-11-18",
+  "results": [
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "artifactCommit": "81c899c",
+      "passed": 7,
+      "scope": "Contato com/sem JS, modal e consentimento, home sem JS, teclado e 0/1/7 itens, T24 de interações a 360px",
+      "log": "artifacts/etapa08-firefox.log"
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "artifactCommit": "81c899c",
+      "passed": 7,
+      "scope": "Contato com/sem JS, modal e consentimento, home sem JS, teclado e 0/1/7 itens, T24 de interações a 360px",
+      "log": "artifacts/etapa08-webkit.log"
+    },
+    {
+      "engine": "chrome",
+      "version": "158.0.8127.37",
+      "artifactCommit": "1c385ca",
+      "passed": 7,
+      "scope": "Contato com/sem JS, modal e consentimento, home sem JS, teclado e 0/1/7 itens, T24 de interações a 360px",
+      "log": "artifacts/etapa08-chrome.log"
+    }
+  ],
+  "nativeSafari": {
+    "version": "18.6",
+    "status": "not tested",
+    "reason": "safaridriver recusou criar sessão: Allow remote automation desabilitado nas configurações Safari. Preferências do usuário não foram alteradas."
+  },
+  "mobileSafari": {
+    "status": "not available"
+  },
+  "limitation": "WebKit automatizado não é Safari nativo/iOS."
+}

@@ -35,7 +35,7 @@ test('zero, um, vários e reordenação não dependem de quatro ou cinco itens',
     await expect(page.locator('.motion-toggle')).toHaveCount(0);
     if(!count) {await expect(page.locator('[data-ai-tabs],[data-mess],[data-how]')).toHaveCount(0);continue;}
     await expect(page.locator('[data-step-item]')).toHaveCount(count);await expect(page.locator('.hw-carousel__slide[data-pos="0"]')).toHaveCount(1);
-    if(count===1) {await expect(page.locator('.how__tabs,.hw-carousel__dots,.mess__tabs')).toHaveCount(0);}
+    if(count===1) {await expect(page.locator('.how__tabs,.hw-carousel__dots,.mess__tabs')).toHaveCount(0);await expect(page.locator('[data-mess-panel]')).toHaveAccessibleName(await page.locator('.mess__title').textContent());}
     else {await page.locator('.how__tabs button').last().click();await expect(page.locator('[data-step-item]:visible')).toHaveAttribute('data-step-item','qa-0');await expect(page.locator('.hw-carousel__slide[data-pos="3"]')).toHaveCount(4);}
   }
   expect(messages).toEqual([]);

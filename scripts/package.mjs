@@ -48,7 +48,12 @@ for (const project of projects) {
   }
 }
 
-const metadata = { format: 1, commit, dirty, theme: '0.1.0', plugin: '0.1.0', files: checksums };
+// Atestação empacotada: o endpoint informa o código carregado pelo PHP/FPM.
+for(const relative of ['wp-content/themes/iotnest/inc/release.php','wp-content/plugins/iotnest-core/includes/release.php']) {
+  const bytes=Buffer.from(`<?php\ndefined('ABSPATH') || exit;\nreturn array('commit' => '${commit}', 'schema' => 1);\n`);
+  checksums[relative]=hash(bytes);entries[relative]=[bytes,{mtime:new Date(1980,0,1)}];
+}
+const metadata = { format: 2, commit, dirty, theme: '0.1.0', plugin: '0.1.0', schema: 1, php:'8.2', wordpress:'7.1', files: checksums };
 entries['release.json'] = [Buffer.from(`${JSON.stringify(metadata, null, 2)}\n`), { mtime: new Date(1980, 0, 1) }];
 const zip = zipSync(entries, { level: 9 });
 const filename = `iotnest-${commit}${dirty ? '-dirty' : ''}.zip`;

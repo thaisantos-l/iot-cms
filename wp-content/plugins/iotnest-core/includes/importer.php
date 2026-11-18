@@ -203,8 +203,10 @@ function import_institutional() {
 			$media[ $source ] = $id;
 		}
 		$meta = array(
-			'_wp_page_template'   => 'page-templates/institutional.php',
-			'_iotnest_home_order' => section_keys(),
+			'_wp_page_template'     => 'page-templates/institutional.php',
+			'_iotnest_home_order'   => section_keys(),
+			'_yoast_wpseo_title'    => sanitize_text_field( $seed['seo']['home']['title'] ?? '' ),
+			'_yoast_wpseo_metadesc' => sanitize_text_field( $seed['seo']['home']['description'] ?? '' ),
 		);
 		foreach ( $seed['sections'] as $key => $data ) {
 			$data  = seed_resolve_media( $data, $media );
@@ -237,6 +239,8 @@ function import_institutional() {
 					'meta_input'   => array(
 						'_wp_page_template'        => 'page-templates/legal.php',
 						'_iotnest_review_required' => true,
+						'_yoast_wpseo_title'       => sanitize_text_field( $seed['seo'][ $legal['key'] ]['title'] ?? '' ),
+						'_yoast_wpseo_metadesc'    => sanitize_text_field( $seed['seo'][ $legal['key'] ]['description'] ?? '' ),
 					),
 				),
 				$report
@@ -248,6 +252,10 @@ function import_institutional() {
 				'post_title'   => $seed['blog_page']['title'],
 				'post_excerpt' => $seed['blog_page']['description'],
 				'post_name'    => 'blog',
+				'meta_input'   => array(
+					'_yoast_wpseo_title'    => sanitize_text_field( $seed['seo']['blog']['title'] ?? '' ),
+					'_yoast_wpseo_metadesc' => sanitize_text_field( $seed['seo']['blog']['description'] ?? '' ),
+				),
 			),
 			$report
 		);

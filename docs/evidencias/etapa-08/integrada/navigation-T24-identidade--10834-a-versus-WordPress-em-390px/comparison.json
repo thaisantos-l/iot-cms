@@ -1,0 +1,29 @@
+[
+  {
+    "state": "header",
+    "dimensions": [
+      390,
+      73
+    ],
+    "changed": 0,
+    "total": 28470
+  },
+  {
+    "state": "menu",
+    "dimensions": [
+      390,
+      461
+    ],
+    "changed": 0,
+    "total": 179790
+  },
+  {
+    "state": "footer",
+    "dimensions": [
+      390,
+      1017
+    ],
+    "changed": 0,
+    "total": 396630
+  }
+]

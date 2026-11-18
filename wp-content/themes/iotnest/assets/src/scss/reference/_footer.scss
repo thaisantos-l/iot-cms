@@ -78,7 +78,7 @@
 /* stylelint-disable-next-line no-descending-specificity -- Preserva a cascata original para comparação T24. */
 .footer__bottom a {
   font-weight: 500;
-  color: #ef6902;
+  color: var(--credit);
   text-decoration: none;
 }
 

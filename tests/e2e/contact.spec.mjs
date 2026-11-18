@@ -68,3 +68,9 @@ test('CLS contato: mensagens reservadas em 3 repetições frio/quente mobile e d
     }}
   }finally{await context.close();}}
 });
+
+
+test('REST aceita o limite Unicode mesmo com expansão do form-urlencoded',async({page})=>{
+  await page.goto('/');const token=await (await page.request.get(await form(page).getAttribute('data-token-url'))).json();const pageId=await page.locator('[data-contact-form] [name=page_id]').inputValue();
+  const response=await page.request.post(await form(page).getAttribute('data-endpoint'),{form:{...token,page_id:pageId,nome:'Pessoa QA',email:'valid@example.test',msg:'á'.repeat(5000)}});expect(response.status()).toBe(200);expect((await response.json()).code).toBe('accepted');expect(transport('count')).toBe('1');
+});

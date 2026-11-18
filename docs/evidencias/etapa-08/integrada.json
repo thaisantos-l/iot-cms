@@ -1,0 +1,304 @@
+{
+  "date": "2026-11-18",
+  "artifactCommit": "c785bb78cc242eb67de12bdae8ebafe4fcf49361",
+  "php": "8.2.4",
+  "wordpress": "7.1.4",
+  "browserTests": {
+    "passed": 81,
+    "failed": 0,
+    "skipped": 0
+  },
+  "phpAssertions": 201,
+  "cls": [
+    {
+      "name": "contact-cls.json",
+      "samples": 12,
+      "max": 0,
+      "profile": {
+        "browser": "159.0.8154.6",
+        "network": {
+          "latencyMs": 150,
+          "downMbps": 1.6,
+          "upMbps": 0.75
+        },
+        "cpuSlowdown": 4
+      }
+    },
+    {
+      "name": "home-cls.json",
+      "samples": 12,
+      "max": 0,
+      "profile": {
+        "browser": "159.0.8154.6",
+        "network": {
+          "latencyMs": 150,
+          "downMbps": 1.6,
+          "upMbps": 0.75
+        },
+        "cpuSlowdown": 4
+      }
+    },
+    {
+      "name": "navigation-cls.json",
+      "samples": 12,
+      "max": 0,
+      "profile": {
+        "browser": "159.0.8154.6",
+        "network": {
+          "latencyMs": 150,
+          "downMbps": 1.6,
+          "upMbps": 0.75
+        },
+        "cpuSlowdown": 4
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "file": "integrada/contact-CLS-contato-mensag-ed1e4-rio-quente-mobile-e-desktop/contact-cls.json",
+      "sha256": "a800a73ae6e137bfc896add9d6e4c1f2d516ebf7dee6fab85351ef487c9b56d7"
+    },
+    {
+      "file": "integrada/contact-T24-contato-formulário-e-mensagens-em-1024px/contact-visual.json",
+      "sha256": "29466b4a161969300c7529ac66fbb00a850dd65d7eef0c8cada9e9ed9a116f55"
+    },
+    {
+      "file": "integrada/contact-T24-contato-formulário-e-mensagens-em-1440px/contact-visual.json",
+      "sha256": "c433c07fafbc5b52f13aef1721fcf083aaeb1ece210216abcd73091d420f2d9e"
+    },
+    {
+      "file": "integrada/contact-T24-contato-formulário-e-mensagens-em-360px/contact-visual.json",
+      "sha256": "22f9f51062bde8fcec26083da3309962e28198c27617618c00d6016482c21f46"
+    },
+    {
+      "file": "integrada/contact-T24-contato-formulário-e-mensagens-em-390px/contact-visual.json",
+      "sha256": "ef435ada683f95b8d9168944c4f569f86938a553da4042fb7baaf1d44da36589"
+    },
+    {
+      "file": "integrada/contact-T24-contato-formulário-e-mensagens-em-768px/contact-visual.json",
+      "sha256": "5ee6d33790cb1e414eaea29c22faed19f5b76b4b13bfb4a83f477937dc8db2f7"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-1024px/composition.json",
+      "sha256": "f3496d60a1f567488338caf1f71ca782991944ef8ec900fd0bec9ae14bb683d5"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-1024px/how-geometry.json",
+      "sha256": "be9664c9b378c93820977d443e8b72f95b050b1fb0a03446bbad76a2e8c73d17"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-1440px/composition.json",
+      "sha256": "d8b75a9222398360a8e04b296b50b861cea53f0021e26a9b9277234283f4b1e7"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-1440px/how-geometry.json",
+      "sha256": "1d0591fe9bd2701130cf8a42302586c12a342222fd4beb59f852130580d500a6"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-360px/composition.json",
+      "sha256": "5f40ae2890c4bb235fd0dcbd7e70afb74a49de117ba3aec19802d02bd713b977"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-360px/how-geometry.json",
+      "sha256": "5c2b924eb4f0bfcb7423e88382aaaa8414d1330761eb29ed4f05a94b9641ad47"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-390px/composition.json",
+      "sha256": "b534a5c5cf05d33e90d09641fa000c8e06daa6b35084c611db3ef77aff48c141"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-390px/how-geometry.json",
+      "sha256": "a76179410d38c9591335ec23f44b3cf5405f88830b37e403ddd366c062c7103e"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-768px/composition.json",
+      "sha256": "191c92d29f337324dd3fa9d8d059bd1ac93c1ee712bcfea1d20c327dc170e083"
+    },
+    {
+      "file": "integrada/home-T24-home-composição-institucional-em-768px/how-geometry.json",
+      "sha256": "39cbaff154f6fcb12d4d140ccd1a574cb1a368b7388917fd742ed45d4fad07a9"
+    },
+    {
+      "file": "integrada/interactions-CLS-instituci-deb6e-te-carga-e-interações-reais/home-cls.json",
+      "sha256": "a800a73ae6e137bfc896add9d6e4c1f2d516ebf7dee6fab85351ef487c9b56d7"
+    },
+    {
+      "file": "integrada/interactions-T24-interaçõe-6772c-are-e-calculadora-em-1024px/interactions-visual.json",
+      "sha256": "822ad22c4e498776dfc6a5fd0ae4946b6495e41e24f7ee158fb023209f599298"
+    },
+    {
+      "file": "integrada/interactions-T24-interaçõe-7a22d-ware-e-calculadora-em-360px/interactions-visual.json",
+      "sha256": "3d3aee6544d2f6b4857ecf1c0a5da7f799d65143fd41335a20a7bb56cc30f883"
+    },
+    {
+      "file": "integrada/interactions-T24-interaçõe-973d2-ware-e-calculadora-em-390px/interactions-visual.json",
+      "sha256": "a2913aee8d0d41884fa73804eed792328c6338c676292f2985d97839cbf081c3"
+    },
+    {
+      "file": "integrada/interactions-T24-interaçõe-afa91-are-e-calculadora-em-1440px/interactions-visual.json",
+      "sha256": "3210e5353705b55876e50c8a601eeb7969db46140948ef35406396f4edb87604"
+    },
+    {
+      "file": "integrada/interactions-T24-interaçõe-f0d29-ware-e-calculadora-em-768px/interactions-visual.json",
+      "sha256": "36426c4b3c2912c3a3a2422f767152acf63338576757310aafa5ab7828bd7711"
+    },
+    {
+      "file": "integrada/navigation-CLS-da-composiç-80649-o-quente-e-perfil-declarado/navigation-cls.json",
+      "sha256": "1b1c20a1ab7a82cc6ad06c00abcb5678d95e34e27c9a8b72dbb7f467f6516fbb"
+    },
+    {
+      "file": "integrada/navigation-T24-identidade--10834-a-versus-WordPress-em-390px/comparison.json",
+      "sha256": "e2c752ecb03f56773fa7d0ad1e9212c196403712ff519c5cf31895a351b0ece0"
+    },
+    {
+      "file": "integrada/navigation-T24-identidade--24eeb--versus-WordPress-em-1024px/comparison.json",
+      "sha256": "a27d9b218cb89288e593d257c7b9e72422426c03fa5e13260ed6e65ac314f741"
+    },
+    {
+      "file": "integrada/navigation-T24-identidade--288a9--versus-WordPress-em-1440px/comparison.json",
+      "sha256": "e2b07baa438d8be3a863fb9367640be886aa9a7cafe3e654217f874bfd225e93"
+    },
+    {
+      "file": "integrada/navigation-T24-identidade--52ae8-a-versus-WordPress-em-360px/comparison.json",
+      "sha256": "e4458309ba63fe446141e539f7e95cd427450f333ec359779abfcad78b523447"
+    },
+    {
+      "file": "integrada/navigation-T24-identidade--c97ed-a-versus-WordPress-em-768px/comparison.json",
+      "sha256": "fd890249d4f92ae3e5e59792c031e25a80fcee19bb07905b5fc2ab9528a9d545"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-in-1a1db-lasticos-nordeste-em-1024px/comparison.json",
+      "sha256": "715842cb4747a59b2715c04475bee895ae4a2897a80f02590f5c157e53f27262"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-in-244e2-plasticos-nordeste-em-360px/comparison.json",
+      "sha256": "809a424c9c90e4091ceac36a6c19d9a2c7ffb7ce6c14577247398f4c7fd842bc"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-in-55b4f-plasticos-nordeste-em-768px/comparison.json",
+      "sha256": "563eebef7e4a6c3efa1b6e20acf587ab51bd0a3e405e4e24ebbaa7d32a414e55"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-in-5c42c-lasticos-nordeste-em-1440px/comparison.json",
+      "sha256": "1c1bd57931deeca5657b958a3d24c25e3a5b9d127784ba4943692f431abb53c4"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-in-c3e2b-plasticos-nordeste-em-390px/comparison.json",
+      "sha256": "b8d811978d975a2ba5715d94d86779a82f1bb98f964ab86e8a134b0d4b52c461"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-artigo-1-em-1024px/comparison.json",
+      "sha256": "c72f74d97bb81c5afc66e67922e6924b3e187035bf9d98b61c4238bca1fa37d0"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-artigo-1-em-1440px/comparison.json",
+      "sha256": "f65c42881cb7c62a61bd4c9686cb2e593c23b5aba245550e2e4c6ca00937a0de"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-artigo-1-em-360px/comparison.json",
+      "sha256": "9b0745c50d47ef44d22909ecd0f51981d7543ff64ff89f43a5b0682120c3b486"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-artigo-1-em-390px/comparison.json",
+      "sha256": "bfefe6b3fab6e3a04b0c625039fbe0f1a58ffd580795cf5725eb405ef448384d"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-artigo-1-em-768px/comparison.json",
+      "sha256": "d362aaa43e2962fda3dc40b085df0c4cd8e201a06af2f0eb84de5af071645a5a"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-blog-em-1024px/comparison.json",
+      "sha256": "053f6bf2877562a7bcaaf7d4d17b6e59a0b3e149780b3a0c83acd92799cd82f4"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-blog-em-1440px/comparison.json",
+      "sha256": "be74c337509a91c578a71caac566efa7eb1f13b003a7207cede0790955a8d1e6"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-blog-em-360px/comparison.json",
+      "sha256": "f3f67e05818405d5c0b2723aa11fb2c82f7bef07d05852af7f6107cbdb1453f3"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-blog-em-390px/comparison.json",
+      "sha256": "e7c7420ebe7d900935b4e6a4ec81ee43a68f9e007e2bd554e233e0e8e2c3a4bb"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-blog-em-768px/comparison.json",
+      "sha256": "027f0131cdd412388b988f47c3d77330aefd9a230cbf2266f51cffc34f50dbaa"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-cases-em-1024px/comparison.json",
+      "sha256": "c622cdfda10cab75e18512f3d1c374ba249f14b47f805d79e26e29ad6cf0797a"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-cases-em-1440px/comparison.json",
+      "sha256": "c40b63a45a13a162866fb2acc731fd1539a28842ffdd014d786e5ec537e5340f"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-cases-em-360px/comparison.json",
+      "sha256": "843e9de75e1d4260c38414f68a8b46f90100f2fc38de572e4727099e5145b3a7"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-cases-em-390px/comparison.json",
+      "sha256": "98e584af194855eb7336aee97c495e08c661ba29b58259ee5a543e71f9490159"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-cases-em-768px/comparison.json",
+      "sha256": "49edf3c385a6380c2f586a06030221c4eaed66673394c883d315f660f688ea2e"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-1024px/geometry.json",
+      "sha256": "839cbb644fa37ff8292a77a274af4317af1df6f651bd75857baec0810ef41afd"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-1024px/pixels.json",
+      "sha256": "845981c4722e195b10d2f77614c38cdf2ae965006a4e50e5cddf935804a5731e"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-1440px/geometry.json",
+      "sha256": "d7eab7a44e304e7c30fcb823a6417875883ad2e7374ba0aa386db08edb1ad897"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-1440px/pixels.json",
+      "sha256": "482873958e724932e1cd9aed853f93ba8a2d5352d40210d5bfbdc396764b9499"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-360px/geometry.json",
+      "sha256": "61de96c818b753c1c58d8e7ed9a58cd0829b74c60f0e2ca657a1cf29b6261052"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-360px/pixels.json",
+      "sha256": "f645047d42f2f76c5ca58eef9f0280c23fbfa192176affbc518f396445a95fb2"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-390px/geometry.json",
+      "sha256": "074f720314337d336c54aef9a4ec219a7df9b05808cf86159673d12f90a3b8a6"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-390px/pixels.json",
+      "sha256": "0a0ee5805790d2351f974cbbc3e9507aebdd3ea574f4e4a523593f4a8be5f60a"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-768px/geometry.json",
+      "sha256": "93a510337edceaa6481b359983f9d427bd13f3312aa22400c3d2391636d97568"
+    },
+    {
+      "file": "integrada/publication-T24-páginas-internas-documento-legal-em-768px/pixels.json",
+      "sha256": "9fbb0cc37ae9c75004d10ed41c606e9181d768c2be91a30645811d2d961ad2e5"
+    },
+    {
+      "file": "integrada/quality-contraste-inicial--6d0d0-low-equivalente-a-zoom-200-/contrast-reflow.json",
+      "sha256": "4ce75902d29b7466b107426730d0ce73cd97d12437804b48623ef607e7086f97"
+    },
+    {
+      "file": "integrada/release-T23-promoção-atômi-13c3e-ck-preservam-edição-recente/rollback.json",
+      "sha256": "1228e179f67da1c322021ccd887f1f049cd0f96c8745ce2e5574b3ce56d84c63"
+    }
+  ],
+  "limits": [
+    "Laboratório local descartável; nenhum deploy/push",
+    "SMTP interceptado, sem recebimento real",
+    "Cache/cron/FPM/SSH em PRD não exercitados",
+    "Safari nativo e iOS não testados"
+  ]
+}

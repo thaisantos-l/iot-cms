@@ -1,5 +1,5 @@
 import { spawn, execFileSync } from 'node:child_process';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, createHash } from 'node:crypto';
 import { mkdtemp, mkdir, cp, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import { createServer as createHttpServer } from 'node:http';
@@ -49,6 +49,16 @@ try {
     await writeFile(path.join(wp, name), data);
   }
 
+  const dependency = resolveRoot('artifacts/dependencies/wordpress-seo-28.9.zip');
+  await mkdir(path.dirname(dependency), {recursive:true});
+  try {await readFile(dependency);} catch(error) {
+    if(error.code!=='ENOENT') throw error;
+    execute('curl',['--fail','--location','--silent','--show-error','https://downloads.wordpress.org/plugin/wordpress-seo.28.9.zip','--output',dependency]);
+  }
+  const yoastBytes=await readFile(dependency);
+  if(createHash('sha256').update(yoastBytes).digest('hex')!=='1f1af9d3dff70288b37e6edc04e27cff4979b258f62960c0b91c092614bf2301')throw new Error('Checksum do Yoast de QA inválido.');
+  execute('unzip',['-q',dependency,'-d',path.join(wp,'wp-content/plugins')]);
+
   execute('docker', ['run', '--detach', '--rm', '--name', container, '--publish', '127.0.0.1::3306',
     '--env', 'MYSQL_ROOT_PASSWORD', '--env', 'MYSQL_DATABASE=iotnest_qa',
     'mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b'],
@@ -80,7 +90,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
   await mkdir(path.join(wp, 'wp-content/mu-plugins'), { recursive: true });
   await cp(resolveRoot('tests/php/offline-updates.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-updates.php'));
   await cp(resolveRoot('tests/php/contact-mailer.php'), path.join(wp, 'wp-content/mu-plugins/iotnest-qa-mailer.php'));
-  const env = { ...process.env, PHP_BIN: php, IOTNEST_TEST_WP_ROOT: wp, IOTNEST_TEST_URL: url,
+  const env = { ...process.env, PHP_BIN: php, IOTNEST_TEST_ARTIFACT: path.resolve(artifact), IOTNEST_TEST_WP_ROOT: wp, IOTNEST_TEST_URL: url,
     IOTNEST_TEST_ADMIN_PASSWORD: randomBytes(24).toString('hex'), IOTNEST_TEST_DB_PASSWORD: password, IOTNEST_TEST_DB_PORT: dbPort };
   // A referência é servida diretamente em modo somente leitura; nunca copiada para o release.
   const referenceRoot = path.resolve(root, '../iotnest-site');
@@ -123,7 +133,7 @@ require_once ABSPATH . 'wp-settings.php';\n`, { mode: 0o600 });
     } catch { await wait(500); }
   }
   if (!ready) throw new Error('MySQL de QA não ficou disponível.');
-  for (const script of ['install', 'foundation', 'content', 'navigation', 'import', 'publication', 'contact']) {
+  for (const script of ['install', 'foundation', 'content', 'navigation', 'import', 'publication', 'contact', 'cache']) {
     console.log(execute(php, [`tests/php/${script}.php`], { env, encoding: 'utf8' }).trim());
   }
   server = spawn(php, ['-S', `127.0.0.1:${port}`, '-t', wp, resolveRoot('tests/php/router.php')], { env, stdio: ['ignore', 'pipe', 'pipe'] });

@@ -1,0 +1,28 @@
+{
+  "browser": "159.0.8154.6",
+  "method": "chrome.tabs.setZoom(tabId, 2); getZoom=2; janela 1440×900, viewport:null, resize nativo concluído, sem emulação de métricas",
+  "measurements": [
+    {
+      "label": "wordpress",
+      "zoom": 2,
+      "innerWidth": 720,
+      "innerHeight": 406,
+      "devicePixelRatio": 2,
+      "calculator": {
+        "width": 720,
+        "fontSize": "28.56px"
+      }
+    },
+    {
+      "label": "reference",
+      "zoom": 2,
+      "innerWidth": 720,
+      "innerHeight": 406,
+      "devicePixelRatio": 2,
+      "calculator": {
+        "width": 720,
+        "fontSize": "28.56px"
+      }
+    }
+  ]
+}

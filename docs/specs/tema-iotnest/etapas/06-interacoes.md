@@ -1,6 +1,6 @@
 # Etapa 06 — Interações e estabilidade visual
 
-Situação: implementação verificada localmente, com duas decisões R14 pendentes; checkpoint na branch `feat/06-interacoes-componentes`, a partir da etapa 05 integrada em `f267f3d`. Requisitos: R03, R04, R06. Branch sugerida: `feat/06-interacoes-componentes`.
+Situação: implementação e aceite local concluídos, com duas exceções de estabilidade aprovadas pela responsável em 18/11/2026; checkpoint na branch `feat/06-interacoes-componentes`, a partir da etapa 05 integrada em `f267f3d`. Requisitos: R03, R04, R06. Branch sugerida: `feat/06-interacoes-componentes`.
 
 ## Entregáveis
 
@@ -28,8 +28,8 @@ Merge após evidências funcionais/visuais pertinentes. Rollback deve manter o H
 
 ## Execução local em 18/11/2026
 
-Módulos de tabs/MES/etapas, carrosséis, calculadora, contadores, mídia local, reveal, parallax e rolagem Dadá conectados ao HTML do CMS. MES reserva todos os painéis via CSS grid sem trocar textos para medir. Mantidos intervalos de 2s/4s, crossfade de vídeo de 1,5s e easing da referência. Modal compartilhado preparado para adapters da etapa 07. Commits `f3ef049`, `e52a016`, `0da6b19` e `1b679ce`. Checkpoint local dos componentes verificados para continuidade independente; não é aceite das duas alterações visuais pendentes.
+Módulos de tabs/MES/etapas, carrosséis, calculadora, contadores, mídia local, reveal, parallax e rolagem Dadá conectados ao HTML do CMS. MES reserva todos os painéis via CSS grid sem trocar textos para medir. Mantidos intervalos de 2s/4s, crossfade de vídeo de 1,5s e easing da referência. Modal compartilhado preparado para adapters da etapa 07. Commits `f3ef049`, `e52a016`, `0da6b19` e `1b679ce`. Merge local `396434e`; os comportamentos originais foram expressamente confirmados pela responsável ao responder às duas propostas de estabilidade.
 
 Verificações executadas: 7 testes Node, lint/build/PHP/WPCS, bateria PHP descartável e 61/62 testes de navegador, com o único teste de precisão geométrica corrigido e aprovado em repetição focada no mesmo artefato. T24 inclui 80 componentes da home e 80 estados de interação. CLS da home: 12 amostras, todas 0. [Evidências e limites](../../../evidencias/etapa-06.md).
 
-Conflitos R14 apresentados ao responsável, ainda sem resposta: (1) o erro da calculadora original desloca o botão em 62px a 390px; proposta de erro abaixo do botão, substituindo a nota somente durante o erro; (2) painéis de “Como funciona” variam de altura, e reservar o maior acrescenta 7,59375px à altura inicial a 360px. Os dois comportamentos originais permanecem até a decisão. Protótipos locais: `artifacts/revisao-estabilidade/`; não houve escrita no front. A exigência de aprovação vem de R14 e do contrato de interações na arquitetura; não é exigência de ferramenta ou skill.
+Decisões R14 recebidas em 18/11/2026: **“Manter erro na posição original”** e **“Preservar alturas originais”**. Portanto, o erro da calculadora continua antes do botão (deslocamento original de 62px a 390px), e “Como funciona” mantém as alturas variáveis. Reservar o maior painel acrescentaria 7,59375px à altura inicial a 360px e foi recusado. Essas são exceções explícitas aos contratos de estabilidade de R06; não são falhas ocultadas pela medição de CLS. Nenhuma alteração visual proposta foi aplicada e não resta decisão pendente sobre esses dois pontos. Protótipos locais permanecem em `artifacts/revisao-estabilidade/`, fora da entrega.

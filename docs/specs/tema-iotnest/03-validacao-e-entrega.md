@@ -24,6 +24,10 @@ Registrar versão do código e navegador, viewport, perfil de rede/CPU, conteúd
 
 Alturas fixas que cortem o texto não são uma solução aceitável. Testar textos maiores, mudanças de cor/logo, mídia lenta e zoom. Para imagens da biblioteca, usar as APIs de attachments do WordPress. [Imagens responsivas do WordPress](https://developer.wordpress.org/reference/functions/wp_get_attachment_image/).
 
+### Exceções de estabilidade aprovadas
+
+Em 18/11/2026, após avaliação do conflito com R14, a responsável determinou **“Manter erro na posição original”** na calculadora e **“Preservar alturas originais”** em “Como funciona”. Manter esses dois comportamentos da referência, mesmo com o deslocamento do botão e a variação de altura. As demais exigências de estabilidade e a medição real de CLS continuam aplicáveis. [Decisão e medidas](../../evidencias/etapa-06.md).
+
 ## Matriz funcional obrigatória
 
 | ID | Cenário | Resultado esperado |

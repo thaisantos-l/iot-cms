@@ -1573,5 +1573,27 @@
   "blog_page": {
     "title": "Conteúdo sobre dados e inteligência na injeção plástica",
     "description": "Artigos sobre OEE, qualidade, energia e inteligência artificial para quem decide no chão de fábrica."
+  },
+  "seo": {
+    "home": {
+      "title": "iotnest.ai — Indústria 4.0 para Injetoras Plásticas",
+      "description": "Plataforma de dados e inteligência artificial que transforma injetoras plásticas em máquinas de alta performance."
+    },
+    "blog": {
+      "title": "Blog — iotnest.ai",
+      "description": "Artigos, novidades e boas práticas para a indústria de injeção plástica."
+    },
+    "privacidade": {
+      "title": "Política de Privacidade — iotnest.ai",
+      "description": "Como a iotnest.ai coleta, usa, compartilha e protege dados pessoais, em conformidade com a LGPD."
+    },
+    "termos": {
+      "title": "Termos de Uso — iotnest.ai",
+      "description": "Regras para o acesso e a utilização do site da iotnest.ai."
+    },
+    "cookies": {
+      "title": "Política de Cookies — iotnest.ai",
+      "description": "Quais cookies e tecnologias de terceiros o site iotnest.ai usa e como você pode controlá-los."
+    }
   }
 }

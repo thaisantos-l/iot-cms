@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
 function setup() {
 	load_theme_textdomain( 'iotnest', get_template_directory() . '/languages' );
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'yoast-seo-breadcrumbs' );
 	add_theme_support( 'post-thumbnails' );
 	add_post_type_support( 'page', 'excerpt' );
 	add_theme_support(

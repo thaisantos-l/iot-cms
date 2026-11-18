@@ -22,8 +22,8 @@ if ( $background ) :
 <div class="mess__bg" aria-hidden="true"></div>
 <div class="mess__copy">
 <?php foreach ( $args['items'] as $index => $item ) : ?>
-<div class="mess__panel<?php echo 0 === $index ? ' is-active' : ''; ?>" data-mess-panel data-image="<?php echo esc_url( media_url( $item['image'] ?? 0 ) ); ?>" id="mess-panel-<?php echo esc_attr( $item['id'] ); ?>" role="tabpanel" aria-labelledby="mess-tab-<?php echo esc_attr( $item['id'] ); ?>"<?php echo 0 !== $index ? ' aria-hidden="true" inert' : ''; ?>>
-<h2 class="mess__title" data-mess-title><?php echo esc_html( $item['title'] ); ?></h2><div class="lead" data-mess-text><?php echo wp_kses_post( $item['description'] ); ?></div></div>
+<div class="mess__panel<?php echo 0 === $index ? ' is-active' : ''; ?>" data-mess-panel data-image="<?php echo esc_url( media_url( $item['image'] ?? 0 ) ); ?>" id="mess-panel-<?php echo esc_attr( $item['id'] ); ?>" role="<?php echo count( $args['items'] ) > 1 ? 'tabpanel' : 'region'; ?>" aria-labelledby="<?php echo count( $args['items'] ) > 1 ? 'mess-tab-' : 'mess-title-'; ?><?php echo esc_attr( $item['id'] ); ?>"<?php echo 0 !== $index ? ' aria-hidden="true" inert' : ''; ?>>
+<h2 id="mess-title-<?php echo esc_attr( $item['id'] ); ?>" class="mess__title" data-mess-title><?php echo esc_html( $item['title'] ); ?></h2><div class="lead" data-mess-text><?php echo wp_kses_post( $item['description'] ); ?></div></div>
 <?php endforeach; ?></div>
 <?php
 if ( count( $args['items'] ) > 1 ) :

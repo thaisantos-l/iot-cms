@@ -14,3 +14,5 @@
 @media (prefers-reduced-motion: reduce) {
   .video-modal[open], .video-modal[open]::backdrop { animation: none; }
 }
+
+.video-modal[data-motion="off"][open], .video-modal[data-motion="off"][open]::backdrop { animation: none; }

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-18",
+  "commit": "81cd56053e83b92880417599de63bc6bb4f77377",
+  "cleanCheckout": true,
+  "npmCi": true,
+  "composerInstallValidateLint": true,
+  "javascriptSassLint": true,
+  "nodeTestsPassed": 7,
+  "zipReproducedByteForByte": true,
+  "sha256": "78f0e6810e1da75698f5f38d3f3c40e6af50fb51daf42ad77b0e71808b38a95a",
+  "focusedBrowserTests": {
+    "passed": 6,
+    "initialZoomHarnessFailure": true,
+    "zoomSameArtifactRetestPassed": true,
+    "explanation": "Zoom inicial misturava emulação de viewport CDP e zoom de aba. Teste corrigido para janela nativa, viewport:null e resize concluído; nenhum CSS/HTML alterado."
+  },
+  "actionlint": {
+    "version": "1.7.12",
+    "workflowsValidated": [
+      "ci.yml",
+      "deploy-production.yml",
+      "rollback.yml"
+    ],
+    "remoteExecution": false
+  }
+}

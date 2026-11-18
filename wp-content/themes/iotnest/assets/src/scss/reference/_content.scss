@@ -48,15 +48,15 @@
   overflow: hidden;
   aspect-ratio: 21 / 9;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #5b646c, #2a3138);
+  background: linear-gradient(135deg, var(--card-gradient-start), var(--card-gradient-end));
 }
 
 .article__cover.case__img--2 {
-  background: linear-gradient(135deg, #6c7a82, #364048);
+  background: linear-gradient(135deg, var(--card-two-start), var(--card-two-end));
 }
 
 .article__cover.case__img--3 {
-  background: linear-gradient(135deg, #7d8b72, #3f4a38);
+  background: linear-gradient(135deg, var(--card-three-start), var(--card-three-end));
 }
 
 .article__cover::after {

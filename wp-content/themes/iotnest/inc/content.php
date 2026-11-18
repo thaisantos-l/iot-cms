@@ -60,7 +60,7 @@ function collection_url( $type ) {
  */
 function breadcrumbs( $label, $parent_type = '' ) {
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
-		$crumb = yoast_breadcrumb( '<nav class="legal__crumb" aria-label="Você está em">', '</nav>', false );
+		$crumb = yoast_breadcrumb( '', '', false );
 		if ( $crumb ) {
 			echo wp_kses_post( $crumb );
 			return;

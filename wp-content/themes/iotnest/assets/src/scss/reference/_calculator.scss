@@ -2,14 +2,14 @@
 
 .calc {
   /* paleta da seção: slate escuro; texto claro, acento azul da marca, vermelho/verde só para perda/ganho */
-  --calc-bg: #0f172a;
-  --calc-surface: #1e293b;
-  --calc-line: rgb(255 255 255 / 12%);
-  --calc-text: #f8fafc;
-  --calc-muted: #cbd5e1;
-  --calc-faint: #94a3b8;
-  --calc-bad: #f87171;
-  --calc-good: #34d399;
+  --calc-bg: var(--calculator-bg);
+  --calc-surface: var(--calculator-surface);
+  --calc-line: rgb(var(--contrast-rgb) / 12%);
+  --calc-text: var(--calculator-text);
+  --calc-muted: var(--calculator-muted);
+  --calc-faint: var(--calculator-faint);
+  --calc-bad: var(--calculator-error);
+  --calc-good: var(--calculator-success);
 
   background: var(--calc-bg);
   color: var(--calc-text);
@@ -118,7 +118,7 @@
   padding: 13px 17px;
   border-radius: var(--radius-md);
   border: 1px solid rgb(var(--contrast-rgb) / 18%);
-  background: #0f172a;
+  background: var(--calculator-bg);
   color: var(--contrast);
   font-size: 14px;
 }
@@ -163,7 +163,7 @@
   padding: 13px 17px;
   border-radius: var(--radius-md);
   border: 1px solid rgb(var(--ink-rgb) / 15%);
-  background: #fafafa;
+  background: var(--field-surface);
   color: var(--ink);
   font-size: 14px;
 }
@@ -223,16 +223,16 @@
 /* stylelint-disable-next-line no-descending-specificity -- Preserva a cascata original para comparação T24. */
 .field input:user-invalid {
   border-color: var(--calc-bad);
-  background: rgb(248 113 113 / 10%);
+  background: rgb(var(--calculator-error-rgb) / 10%);
 }
 
 .calc__error {
   margin-top: var(--space-4);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-sm);
-  background: rgb(248 113 113 / 12%);
-  border: 1px solid rgb(248 113 113 / 50%);
-  color: #fecaca;
+  background: rgb(var(--calculator-error-rgb) / 12%);
+  border: 1px solid rgb(var(--calculator-error-rgb) / 50%);
+  color: var(--calculator-error-text);
   font-size: 14px;
   line-height: 20px;
 }
@@ -369,9 +369,9 @@
   pointer-events: none;
   background:
     radial-gradient(520px 420px at 12% 6%, rgb(var(--brand-rgb) / 28%), transparent 70%),
-    radial-gradient(560px 460px at 92% 34%, rgb(52 211 153 / 16%), transparent 70%),
+    radial-gradient(560px 460px at 92% 34%, rgb(var(--calculator-success-rgb) / 16%), transparent 70%),
     radial-gradient(520px 440px at 8% 72%, rgb(var(--brand-rgb) / 20%), transparent 70%),
-    radial-gradient(560px 460px at 90% 96%, rgb(99 102 241 / 18%), transparent 70%);
+    radial-gradient(560px 460px at 90% 96%, rgb(var(--calculator-glow-rgb) / 18%), transparent 70%);
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- Preserva a cascata original para comparação T24. */
@@ -379,7 +379,7 @@
   border: 0;
   background: linear-gradient(135deg, rgb(var(--surface-rgb) / 12%), rgb(var(--surface-rgb) / 4%));
   backdrop-filter: blur(16px) saturate(1.6);
-  box-shadow: inset 0 1px 0 rgb(var(--contrast-rgb) / 30%), inset 0 -1px 0 rgb(var(--contrast-rgb) / 5%), inset 0 0 28px rgb(var(--contrast-rgb) / 4%), 0 20px 44px rgb(2 6 23 / 45%);
+  box-shadow: inset 0 1px 0 rgb(var(--contrast-rgb) / 30%), inset 0 -1px 0 rgb(var(--contrast-rgb) / 5%), inset 0 0 28px rgb(var(--contrast-rgb) / 4%), 0 20px 44px rgb(var(--calculator-shadow-rgb) / 45%);
 }
 
 .btn--light {
@@ -388,11 +388,11 @@
 
 .calc .btn--dark, .calc .btn--light {
   background: var(--brand);
-  color: #0f172a;
+  color: var(--calculator-bg);
 }
 
 .calc .btn--dark:hover, .calc .btn--light:hover {
-  background: #38c4f5;
+  background: var(--calculator-hover);
   box-shadow: 0 8px 15px rgb(var(--brand-rgb) / 30%);
 }
 

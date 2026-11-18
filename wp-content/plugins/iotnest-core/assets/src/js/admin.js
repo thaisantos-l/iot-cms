@@ -1,9 +1,11 @@
+import { initializeYoast } from './yoast.js';
 import { initializeRepeaters, readField, syncPayload } from './repeaters.js';
 import { initializeMedia } from './media.js';
 
 for (const root of document.querySelectorAll('[data-iotnest-admin]')) {
   initializeRepeaters(root);
   initializeMedia(root);
+  initializeYoast(root);
   const sync = () => syncPayload(root);
   root.addEventListener('input', sync);
   root.addEventListener('change', sync);
