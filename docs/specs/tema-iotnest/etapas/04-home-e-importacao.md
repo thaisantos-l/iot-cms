@@ -1,6 +1,6 @@
 # Etapa 04 — Home institucional e importação
 
-Situação: planejada. Depende da etapa 03. Requisitos: R03, R05, R06, R08, R13. Branch sugerida: `feat/04-home-institucional`.
+Situação: implementada e validada localmente em 18/11/2026, no recorte desta etapa. Depende da etapa 03. Requisitos: R03, R05, R06, R08, R13. Branch sugerida: `feat/04-home-institucional`.
 
 ## Entregáveis
 
@@ -24,3 +24,7 @@ Comparar home com os mesmos valores do front conforme T24, preservando ordem ini
 3. `test: cobrir visibilidade e preservacao de conteudo`
 
 Merge com home utilizável e importador verificável. Rollback não desfaz conteúdo editorial; a importação não roda na ativação nem automaticamente em cada deploy.
+
+## Execução
+
+Home institucional, pacote de trinta mídias, importador repetível e setup explícito implementados. Lints, cinco testes Node, todos os cenários PHP e 24 testes Chromium aprovados. Oitenta comparações T24 nas cinco larguras, com estados provisórios de controles e rasterização delimitados. [Evidências, commits e limites](../../../evidencias/etapa-04.md). Formulário/interações completos e CLS integrado pertencem às etapas seguintes; nenhum deploy ou push.

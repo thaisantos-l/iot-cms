@@ -1,0 +1,16 @@
+// Adapta somente estados editoriais sem mídia; não altera a composição inicial.
+.split--text-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.how__panel[hidden] {
+  display: none;
+}
+
+.how__text {
+  text-wrap: pretty;
+}
+
+.how__panel--fallback {
+  margin-top: 32px;
+}

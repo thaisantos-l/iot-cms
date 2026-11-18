@@ -116,6 +116,14 @@ function video_schema() {
 			'file'      => field( 'video', 'Arquivo principal' ),
 			'alternate' => field( 'video', 'Formato alternativo' ),
 			'youtube'   => field( 'youtube', 'ID do vídeo no YouTube (11 caracteres)' ),
+			'start'     => field(
+				'integer',
+				'Iniciar no segundo',
+				array(
+					'min' => 0,
+					'max' => 86400,
+				)
+			),
 		)
 	);
 }
@@ -133,7 +141,7 @@ function home_schema() {
 	$text     = field( 'text', 'Texto' );
 	$rich     = field( 'rich', 'Conteúdo (HTML editorial permitido)' );
 	$image    = field( 'image', 'Imagem da biblioteca' );
-	$bullets  = repeat( 'Itens de texto', array( 'text' => $text ) );
+	$bullets  = repeat( 'Itens de texto', array( 'text' => $rich ) );
 	$common   = array(
 		'enabled'     => field( 'boolean', 'Exibir seção' ),
 		'eyebrow'     => field( 'text', 'Texto acima do título' ),
@@ -238,7 +246,15 @@ function home_schema() {
 			'cta'      => cta_schema(),
 		),
 		'comparison'   => array(
-			'columns' => repeat( 'Colunas (IDs preservam a associação das células)', array( 'label' => $text ), 6 ),
+			'columns' => repeat(
+				'Colunas (IDs preservam a associação das células)',
+				array(
+					'label'     => $text,
+					'marker'    => $text,
+					'highlight' => field( 'boolean', 'Destacar coluna' ),
+				),
+				6
+			),
 			'rows'    => repeat(
 				'Linhas de comparação',
 				array(
@@ -312,6 +328,7 @@ function home_schema() {
 			'cta'         => cta_schema(),
 		),
 		'videos'       => array(
+			'cta'   => cta_schema(),
 			'items' => repeat(
 				'Vídeos',
 				array(
@@ -338,7 +355,8 @@ function home_schema() {
 			'label'      => field( 'text', 'Rótulo do indicador' ),
 		),
 		'faq'          => array(
-			'items' => repeat(
+			'cta_intro' => $text,
+			'items'     => repeat(
 				'Perguntas frequentes',
 				array(
 					'question' => field( 'text', 'Pergunta' ),
@@ -346,21 +364,23 @@ function home_schema() {
 				),
 				100
 			),
-			'cta'   => cta_schema(),
+			'cta'       => cta_schema(),
 		),
 		'contact'      => array(
-			'image'      => $image,
-			'channels'   => repeat(
+			'caption_title' => $text,
+			'caption_text'  => $text,
+			'image'         => $image,
+			'channels'      => repeat(
 				'Canais de contato',
 				array(
 					'label' => $text,
-					'value' => $text,
+					'value' => $rich,
 					'url'   => field( 'url', 'Destino' ),
 					'icon'  => field( 'icon', 'Ícone' ),
 				)
 			),
-			'form_title' => field( 'text', 'Título do formulário' ),
-			'messages'   => repeat(
+			'form_title'    => field( 'text', 'Título do formulário' ),
+			'messages'      => repeat(
 				'Mensagens do formulário',
 				array(
 					'key'  => $text,
