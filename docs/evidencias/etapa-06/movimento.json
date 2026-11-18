@@ -1,0 +1,28 @@
+[
+  {
+    "label": "reference",
+    "duration": 30.042,
+    "fade": [
+      "0s",
+      "1.5s"
+    ],
+    "zoom": {
+      "actual": 1.0942,
+      "expected": 1.0941952506596306
+    },
+    "dadaPaused": true
+  },
+  {
+    "label": "wordpress",
+    "duration": 30.042,
+    "fade": [
+      "0s",
+      "1.5s"
+    ],
+    "zoom": {
+      "actual": 1.0942,
+      "expected": 1.0941952506596306
+    },
+    "dadaPaused": true
+  }
+]

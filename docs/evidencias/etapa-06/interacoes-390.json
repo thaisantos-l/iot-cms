@@ -1,0 +1,197 @@
+{
+  "width": 390,
+  "report": [
+    {
+      "selector": "#ia",
+      "index": 0,
+      "diff": {
+        "dimensions": [
+          390,
+          854
+        ],
+        "changed": 0,
+        "total": 333060
+      }
+    },
+    {
+      "selector": "#ia",
+      "index": 1,
+      "diff": {
+        "dimensions": [
+          390,
+          854
+        ],
+        "changed": 0,
+        "total": 333060
+      }
+    },
+    {
+      "selector": "#ia",
+      "index": 2,
+      "diff": {
+        "dimensions": [
+          390,
+          854
+        ],
+        "changed": 0,
+        "total": 333060
+      }
+    },
+    {
+      "selector": "#mess",
+      "index": 0,
+      "diff": {
+        "dimensions": [
+          390,
+          650
+        ],
+        "changed": 0,
+        "total": 253500
+      }
+    },
+    {
+      "selector": "#mess",
+      "index": 1,
+      "diff": {
+        "dimensions": [
+          390,
+          650
+        ],
+        "changed": 0,
+        "total": 253500
+      }
+    },
+    {
+      "selector": "#mess",
+      "index": 2,
+      "diff": {
+        "dimensions": [
+          390,
+          650
+        ],
+        "changed": 0,
+        "total": 253500
+      }
+    },
+    {
+      "selector": "#mess",
+      "index": 3,
+      "diff": {
+        "dimensions": [
+          390,
+          650
+        ],
+        "changed": 0,
+        "total": 253500
+      }
+    },
+    {
+      "selector": "#mess",
+      "index": 4,
+      "diff": {
+        "dimensions": [
+          390,
+          650
+        ],
+        "changed": 0,
+        "total": 253500
+      }
+    },
+    {
+      "selector": "#hardware",
+      "index": 0,
+      "diff": {
+        "dimensions": [
+          390,
+          1731
+        ],
+        "changed": 0,
+        "total": 675090
+      }
+    },
+    {
+      "selector": "#hardware",
+      "index": 1,
+      "diff": {
+        "dimensions": [
+          390,
+          1731
+        ],
+        "changed": 0,
+        "total": 675090
+      }
+    },
+    {
+      "selector": "#hardware",
+      "index": 2,
+      "diff": {
+        "dimensions": [
+          390,
+          1731
+        ],
+        "changed": 0,
+        "total": 675090
+      }
+    },
+    {
+      "selector": "#como-funciona",
+      "index": 0,
+      "diff": {
+        "dimensions": [
+          358,
+          316
+        ],
+        "changed": 0,
+        "total": 113128
+      }
+    },
+    {
+      "selector": "#como-funciona",
+      "index": 1,
+      "diff": {
+        "dimensions": [
+          358,
+          290
+        ],
+        "changed": 0,
+        "total": 103820
+      }
+    },
+    {
+      "selector": "#como-funciona",
+      "index": 2,
+      "diff": {
+        "dimensions": [
+          358,
+          316
+        ],
+        "changed": 0,
+        "total": 113128
+      }
+    },
+    {
+      "selector": "#como-funciona",
+      "index": 3,
+      "diff": {
+        "dimensions": [
+          358,
+          289
+        ],
+        "changed": 0,
+        "total": 103462
+      }
+    },
+    {
+      "selector": "#calculadora",
+      "index": 0,
+      "diff": {
+        "dimensions": [
+          390,
+          1679
+        ],
+        "changed": 0,
+        "total": 654810
+      }
+    }
+  ]
+}
