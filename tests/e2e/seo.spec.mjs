@@ -19,7 +19,7 @@ test('Yoast ativo/desativado: uma fonte de metadados, breadcrumbs iguais, 404 e 
 test('análise real do Yoast recebe campos habilitados e acompanha edição antes de salvar',async({page})=>{
   test.setTimeout(120000);php('seo-fixture','activate');const create=execFileSync(process.env.PHP_BIN||'php',['tests/php/editor-fixture.php','create'],{encoding:'utf8'});const {id}=JSON.parse(create);
   try{
-    await page.goto('/wp-login.php');await expect(page.locator('#user_login')).toBeFocused();await page.locator('#user_login').fill('iotnest-qa');await page.locator('#user_pass').fill(process.env.IOTNEST_TEST_ADMIN_PASSWORD);await Promise.all([page.waitForURL(/\/wp-admin\/$/),page.locator('#wp-submit').click()]);
+    await page.goto('/wp-login.php');await expect(page.locator('#user_login')).toBeFocused();await page.locator('#user_login').fill('iotnest-qa');await page.locator('#user_pass').fill(process.env.IOTNEST_TEST_ADMIN_PASSWORD);await Promise.all([page.waitForURL(/\/wp-admin\//),page.locator('#wp-submit').click()]);
     await page.goto(`/wp-admin/post.php?post=${id}&action=edit`);await page.waitForFunction(()=>window.YoastSEO?.app?.registerModification);
     await page.evaluate(()=>{const app=window.YoastSEO.app;app.registerPlugin('iotnest-qa-observer',{status:'ready'});app.registerModification('content',data=>{window.iotnestQaAnalysis=data;return data;},'iotnest-qa-observer',99);app.pluginReloaded('iotnest-qa-observer');});
     await expect.poll(()=>page.evaluate(()=>window.iotnestQaAnalysis),{timeout:30000}).toContain('Descrição preservada');
