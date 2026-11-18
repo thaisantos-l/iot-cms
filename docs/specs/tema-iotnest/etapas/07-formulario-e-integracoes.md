@@ -1,6 +1,6 @@
 # Etapa 07 — Formulário e integrações externas
 
-Situação: planejada. Depende da etapa 06. Requisitos: R06, R07, R09. Branch sugerida: `feat/07-contato-integracoes`.
+Situação: em implementação local. SMTP real permanece pendente de execução futura autorizada em PRD, único ambiente informado. Depende da etapa 06. Requisitos: R06, R07, R09. Branch sugerida: `feat/07-contato-integracoes`.
 
 ## Entregáveis
 
