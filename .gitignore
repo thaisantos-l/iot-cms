@@ -108,3 +108,4 @@ Desktop.ini
 
 # Dependência externa instalada pelo ambiente, fora do pacote próprio.
 /wp-content/plugins/wordpress-seo/
+/wp-content/plugins/wp-mail-smtp/
