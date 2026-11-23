@@ -19,7 +19,7 @@ O destino informado é um domínio ou subdomínio novo. Este caminho leva o esta
 1. No hPanel, adicione o novo domínio/subdomínio à hospedagem, configure seu DNS e HTTPS e instale WordPress nesse destino. Confirme que ele tem diretório e banco próprios. Depois abra **Sites → Gerenciar site** no novo endereço. O projeto foi validado com PHP 8.2 e WordPress 7.1.4.
 2. Em **Arquivos → Gerenciador de arquivos**, identifique a raiz do WordPress, normalmente `public_html`. Ela deve conter `wp-admin`, `wp-includes`, `wp-content` e `index.php`.
 3. Clone ou atualize `thaisantos-l/iot-cms`, branch `main`, na raiz desse WordPress. Tema e plugin incluem os manifestos e CSS/JS compilados em `assets/dist`; não é necessário gerar build no servidor. Em uma instalação já clonada, use `git pull --ff-only origin main`. WordPress, banco, uploads e credenciais continuam separados do Git.
-4. Envie o arquivo `iotnest-uploads.zip` e extraia sua pasta `wp-content/uploads` na raiz do WordPress, preservando a estrutura interna. Remova o ZIP da raiz pública depois da extração.
+4. As 30 mídias institucionais originais já estão no repositório. Depois de importar o banco e ativar `iotnest-core`, execute `wp iotnest repair-media` na raiz do WordPress para restaurar seus arquivos em `uploads` e gerar as miniaturas. Mídias adicionais enviadas por editores precisam ser transferidas separadamente, preservando a estrutura de `wp-content/uploads`.
 5. Em **Bancos de dados → Gerenciamento**, crie ou selecione o banco exclusivo desse WordPress. Abra seu **phpMyAdmin → Importar** e selecione o SQL da migração no computador. Não envie o SQL para `public_html`.
 6. No `wp-config.php` da Hostinger, confira `DB_NAME`, `DB_USER`, `DB_PASSWORD` e `DB_HOST` usando os dados do painel. Para o banco desta instalação local, o prefixo é `$table_prefix = 'page_';`. Preserve as configurações do servidor de destino. Não envie o `wp-config.php`, `.htaccess`, `.user.ini` ou o MU-plugin de configuração do Wamp.
 7. Use o SQL `iotnest-conteudo-destino.sql` preparado para o endereço exato do novo domínio/subdomínio, sem o `/iot` do ambiente local. Confira o destino no relatório que acompanha o pacote. Para outro domínio, gere uma nova exportação com substituição compatível com dados serializados. Não faça substituição textual simples em um SQL com metadados serializados.
@@ -45,6 +45,18 @@ git pull --ff-only origin main
 Isso atualiza os arquivos próprios sem importar banco ou uploads. Depois recarregue o site e o painel. Não há necessidade de Node, npm ou transferência de ZIP para essa atualização. Se o Git informar alterações locais conflitantes, examine `git status` antes de prosseguir; preserve essas alterações.
 
 Após editar Sass/JS no desenvolvimento, execute `npm run build` e versione os dois diretórios `assets/dist` no mesmo commit. O CI verifica que uma nova compilação reproduz os assets versionados.
+
+## Recuperar imagens após importar o banco
+
+Quando o banco já tem os attachments, mas `uploads` não foi transferido, as imagens e vídeos não aparecem: o tema verifica se os arquivos existem. Os originais institucionais estão em `wp-content/plugins/iotnest-core/resources/seed/media`.
+
+```sh
+cd "$HOME/domains/thaisantos.com.br/public_html/iot" &&
+git pull --ff-only origin main &&
+wp iotnest repair-media
+```
+
+O comando restaura os arquivos ausentes nos caminhos que o banco já utiliza, confere seus checksums e gera as miniaturas ausentes. Preserva IDs, metacampos, textos, menus, imagens substituídas e attachments excluídos. Pode ser repetido; não importa novamente o conteúdo e não depende de ZIP, Node ou npm. Ao final informa as quantidades reparadas, presentes, preservadas e com erro. Depende do plugin `iotnest-core` ativo e do suporte a WebP no PHP da hospedagem. Mídias que não pertencem ao pacote institucional continuam dependendo do backup de uploads.
 
 ## Publicação alternativa por pacote
 

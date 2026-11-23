@@ -79,8 +79,46 @@ try {
     iotnest_check( get_option( 'iotnest_settings' ) === array( 'footer_description' => '', 'phone' => 'Edited' ), 'second import preserves global changes and clears' );
     iotnest_check( get_post_field( 'post_content', $report['pages']['privacidade'] ) === 'Legal revised by editor.', 'second import preserves legal edits' );
     $registry = get_option( 'iotnest_seed_registry' );
+    $seed = json_decode( file_get_contents( WP_PLUGIN_DIR . '/iotnest-core/resources/seed/institutional.json' ), true );
+    $before_repair = get_post_meta( $home );
+    foreach ( $seed['media'] as $source => $item ) {
+        $id = $registry['media:' . $source];
+        $file = get_attached_file( $id );
+        $metadata = wp_get_attachment_metadata( $id );
+        foreach ( $metadata['sizes'] ?? array() as $size ) wp_delete_file( dirname( $file ) . '/' . $size['file'] );
+        wp_delete_file( $file );
+        clearstatcache();
+        iotnest_check( ! is_readable( $file ), 'migration fixture has no original: ' . $item['file'] );
+        $result = Iotnest\Core\repair_seed_attachment( $id, $source, $item );
+        iotnest_check( 'restored' === $result, 'missing original and thumbnails restored: ' . $item['file'] . ( is_wp_error( $result ) ? ' ' . $result->get_error_message() : '' ) );
+        iotnest_check( hash_file( 'sha256', $file ) === $item['sha256'], 'restored original matches repository checksum' );
+        foreach ( wp_get_attachment_metadata( $id )['sizes'] ?? array() as $size ) {
+            iotnest_check( is_readable( dirname( $file ) . '/' . $size['file'] ), 'responsive image physically exists: ' . $size['file'] );
+        }
+        iotnest_check( 'present' === Iotnest\Core\repair_seed_attachment( $id, $source, $item ), 'second repair is idempotent' );
+    }
+    iotnest_check( $registry === get_option( 'iotnest_seed_registry' ) && $before_repair === get_post_meta( $home ), 'media repair preserves attachment IDs and all editorial home fields' );
+    $source = 'assets/img/hero-poster.webp';
+    $item = $seed['media'][$source];
+    $id = $registry['media:' . $source];
+    $file = get_attached_file( $id );
+    $relative = get_post_meta( $id, '_wp_attached_file', true );
+    $metadata = wp_get_attachment_metadata( $id );
+    $thumbnail = dirname( $file ) . '/' . $metadata['sizes']['thumbnail']['file'];
+    touch( $file, 946684800 );
+    wp_delete_file( $thumbnail );
+    clearstatcache();
+    iotnest_check( 'restored' === Iotnest\Core\repair_seed_attachment( $id, $source, $item ) && is_readable( $thumbnail ), 'missing thumbnail is repaired when the original already exists' );
+    clearstatcache();
+    iotnest_check( 946684800 === filemtime( $file ), 'thumbnail repair does not rewrite the existing original' );
+    update_post_meta( $id, '_wp_attached_file', '../hero-poster.webp' );
+    iotnest_check( is_wp_error( Iotnest\Core\repair_seed_attachment( $id, $source, $item ) ), 'repair rejects paths outside uploads' );
+    update_post_meta( $id, '_wp_attached_file', $relative );
+    file_put_contents( $file, 'editor replacement' );
+    iotnest_check( 'skipped' === Iotnest\Core\repair_seed_attachment( $id, $source, $item ) && 'editor replacement' === file_get_contents( $file ), 'repair never overwrites an existing replacement' );
     $removed_key = 'media:assets/img/hero-poster.webp';
     wp_delete_attachment( $registry[$removed_key], true );
+    iotnest_check( 'skipped' === Iotnest\Core\repair_seed_attachment( $registry[$removed_key], $source, $item ) && ! file_exists( $file ), 'repair does not resurrect deleted attachments' );
     $again = Iotnest\Core\import_institutional();
     iotnest_check( ! is_wp_error( $again ) && in_array( $removed_key, $again['ignored'], true ), 'deleted media is not resurrected by import' );
     $existing = wp_insert_post( array( 'post_type' => 'page', 'post_title' => 'Existing editorial home', 'post_status' => 'publish' ) );
