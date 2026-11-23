@@ -18,7 +18,7 @@ O destino informado é um domínio ou subdomínio novo. Este caminho leva o esta
 
 1. No hPanel, adicione o novo domínio/subdomínio à hospedagem, configure seu DNS e HTTPS e instale WordPress nesse destino. Confirme que ele tem diretório e banco próprios. Depois abra **Sites → Gerenciar site** no novo endereço. O projeto foi validado com PHP 8.2 e WordPress 7.1.4.
 2. Em **Arquivos → Gerenciador de arquivos**, identifique a raiz do WordPress, normalmente `public_html`. Ela deve conter `wp-admin`, `wp-includes`, `wp-content` e `index.php`.
-3. Envie e extraia o pacote compilado `iotnest-COMMIT.zip`. Copie os diretórios `wp-content/themes/iotnest` e `wp-content/plugins/iotnest-core` do pacote para os caminhos equivalentes do WordPress. Eles incluem os manifests e CSS/JS compilados. Não coloque uma segunda pasta `public_html` ou `iot` dentro da raiz por engano. O arquivo `release.json` pode ficar junto do pacote guardado fora da raiz pública.
+3. Clone ou atualize `thaisantos-l/iot-cms`, branch `main`, na raiz desse WordPress. Tema e plugin incluem os manifestos e CSS/JS compilados em `assets/dist`; não é necessário gerar build no servidor. Em uma instalação já clonada, use `git pull --ff-only origin main`. WordPress, banco, uploads e credenciais continuam separados do Git.
 4. Envie o arquivo `iotnest-uploads.zip` e extraia sua pasta `wp-content/uploads` na raiz do WordPress, preservando a estrutura interna. Remova o ZIP da raiz pública depois da extração.
 5. Em **Bancos de dados → Gerenciamento**, crie ou selecione o banco exclusivo desse WordPress. Abra seu **phpMyAdmin → Importar** e selecione o SQL da migração no computador. Não envie o SQL para `public_html`.
 6. No `wp-config.php` da Hostinger, confira `DB_NAME`, `DB_USER`, `DB_PASSWORD` e `DB_HOST` usando os dados do painel. Para o banco desta instalação local, o prefixo é `$table_prefix = 'page_';`. Preserve as configurações do servidor de destino. Não envie o `wp-config.php`, `.htaccess`, `.user.ini` ou o MU-plugin de configuração do Wamp.
@@ -33,9 +33,20 @@ O SQL contém dados da instalação, inclusive usuários e configurações de pl
 
 Referência: [transferência manual de arquivos e banco na Hostinger](https://www.hostinger.com/support/1583289-how-to-manually-transfer-a-website-to-hostinger/).
 
-## Atualizações de código pelo painel
+## Atualizações de código pelo SSH
 
-O checkout da `main` contém fontes. `assets/dist` não é versionado: apenas conectar este repositório ao Git do hPanel não produz um site completo nem migra os dados acima.
+O checkout da `main` contém fontes e assets compilados do tema/plugin. No subdomínio configurado nesta entrega:
+
+```sh
+cd "$HOME/domains/thaisantos.com.br/public_html/iot"
+git pull --ff-only origin main
+```
+
+Isso atualiza os arquivos próprios sem importar banco ou uploads. Depois recarregue o site e o painel. Não há necessidade de Node, npm ou transferência de ZIP para essa atualização. Se o Git informar alterações locais conflitantes, examine `git status` antes de prosseguir; preserve essas alterações.
+
+Após editar Sass/JS no desenvolvimento, execute `npm run build` e versione os dois diretórios `assets/dist` no mesmo commit. O CI verifica que uma nova compilação reproduz os assets versionados.
+
+## Publicação alternativa por pacote
 
 Para atualizar pelo Gerenciador de arquivos:
 
@@ -49,7 +60,7 @@ Para uma infraestrutura já provisionada com SSH e os links de release, há tamb
 
 Na interface atual da Hostinger: **Sites → Gerenciar site → Avançado → Git → Connect with GitHub**. Autorize o acesso ao repositório, selecione `thaisantos-l/iot-cms`, branch `main`, diretório de destino e **Deploy**. Atualizações manuais usam **Redeploy**; o menu de auto-deployment controla atualizações a cada push. A integração atual usa OAuth.
 
-Esses são os controles do painel, mas este projeto precisa do pacote compilado e do WordPress instalado. Não aponte o checkout bruto da `main` para a instalação pública esperando que o painel instale WordPress, execute o build ou migre o banco. Para este repositório, use a publicação por pacote acima ou provisione o fluxo de releases existente antes de automatizar.
+O repositório agora já inclui os assets compilados. A integração Git pode atualizar tema/plugin em um WordPress preparado, mas não instala o core nem migra banco ou uploads. Confirme que o diretório selecionado é a raiz do novo subdomínio. Se clonar dentro da raiz pública, bloqueie o acesso HTTP a `.git` e `.github` na configuração do servidor.
 
 Referência: [integração Git atual da Hostinger](https://www.hostinger.com/support/1583302-how-to-deploy-a-git-repository-in-hostinger/).
 

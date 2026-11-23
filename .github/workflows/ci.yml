@@ -36,6 +36,8 @@ jobs:
       - run: composer lint
       - run: npm run lint
       - run: npm run build
+      - name: Conferir assets compilados versionados
+        run: git diff --exit-code -- wp-content/themes/iotnest/assets/dist wp-content/plugins/iotnest-core/assets/dist
       - run: npm run test:js
       - run: npm run package
       - run: npx playwright install --with-deps chromium

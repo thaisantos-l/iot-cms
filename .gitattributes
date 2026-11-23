@@ -1,0 +1,3 @@
+# Preservar os bytes usados nos hashes dos assets em qualquer sistema.
+wp-content/themes/iotnest/assets/dist/* text eol=lf
+wp-content/plugins/iotnest-core/assets/dist/* text eol=lf

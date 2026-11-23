@@ -1,6 +1,7 @@
 # Versionar wp-content, documentação e este arquivo de regras.
 /*
 !/.gitignore
+!/.gitattributes
 !/wp-content/
 !/docs/
 !/scripts/
@@ -18,9 +19,10 @@
 !/phpcs.xml.dist
 !/playwright.config.mjs
 
-# Build e artefatos são reproduzidos pelos lockfiles, não pelo servidor.
-/wp-content/themes/iotnest/assets/dist/
-/wp-content/plugins/iotnest-core/assets/dist/
+# Assets compilados acompanham o código para instalação via git pull.
+# Ferramentas e pacotes de distribuição continuam fora do Git.
+/wp-content/themes/iotnest/assets/.build-*/
+/wp-content/plugins/iotnest-core/assets/.build-*/
 /vendor/
 /artifacts/
 /test-results/

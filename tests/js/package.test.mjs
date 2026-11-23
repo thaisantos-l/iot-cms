@@ -43,7 +43,21 @@ test('git continua ignorando core, credenciais, banco, uploads e dependências',
   const paths = ['wp-config.php', 'wp-settings.php', 'wp-admin/index.php', 'wp-includes/version.php',
     'wp-content/uploads/example.jpg', 'wp-content/plugins/iotnest-core/.env', '.env',
     'wp-content/themes/iotnest/database.sql', 'node_modules/x', 'vendor/x', 'artifacts/x',
-    'wp-content/themes/iotnest/assets/dist/manifest.json'];
+    'wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php'];
   const ignored = execFileSync('git', ['check-ignore', '--stdin'], { cwd: root, input: paths.join('\n'), encoding: 'utf8' }).trim().split('\n');
   assert.deepEqual(ignored, paths);
+});
+
+test('checkout Git inclui manifestos e assets compilados com hashes íntegros', () => {
+  for (const directory of ['wp-content/themes/iotnest', 'wp-content/plugins/iotnest-core']) {
+    const manifestPath = `${directory}/assets/dist/manifest.json`;
+    const manifest = JSON.parse(execFileSync('git', ['show', `:${manifestPath}`], { cwd: root, encoding: 'utf8' }));
+    assert.ok(Object.keys(manifest).length > 0);
+    for (const filename of Object.values(manifest)) {
+      const assetPath = `${directory}/assets/dist/${filename}`;
+      const committedBytes = execFileSync('git', ['show', `:${assetPath}`], { cwd: root });
+      assert.equal(createHash('sha256').update(committedBytes).digest('hex').slice(0, 12), filename.split('.')[1]);
+      assert.deepEqual(readFileSync(resolveRoot(assetPath)), committedBytes);
+    }
+  }
 });

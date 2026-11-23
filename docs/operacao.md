@@ -2,7 +2,7 @@
 
 Este repositório entrega tema `iotnest` e plugin `iotnest-core`, com PHP 8.2, WordPress 7.1, schema editorial 1 e assets compilados. Banco, uploads, credenciais, SMTP, core e plugins de terceiros pertencem ao ambiente. Ativar ou promover o código não importa conteúdo.
 
-Para a transferência da instalação local e a publicação pelo hPanel, consultar o [passo a passo da Hostinger](hostinger.md), incluindo banco, uploads, SMTP e a diferença entre checkout Git e pacote compilado.
+Para a transferência da instalação local e a publicação pelo hPanel ou SSH, consultar o [passo a passo da Hostinger](hostinger.md), incluindo banco, uploads, SMTP e atualização via Git com assets compilados versionados.
 
 Só existe PRD, conforme decisão do responsável. Nenhum workflow ou comando remoto foi executado nesta entrega. Os testes locais usam WordPress/MySQL descartáveis; não certificam recebimento de e-mail, CDN, OPcache/FPM, cron ou prazo de atualização em produção.
 
